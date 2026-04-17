@@ -1,0 +1,93 @@
+/*Importar colores*/
+@use 'variables' as *;
+
+/*MIXINS*/
+
+/*Mixin para la responsividad*/
+@mixin responsive($medida) {
+  @if $medida == md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $medida == lg {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  }
+}
+
+/*Mixin para flexblox (navbar y card)*/
+@mixin flex-centrado($justify: center, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+/*Mixin para la base de los botones y hover*/
+@mixin botones-base($color-fondo, $estilo: 'solid') {
+  display: inline-block;
+  border: 2px solid $color-fondo;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease; 
+  font-weight: 500;
+
+    //Tipos de estilo
+    @if $estilo == 'solid'{
+      background-color: $color-fondo;
+      @if $color-fondo == $ligth or $color-fondo == $info{
+        color: $text-dark;
+      }
+      @else{
+        color: $text-light;
+      }
+    }
+    @else if $estilo == 'outline'{
+      background-color: transparent;
+      color: $color-fondo;
+    }
+
+  &:hover:not(:disabled){
+    background-color: darken($color: $color-fondo, 10%);
+    border-color: darken($color: $color-fondo, 10%);
+    color: $text-light;
+    transform: translatey(-2px);
+  }
+
+  &:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(1);
+  }
+}
+
+
+/*Mixin para las alertas y los badges*/
+@mixin alertas-badges($color-fondo){
+  background-color: $color-fondo;
+  border: 1px solid darken($color: $color-fondo, 15%);
+  padding: 1em;
+  border-radius: 4px;
+
+  @if $color-fondo == $ligth or $color-fondo == $info or $color-fondo == $muted{
+    color: $text-dark;
+  }
+  @else{
+    color: $text-light;
+  }
+}
+
+/*Mixin para las sombras de las cards*/
+@mixin sombra($color, $oscuro: 0.1){
+    $color-sombra: darken($color, 15%);
+    box-shadow: 0 5px 10px rgba($color-sombra, $oscuro);
+}
+
+/*Mixin para las transiciones*/
+@mixin transicion{
+    transition: all 0.3s ease-in-out;
+}
