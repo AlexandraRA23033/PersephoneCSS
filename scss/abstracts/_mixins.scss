@@ -52,8 +52,8 @@
     }
 
   &:hover:not(:disabled){
-    background-color: darken($color: $color-fondo, 10%);
-    border-color: darken($color: $color-fondo, 10%);
+    background-color: darken($color: $color-fondo, $amount: 10%);
+    border-color: darken($color: $color-fondo, $amount: 10%);
     color: $text-light;
     transform: translatey(-2px);
   }
@@ -69,7 +69,7 @@
 /*Mixin para las alertas y los badges*/
 @mixin alertas-badges($color-fondo){
   background-color: $color-fondo;
-  border: 1px solid darken($color: $color-fondo, 15%);
+  border: 1px solid darken($color: $color-fondo, $amount: 15%);
   padding: 1em;
   border-radius: 4px;
 
@@ -83,7 +83,7 @@
 
 /*Mixin para las sombras de las cards*/
 @mixin sombra($color, $oscuro: 0.1){
-    $color-sombra: darken($color, 15%);
+    $color-sombra: darken($color, $amount: 15%);
     box-shadow: 0 5px 10px rgba($color-sombra, $oscuro);
 }
 
