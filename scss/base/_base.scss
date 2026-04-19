@@ -1,11 +1,77 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+/*Archivo reset del framework*/
+//Variables externas
+@use "../abstracts/variables" as *;
+//Reset global
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-img{
-    max-width: 100%;
-    display: block;
+//Base html y body
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%; //Evitar que se cambio la fuente en ios
+}
+
+body {
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden; //Evita que el scroll se vuelva horizontal por grid
+  color: $text-dark;
+  background-color: $text-light;
+}
+
+//Imagenes y videos
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+//tipografia
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word; //Evita el desbordamiento de texto
+  line-height: 1.2;
+}
+
+//Formulario e input
+input,
+button,
+textarea,
+select {
+  font: inherit; //Adapta las carracteristicas del elemento padre
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+//tablas
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+//enlaces
+a {
+  text-decoration: none;
+  color: inherit;
 }
