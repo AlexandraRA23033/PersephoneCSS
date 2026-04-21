@@ -1,9 +1,10 @@
-/*Importar colores*/
+/* Importar librerías de Sass y variables */
+@use "sass:color";
 @use "variables" as *;
 
-/*MIXINS*/
+/* MIXINS */
 
-/*Mixin para la responsividad*/
+/* Mixin para la responsividad (Mobile First) */
 @mixin responsive($medida) {
   @if $medida == md {
     @media (min-width: 768px) {
@@ -16,7 +17,7 @@
   }
 }
 
-/*Mixin para flexblox (navbar y card)*/
+/* Mixin para flexbox (navbar y card) */
 @mixin flex-centrado($justify: center, $align: center, $direction: row) {
   display: flex;
   justify-content: $justify;
@@ -24,34 +25,31 @@
   flex-direction: $direction;
 }
 
-/*Mixin para las sombras de las cards*/
+/* Mixin para las sombras de las cards */
 @mixin sombra($color, $oscuro: 0.1) {
-  $color-sombra: darken($color, $amount: 15%);
+  $color-sombra: color.adjust($color, $lightness: -15%);
   box-shadow: 0 5px 10px rgba($color-sombra, $oscuro);
 }
 
-/*Mixin para las transiciones*/
+/* Mixin para las transiciones */
 @mixin transicion {
   transition: all 0.3s ease-in-out;
 }
 
-/*Mixin para la base de los botones y hover*/
+/* Mixin para la base de los botones y hover */
 @mixin botones-base($color-fondo, $estilo: "solid") {
   display: inline-block;
   border: 2px solid $color-fondo;
-  padding: 10px 18px;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
   text-decoration: none;
   text-align: center;
-  transition: all 0.3s ease;
   font-weight: 500;
+  @include transicion;
 
-  //Tipos de estilo
   @if $estilo == "solid" {
     background-color: $color-fondo;
-    @if ($color-fondo == $ligth or $color-fondo == $info) {
+    @if ($color-fondo == $light or $color-fondo == $info) {
       color: $text-dark;
     } @else {
       color: $text-light;
@@ -62,10 +60,14 @@
   }
 
   &:hover:not(:disabled) {
-    background-color: darken($color: $color-fondo, $amount: 10%);
-    border-color: darken($color: $color-fondo, $amount: 10%);
+    background-color: color.adjust($color-fondo, $lightness: -10%);
+    border-color: color.adjust($color-fondo, $lightness: -10%);
     color: $text-light;
-    transform: translatey(-2px);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 
   &:disabled {
@@ -74,28 +76,41 @@
     filter: grayscale(1);
   }
 }
-/*Mixin para tamaño de botones*/
-@mixin boton-tamano($padding-y, $padding-x, $tamano) {
-  padding: $padding-y $padding-x;
-  font-size: $tamano;
+
+/* Mixin para tamaño de botones - MOBILE FIRST */
+@mixin boton-tamano($pantalla: "movil") {
+  @if $pantalla == "lg" {
+    padding: 16px 30px;
+    font-size: 18px;
+  } @else if $pantalla == "md" {
+    padding: 12px 22px;
+    font-size: 16px;
+  } @else {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
 }
 
-/*Mixin para las alertas y los badges*/
-@mixin alertas-badges($color-fondo) {
+/* Mixin para las alertas y los badges */
+@mixin alertas-badges($color-fondo, $pildora: false) {
   background-color: $color-fondo;
-  border: 1px solid darken($color: $color-fondo, $amount: 15%);
-  padding: 1em;
-  border-radius: 4px;
+  border: 1px solid color.adjust($color-fondo, $lightness: -15%);
+  padding: 0.5em 1em;
 
-  @if $color-fondo == $ligth or $color-fondo == $info or $color-fondo == $muted
-  {
+  @if $pildora {
+    border-radius: 50px;
+  } @else {
+    border-radius: 4px;
+  }
+
+  @if ($color-fondo == $light or $color-fondo == $info or $color-fondo == $muted) {
     color: $text-dark;
   } @else {
     color: $text-light;
   }
 }
 
-/*Mixin para formularios (inputs, select, check)*/
+/* Mixin para formularios (inputs, select, check) */
 @mixin formulario-base($color-borde: $muted) {
   width: 100%;
   padding: 10px 15px;
@@ -106,36 +121,32 @@
   transition: all 0.3s ease;
   color: $dark;
 
-  //Estado de focus
   &:focus {
     outline: none;
     border-color: $primary;
-    box-shadow: 0 0 0 3px rgba($color: $primary, $alpha: 0.2);
+    box-shadow: 0 0 0 3px rgba($primary, 0.2);
   }
 
-  //Estado de validacion (valido)
   &.is-valid {
-    border-color: $seccess;
+    border-color: $success;
     &:focus {
-      box-shadow: 0 0 0 3px rgba($color: $seccess, $alpha: 0.2);
+      box-shadow: 0 0 0 3px rgba($success, 0.2);
     }
   }
 
-  //Estado de validacion (invalido)
   &.is-invalid {
     border-color: $alert;
     &:focus {
-      box-shadow: 0 0 0 3px rgba($color: $alert, $alpha: 0.2);
+      box-shadow: 0 0 0 3px rgba($alert, 0.2);
     }
   }
 
-  //Placeholder
   &::placeholder {
     color: $muted;
   }
 }
 
-/*Mixin para card*/
+/* Mixin para card */
 @mixin card-base($color: $text-light) {
   background-color: $color;
   border-radius: 8px;
@@ -148,7 +159,7 @@
   .card-header {
     padding: 1rem;
     border-bottom: 1px solid $muted;
-    background-color: rgba($color: $dark, $alpha: 0.03);
+    background-color: rgba($dark, 0.03);
     font-weight: bold;
   }
 
@@ -160,7 +171,7 @@
   .card-footer {
     padding: 0.75rem 1rem;
     border-top: 1px solid $muted;
-    background-color: rgba($color: $dark, $alpha: 0.03);
+    background-color: rgba($dark, 0.03);
   }
 
   .card-img {
@@ -170,22 +181,21 @@
   }
 }
 
-/*Mixin para tablas (border y hover)*/
+/* Mixin para tablas */
 @mixin tabla-base($zebra-tabla: true) {
   width: 100%;
   border-collapse: collapse;
   color: $text-dark;
   margin: 1rem 0;
 
-  th,
-  td {
+  th, td {
     padding: 12px 15px;
     border-bottom: 1px solid $muted;
     text-align: left;
   }
 
   th {
-    background-color: $ligth;
+    background-color: $light;
     font-weight: bold;
   }
 
@@ -198,12 +208,12 @@
 
   @if $zebra-tabla {
     tbody tr:nth-child(even) {
-      background-color: rgba($color: $ligth, $alpha: 0.3);
+      background-color: rgba($light, 0.3);
     }
   }
 }
 
-/*Mixin para limpiar listas (navbar, menu y footer)*/
+/* Mixin para limpiar listas */
 @mixin list-navegation {
   list-style: none;
   margin: 0;
