@@ -17,10 +17,22 @@
 }
 
 /*Mixin para flexblox (navbar y card)*/
-@mixin flex-centrado($justify: center, $align: center) {
+@mixin flex-centrado($justify: center, $align: center, $direction: row) {
   display: flex;
   justify-content: $justify;
   align-items: $align;
+  flex-direction: $direction;
+}
+
+/*Mixin para las sombras de las cards*/
+@mixin sombra($color, $oscuro: 0.1) {
+  $color-sombra: darken($color, $amount: 15%);
+  box-shadow: 0 5px 10px rgba($color-sombra, $oscuro);
+}
+
+/*Mixin para las transiciones*/
+@mixin transicion {
+  transition: all 0.3s ease-in-out;
 }
 
 /*Mixin para la base de los botones y hover*/
@@ -39,7 +51,7 @@
   //Tipos de estilo
   @if $estilo == "solid" {
     background-color: $color-fondo;
-    @if $color-fondo == $ligth or $color-fondo == $info {
+    @if ($color-fondo == $ligth or $color-fondo == $info) {
       color: $text-dark;
     } @else {
       color: $text-light;
@@ -61,6 +73,11 @@
     cursor: not-allowed;
     filter: grayscale(1);
   }
+}
+/*Mixin para tamaño de botones*/
+@mixin boton-tamano($padding-y, $padding-x, $tamano) {
+  padding: $padding-y $padding-x;
+  font-size: $tamano;
 }
 
 /*Mixin para las alertas y los badges*/
@@ -117,15 +134,44 @@
     color: $muted;
   }
 }
-/*Mixin para tamaño de botones*/
-@mixin boton-tamano($padding-y, $padding-x, $tamano){
-  padding: $padding-y $padding-x;
-  font-size: $tamano;
+
+/*Mixin para card*/
+@mixin card-base($color: $text-light) {
+  background-color: $color;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  @include sombra($dark, 0.1);
+  margin-bottom: 1rem;
+
+  .card-header {
+    padding: 1rem;
+    border-bottom: 1px solid $muted;
+    background-color: rgba($color: $dark, $alpha: 0.03);
+    font-weight: bold;
+  }
+
+  .card-body {
+    padding: 1rem;
+    flex: 1 1 auto;
+  }
+
+  .card-footer {
+    padding: 0.75rem 1rem;
+    border-top: 1px solid $muted;
+    background-color: rgba($color: $dark, $alpha: 0.03);
+  }
+
+  .card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 }
 
-
 /*Mixin para tablas (border y hover)*/
-@mixin tabla-base ($zebra-tabla: true) {
+@mixin tabla-base($zebra-tabla: true) {
   width: 100%;
   border-collapse: collapse;
   color: $text-dark;
@@ -150,27 +196,15 @@
     }
   }
 
-  @if $zebra-tabla{
-    tbody tr:nth-child(even){
+  @if $zebra-tabla {
+    tbody tr:nth-child(even) {
       background-color: rgba($color: $ligth, $alpha: 0.3);
     }
-
   }
 }
 
-/*Mixin para las sombras de las cards*/
-@mixin sombra($color, $oscuro: 0.1) {
-  $color-sombra: darken($color, $amount: 15%);
-  box-shadow: 0 5px 10px rgba($color-sombra, $oscuro);
-}
-
-/*Mixin para las transiciones*/
-@mixin transicion {
-  transition: all 0.3s ease-in-out;
-}
-
 /*Mixin para limpiar listas (navbar, menu y footer)*/
-@mixin list-navegation{
+@mixin list-navegation {
   list-style: none;
   margin: 0;
   padding: 0;
