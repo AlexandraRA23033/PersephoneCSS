@@ -46,24 +46,13 @@
 .text-ligth{color: color.$ligth;}
 .text-alert{color: color.$alert;}*/
 
-$estados:(
-    "primary": color.$primary,
-    "secondary": color.$secondary,
-    "seccess": color.$seccess,
-    "info": color.$info,
-    "warring": color.$warring,
-    "danger": color.$danger,
-    "ligth": color.$ligth,
-    "alert": color.$alert
-);
-
-@each $nombre, $valor in $estados{
+@each $nombre, $valor in color.$theme-colors{
     .text-#{$nombre}{
         color: $valor;
     }
 }
 
-@each $nombre, $valor in $estados{
+@each $nombre, $valor in color.$theme-colors{
     .bg-#{$nombre}{
         background-color: $valor;
     }
@@ -71,19 +60,19 @@ $estados:(
 
 //BORDES 
 
-@each $nombre, $valor in $estados{
+@each $nombre, $valor in color.$theme-colors{
     .border-#{$nombre}{
         border: 3px solid $valor;
     }
 }
 
-@each $nombre, $valor in $estados{
+@each $nombre, $valor in color.$theme-colors{
     .border-bottom-#{$nombre}{
         border-bottom: 3px solid $valor;
     }
 }
 
-@each $nombre, $valor in $estados{
+@each $nombre, $valor in color.$theme-colors{
     .borde-top-#{$nombre}{
         border-top: 3px solid $valor;
     }
@@ -96,3 +85,4 @@ $estados:(
 //FLEXBOX
 
 .fl-1{display: flex;}
+.fl-2{display: inline-block;}

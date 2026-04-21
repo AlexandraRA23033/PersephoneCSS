@@ -1,18 +1,25 @@
-@use '../abstracts/variables';
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as comp;
 
-.btn-primario{
-    background-color: variables.$primary;
-    color: variables.$text-dark;
+@each $nombre, $valor in $theme-colors{
+    .btn-#{$nombre}{
+        @include comp.botones-base($valor);
+    }
 
-    &:hover{
-        background-color: darken(variables.$primary, 10%);
+    .btn-#{$nombre}-outline{
+        @include comp.botones-base($valor, "outline");
     }
 }
-.btn-segundario{
-    background-color: variables.$secondary;
-    color: variables.$text-light;
+.btn-lg {
+  padding: 15px 25px;
+  font-size: 18px;
+}
 
-    &:hover{
-        background-color: lighten(variables.$secondary, 10%);
-    }
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.btn-block {
+  width: 100%;
 }
