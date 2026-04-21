@@ -1,12 +1,16 @@
 /*Sistema de Layout (basado en boostrap, rejillas de 12 columnas)*/
 
+/*Importar clases*/
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
 /*CONTENEDORES*/
 /*Contenedor fijo que cambia según el tamaño del dispositivo*/
 .container {
   width: 100%;
   max-width: 1200px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: auto; 
+  margin-left: auto; 
   padding-right: 15px;
   padding-left: 15px;
 }
@@ -14,33 +18,43 @@
 /*Contenedor fluid*/
 .container-fluid {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 /*MODELO DE FILAS*/
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -15px; /*Arregla el padding de las columnas para alinear los border*/
   margin-right: -15px;
+  margin-left: -15px;
 }
 
-/*MODILE FIRTS, 12 COLUMNAS, CLASES PARA .COL */
+/*Base para todas las columnas*/
+[class*="col-"] {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box; 
+  flex-shrink: 0; 
+  min-width: 0;
+}
+
+/*MODILE FIRTS, 12 COLUMNAS (col-1 a col-12) */
 @for $i from 1 through 12 {
   .col-#{$i} {
     /*formula para ajustar el tamaño: (100% / total col) * num actual col*/
     flex: 0 0 calc(100% / 12 * #{$i});
     max-width: calc(100% / 12 * #{$i});
-    padding: 0 15px;
   }
 }
 
 /*BREAKPOINTS*/
 /*Para tablet (md: medium) para pantallas de 768px en adelante*/
-@media (min-width: 768px) {
+@include responsive(md) {
   @for $i from 1 through 12 {
     .col-md-#{$i} {
       flex: 0 0 calc(100% / 12 * #{$i});
@@ -50,7 +64,7 @@
 }
 
 /*Para computadoras (lg: large) para pantallas de 1024px en adelante*/
-@media (min-width: 1024px) {
+@include responsive(lg) {
   @for $i from 1 through 12 {
     .col-lg-#{$i} {
       flex: 0 0 calc(100% / 12 * #{$i});
