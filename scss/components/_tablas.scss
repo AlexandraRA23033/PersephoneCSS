@@ -1,0 +1,45 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.table {
+  @include tabla-base(true);
+}
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+.table-sm {
+  th, td {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
+.table-lg {
+  th, td {
+    padding: 16px 20px;
+    font-size: 16px;
+  }
+}
+.table-bordered {
+  th, td {
+    border: 1px solid $muted;
+  }
+}
+
+.table-striped {
+  tbody tr:nth-child(even) {
+    background-color: rgba($light, 0.3);
+  }
+}
+.table-dark {
+  background-color: $dark;
+  color: $text-light;
+
+  th {
+    background-color: darken($dark, 5%);
+  }
+
+  td {
+    border-bottom: 1px solid lighten($dark, 10%);
+  }
+}

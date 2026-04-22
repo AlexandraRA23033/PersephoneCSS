@@ -1,17 +1,17 @@
 //colores de marca
 $primary: #BB8588;
 $secondary: #4E5748;
-$success: #A3A380;
+$success: #6E8F6B;
 
 //colores semanticos 
-$info: #D7CE93;
-$warning: #B9AF7D;
-$danger: #D8A48F;
+$info: #7FA6A0;
+$warning: #D1A85C;
+$danger: #D36B6B;
 $light: #EFEBCE;
-$alert: #E0616B;
+$alert: #E85C5C;
 $dark: #2F332B;
-$accent: #E6B8A2;
-$muted: #C9C3A5;
+$accent: #D8A39D;
+$muted: #B8B2A0;
 
 //colores de texto
 $text-dark: #000000;
@@ -28,5 +28,6 @@ $theme-colors: (
   "danger": $danger,
   "light": $light,
   "dark": $dark,
-  "accent": $accent
+  "accent": $accent,
+  "muted": $muted
 );

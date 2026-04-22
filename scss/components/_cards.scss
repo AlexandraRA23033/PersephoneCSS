@@ -1,0 +1,65 @@
+@use '../abstracts/mixins' as comp;
+@use '../abstracts/variables' as *;
+
+.card {
+    @include comp.card-base;
+}
+
+@each $nombre, $valor in $theme-colors {
+  .card-#{$nombre} {
+    background-color: $valor;
+  }
+}
+
+.card-horizontal{
+    @include comp.card-base;
+    flex-direction: row;
+}
+
+.card-sin-footer{
+    .card-footer{
+        display: none;
+    }
+}
+.card-centrada{
+    text-align: center;
+}
+
+.card-img-top{
+    .card-img{
+        border-bottom: 1px solid $muted;
+    }
+}
+.card-img-left{
+    display: flex;
+
+    .card-img{
+        width: 40%;
+    }
+}
+
+.card-hover{
+    transition: 0.3s;
+
+    &:hover{
+        transform: translateY(-5px);
+        @include comp.sombra($dark, 0.2)
+    }
+}
+.card-title{
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: bolder;
+}
+.card-text{
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+.card-link{
+    color: $light;
+    text-decoration: none;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}

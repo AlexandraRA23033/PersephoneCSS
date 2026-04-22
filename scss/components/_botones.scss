@@ -10,14 +10,16 @@
         @include comp.botones-base($valor, "outline");
     }
 }
-.btn-lg {
-  padding: 15px 25px;
-  font-size: 18px;
+.btn-sm {
+  @include comp.boton-tamano("movil");
 }
 
-.btn-sm {
-  padding: 5px 10px;
-  font-size: 12px;
+.btn-md {
+  @include comp.boton-tamano("md");
+}
+
+.btn-lg {
+  @include comp.boton-tamano("lg");
 }
 
 .btn-block {
