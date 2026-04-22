@@ -49,7 +49,7 @@
 
   @if $estilo == "solid" {
     background-color: $color-fondo;
-    @if ($color-fondo == $light or $color-fondo == $info) {
+    @if ($color-fondo == $light or $color-fondo == $info ) {
       color: $text-dark;
     } @else {
       color: $text-light;
@@ -111,12 +111,12 @@
 }
 
 /* Mixin para formularios (inputs, select, check) */
-@mixin formulario-base($color-borde: $muted) {
+@mixin formulario-base($color-borde: $primary) {
   width: 100%;
   padding: 10px 15px;
   border: 1px solid $color-borde;
   border-radius: 6px;
-  background-color: $text-light;
+  background-color: rgba($primary, 0.2);
   font-size: 14px;
   transition: all 0.3s ease;
   color: $dark;
@@ -147,8 +147,7 @@
 }
 
 /* Mixin para card */
-@mixin card-base($color: $text-light) {
-  background-color: $color;
+@mixin card-base {
   border-radius: 8px;
   overflow: hidden;
   display: flex;
@@ -201,8 +200,9 @@
 
   tr {
     transition: background-color 0.2s ease;
+
     &:hover {
-      background-color: rgba($info, 0.1);
+      background-color: lighten($alert, 30%);
     }
   }
 
