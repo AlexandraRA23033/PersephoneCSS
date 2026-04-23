@@ -1,5 +1,6 @@
 @use '../abstracts/mixins' as *;
 @use '../abstracts/variables' as *;
+@use "sass:color";
 
 .form {
   width: 100%;
@@ -43,7 +44,7 @@
 .input:hover,
 .textarea:hover,
 .select:hover {
-  border-color: darken($muted, 10%);
+  border-color: color.adjust($muted, $lightness: -10%);
 }
 
 .input-sm {

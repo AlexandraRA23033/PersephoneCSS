@@ -31,3 +31,20 @@ $theme-colors: (
   "accent": $accent,
   "muted": $muted
 );
+
+//Varaibles para los breakpoints
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+
+//Variables para el tamaño maximo del width, el padding y margen negativo
+$container-max-width: 1200px;
+$container-padding-x: 15px;
+$gutter: 15px;
+
+//Variables para los tamaños de botones
+$btn-padding-sm: 8px 16px;
+$btn-font-sm: 14px;
+$btn-padding-md: 12px 22px;
+$btn-font-md: 16px;
+$btn-padding-lg: 16px 30px;
+$btn-font-lg: 18px;

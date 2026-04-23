@@ -1,5 +1,6 @@
 @use '../abstracts/mixins' as *;
 @use '../abstracts/variables' as *;
+@use "sass:color";
 
 .table {
   @include tabla-base(true);
@@ -36,10 +37,10 @@
   color: $text-light;
 
   th {
-    background-color: darken($dark, 5%);
+    background-color: color.adjust($dark, $lightness: 5%);
   }
 
   td {
-    border-bottom: 1px solid lighten($dark, 10%);
+    border-bottom: 1px solid color.adjust($dark, $lightness: 10%);
   }
 }

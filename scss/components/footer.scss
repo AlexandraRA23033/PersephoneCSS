@@ -1,0 +1,17 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.main-footer {
+  // Aplicamos la estructura base
+  @include m.footer-base;
+  
+  // Aplicamos el esquema de color (puedes cambiar v.$dark por el que gustes)
+  @include m.footer-color(v.$dark);
+
+  // Estilo extra para el logo o marca en el footer
+  .footer-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+}
