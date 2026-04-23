@@ -7,9 +7,10 @@
   max-width: 520px;
   margin: 0 auto;
   padding: 20px;
-  background: $text-light;
+  background-color: color.adjust($info, $lightness: 30%);
+;
   border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  @include sombra($dark, 0.3);
 }
 
 .form-group {
@@ -23,38 +24,24 @@
   font-size: 13px;
   font-weight: 600;
   color: $dark;
-  letter-spacing: 0.2px;
 }
 
 .input,
 .textarea,
 .select {
   @include formulario-base();
-  border-radius: 8px;
-  background-color: white;
-}
-
-.input:focus,
-.textarea:focus,
-.select:focus {
-  border-color: $primary;
-  box-shadow: 0 0 0 3px rgba($primary, 0.15);
-}
-
-.input:hover,
-.textarea:hover,
-.select:hover {
-  border-color: color.adjust($muted, $lightness: -10%);
+  
+  &:hover{
+    border-color: color.adjust($muted, $lightness: -10%);
+  }
 }
 
 .input-sm {
-  @include formulario-base();
   padding: 6px 10px;
   font-size: 12px;
 }
 
 .input-lg {
-  @include formulario-base();
   padding: 14px 18px;
   font-size: 16px;
 }
@@ -68,30 +55,27 @@
   cursor: pointer;
 }
 
-.form-text {
+.input-valid{ @include formulario-estado("success")}
+.input-invalid{ @include formulario-estado("error")}
+
+.form-text{
   font-size: 12px;
   margin-top: 6px;
   color: $muted;
+
+  &.success {color: $success; font-weight: 500;}
+  &.error {color: $alert; font-weight: 500;}
 }
 
-.form-text.success {
-  color: $success;
-  font-weight: 500;
-}
-
-.form-text.error {
-  color: $alert;
-  font-weight: 500;
-}
-
-.input-check {
-  display: flex;
+.input-check{
+  display: block;
   align-items: center;
   gap: 8px;
   font-size: 14px;
 
-  input {
+  .input{
     accent-color: $primary;
     transform: scale(1.05);
   }
 }
+
