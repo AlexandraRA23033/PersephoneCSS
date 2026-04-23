@@ -1,5 +1,5 @@
-@use '../abstracts/variables' as color;
-
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
 //TIPOGRAFIA
 
 .text-center{text-align: center;}
@@ -19,72 +19,58 @@
 .fs-3{font-size: 18px;}
 
 
-//ESPACIADOS
+//ESPACIADOS GENERADOS CON FOR
 
-.mt-1{margin-top: 10px;}
-.mt-2{margin-top: 20px;}
-.mt-3{margin-top: 30px;}
-.margin{margin: 10px;}
-.margin-1{margin: 0 auto;}
-
-.mb-1{margin-bottom: 10px;}
-.mb-2{margin-bottom: 20px;}
-
-.pt-1{padding-top: 10px;}
-.pt-2{padding-top: 20px;}
-
-.pb-1{padding-bottom: 10px;}
-.p-1{padding: 10px;}
-.p-2{padding: 20px;}
-
-//COLORES
-
-/*.text-primary{color: color.$primary;}
-.text-secondary{color: color.$secondary;}
-.text-seccess{color: color.$seccess;}
-.text-info{color: color.$info;}
-.text-warring{color: color.$warring;}
-.text-danger{color: color.$danger;}
-.text-ligth{color: color.$ligth;}
-.text-alert{color: color.$alert;}*/
-
-@each $nombre, $valor in color.$theme-colors{
-    .text-#{$nombre}{
-        color: $valor;
-    }
+@for $i from 1 through 3{
+    .mt-#{$i}{margin-top: $i * 10px;}
+    .mt-#{$i}{margin-top: $i * 10px;}
+    .mb-#{$i}{margin-bottom: $i * 10px;}
+    .mb-#{$i}{margin-bottom: $i * 10px;}
+    .pt-#{$i}{padding-top: $i * 10px;}
+    .pt-#{$i}{padding-top: $i * 10px;}
+    .pb-#{$i}{padding-bottom: $i * 10px}
+    .p-#{$i}{padding: $i * 10px;}
+    .p-#{$i}{padding: $i * 10px;}
 }
 
-@each $nombre, $valor in color.$theme-colors{
+//Colores en un solo @each
+@each $nombre, $valor in $theme-colors{
+    //textos
+    .text-#{$nombre}{
+        color: $valor;}
     .bg-#{$nombre}{
-        background-color: $valor;
-    }
+        background-color: $valor;}
+
+    //bordes
+    .border-#{$nombre}{
+        border: 3px solid $valor;}
+    .border-bottom-#{$nombre}{
+        border-bottom: 3px solid $valor;}
+    .borde-top-#{$nombre} {
+        border-top: 3px solid $valor;}
 }
 
 //BORDES 
 
-@each $nombre, $valor in color.$theme-colors{
-    .border-#{$nombre}{
-        border: 3px solid $valor;
-    }
-}
-
-@each $nombre, $valor in color.$theme-colors{
-    .border-bottom-#{$nombre}{
-        border-bottom: 3px solid $valor;
-    }
-}
-
-@each $nombre, $valor in color.$theme-colors{
-    .borde-top-#{$nombre}{
-        border-top: 3px solid $valor;
-    }
-}
-
 .br-1{border-radius: 5px;}
 .br-2{border-radius: 10px;}
 .br-3{border-radius: 15px;}
+.rounded{border-radius: 50px;}
+
+//SOMBRAS 
+.shadow-sm {@include sombra($dark, 0.08);}
+.shadow-lg {@include sombra($dark, 0.25);}
 
 //FLEXBOX
 
-.fl-1{display: flex;}
-.fl-2{display: inline-block;}
+.d-none{display: none;}
+.d-block{display: block;}
+.d-inline-b{display: inline-block;}
+.d-flex{display: flex;}
+
+.j-cont-cent{ justify-content: center;}
+.j-cont-bet{justify-content: space-between;}
+.j-cont-end{justify-content: flex-end;}
+.aling-item{align-items: center;}
+.f-colum{flex-direction: column;}
+.f-wrap{flex-wrap: wrap;}
