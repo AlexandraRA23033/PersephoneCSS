@@ -1,0 +1,11 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+@use "sass:color";
+
+.modal {
+  @include m.modal-base;
+  
+  &.modal-primary {
+    @include m.modal-color(v.$primary);
+  }
+}

@@ -3,11 +3,9 @@
 
 @each $nombre, $valor in $theme-colors{
     .btn-#{$nombre}{
-        @include comp.botones-base($valor);
     }
 
     .btn-#{$nombre}-outline{
-        @include comp.botones-base($valor, "outline");
     }
 }
 .btn-sm {

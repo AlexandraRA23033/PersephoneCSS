@@ -1,0 +1,22 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.navbar {
+  @include m.navbar-base;
+  @include m.navbar-color(v.$primary);
+
+  .nav-logo {
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-toggle {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    @include m.transicion;
+  }
+}
