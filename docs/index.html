@@ -9,9 +9,9 @@
   </head>
 
   <body>
+    <!-- NAVBAR -->
     <nav class="navbar">
       <div class="nav-logo">Mi Marca</div>
-
       <button class="nav-toggle">☰</button>
 
       <ul class="nav-menu">
@@ -20,172 +20,114 @@
         <li><a href="#">Contacto</a></li>
       </ul>
     </nav>
+
     <!-- ===================== -->
-    <!-- CONTAINER PRINCIPAL -->
+    <!-- FORMULARIO -->
     <!-- ===================== -->
-    <div class="container mt-2">
-      <!-- ===================== -->
-      <!-- GRID DE CARDS -->
-      <!-- ===================== -->
+    <div class="container">
       <div class="row">
-        <!-- CARD 1 -->
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card card-primary card-hover">
-            <div class="card-img-top">
-              <img src="/PersephoneCSS/img/razas.jpg" class="card-img" />
-            </div>
+        <div class="col-12 col-md-6 col-lg-5">
+          <form class="form ">
+            <h2 class="mb-2">Formulario</h2>
 
-            <div class="card-body">
-              <h5 class="card-title">Card primaria</h5>
-              <p class="card-text">Esta card usa grid + componente + hover.</p>
-
-              <a href="#" class="card-link">Leer más</a>
-            </div>
-
-            <div class="card-footer">
-              <button class="btn btn-primary btn-sm">Aceptar</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="col-12 col-md-6 col-lg-8">
-          <div class="card card-secondary card-horizontal card-hover">
-            <div class="card-img-left">
-              <img src="../img/vacunar.png" class="card-img" />
-            </div>
-
-            <div class="card-body">
-              <h5 class="card-title">Card horizontal</h5>
-              <p class="card-text">Esta usa layout horizontal con grid.</p>
-
-              <button class="btn btn-secondary">Ver más</button>
-              <button class="btn btn-secondary-outline btn-sm">Outline</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===================== -->
-      <!-- FORMULARIO -->
-      <!-- ===================== -->
-      <div class="row mt-2">
-        <div class="col-12 col-md-8 col-lg-6">
-          <form class="form">
-            <h3 class="mb-2">Formulario de prueba</h3>
-
-            <!-- INPUT NORMAL -->
             <div class="form-group">
-              <label class="label" for="nombre">Nombre</label>
-              <input
-                type="text"
-                id="nombre"
-                class="input"
-                placeholder="Ingresa tu nombre"
-              />
-              <small class="form-text">Campo obligatorio</small>
+              <label class="label">Nombre</label>
+              <input type="text" class="input" />
             </div>
 
-            <!-- INPUT SMALL -->
             <div class="form-group">
-              <label class="label" for="usuario">Usuario</label>
-              <input
-                type="text"
-                id="usuario"
-                class="input-sm"
-                placeholder="Usuario"
-              />
-              <small class="form-text success">Usuario disponible</small>
-            </div>
-
-            <!-- INPUT LARGE -->
-            <div class="form-group">
-              <label class="label" for="correo">Correo</label>
-              <input
-                type="email"
-                id="correo"
-                class="input-lg"
-                placeholder="correo@email.com"
-              />
+              <label class="label">Correo</label>
+              <input type="email" class="input input-invalid" />
               <small class="form-text error">Correo inválido</small>
             </div>
 
-            <!-- TEXTAREA -->
             <div class="form-group">
-              <label class="label" for="mensaje">Mensaje</label>
-              <textarea
-                id="mensaje"
-                class="textarea"
-                placeholder="Escribe tu mensaje"
-              ></textarea>
+              <label class="label">Usuario</label>
+              <input type="text" class="input input-valid" />
+              <small class="form-text success">Disponible</small>
             </div>
 
-            <!-- SELECT -->
             <div class="form-group">
-              <label class="label" for="pais">País</label>
-              <select id="pais" class="select">
-                <option value="">Selecciona una opción</option>
-                <option>El Salvador</option>
-                <option>Guatemala</option>
-                <option>Honduras</option>
-              </select>
+              <label class="label">Mensaje</label>
+              <textarea class="textarea"></textarea>
             </div>
 
-            <!-- CHECKBOX -->
-            <div class="form-group">
-              <label class="input-check">
-                <input type="checkbox" />
-                Acepto los términos y condiciones
-              </label>
-            </div>
-
-            <!-- BOTÓN -->
-            <button type="submit" class="btn btn-primary btn-block">
-              Enviar formulario
-            </button>
+            <button class="btn btn-primary btn-block">Enviar</button>
           </form>
         </div>
       </div>
-      <div class="table-container">
-        <table class="table table-striped table-hover table-bordered table-sm">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Edad</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Juan</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Juan</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Juan</td>
-              <td>20</td>
-            </tr>
-            <tr>
-              <td>Juan</td>
-              <td>20</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    </div>
 
-      <!-- ===================== -->
-      <!-- SEGUNDA FILA DE CARDS -->
-      <!-- ===================== -->
-      <div class="row mt-2">
+    <!-- ===================== -->
+    <!-- TABLAS -->
+    <!-- ===================== -->
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <h3>Tabla básica</h3>
+          <div class="table-container">
+            <table class="table table-striped table-bordered table-sm">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Edad</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Juan</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td>Ana</td>
+                  <td>22</td>
+                </tr>
+                <tr>
+                  <td>Luis</td>
+                  <td>19</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <h3>Tabla con color</h3>
+          <div class="table-container">
+            <table class="table table-primary table-striped">
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Precio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mouse</td>
+                  <td>$10</td>
+                </tr>
+                <tr>
+                  <td>Teclado</td>
+                  <td>$20</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- CARDS -->
+    <!-- ===================== -->
+    <div class="container mt-3">
+      <div class="row">
         <div class="col-12 col-md-4">
-          <div class="card">
+          <div class="card card-centrada card-hover">
             <div class="card-body">
               <h5 class="card-title">Card centrada</h5>
-              <p class="card-text">Todo centrado usando utilidades.</p>
-
-              <button class="btn btn-secondary-outline btn-md">
+              <p class="card-text">Todo centrado</p>
+              <button class="btn btn-outline-accent btn-block">
                 Continuar
               </button>
             </div>
@@ -196,31 +138,61 @@
           <div class="card card-warning card-sin-footer card-hover">
             <div class="card-body">
               <h5 class="card-title">Sin footer</h5>
-              <p class="card-text">Esta card oculta el footer.</p>
-
-              <button class="btn btn-muted-outline btn-sm">Info</button>
+              <button class="btn btn-outline-dark btn-sm">Info</button>
             </div>
+            <div class="card-footer">Footer oculto</div>
           </div>
         </div>
 
         <div class="col-12 col-md-4">
-          <div class="card card-danger card-hover">
+          <div class="card card-primary card-hover">
             <div class="card-body">
               <h5 class="card-title">Card simple</h5>
-              <p class="card-text">Ejemplo básico del sistema.</p>
-
               <button class="btn btn-danger btn-sm">OK</button>
-              <button class="btn btn-accent-outline btn-sm">Cancelar</button>
+              <button class="btn btn-outline-accent btn-sm">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6 mt-3">
+          <div class="card card-primary card-img-top card-hover">
+            <img src="../img/cachorro.png" class="card-img" alt="img" />
+            <div class="card-body">
+              <h5 class="card-title">Imagen arriba</h5>
+              <p class="card-text">Uso de card-img-top</p>
+              <a href="#" class="card-link">Leer más</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 mt-3">
+          <div class="card card-horizontal card-success card-hover">
+            <img src="../img/descarga.jpg" class="card-img" alt="img" />
+            <div class="card-body">
+              <h5 class="card-title">Card horizontal</h5>
+              <p class="card-text">Imagen a la izquierda.</p>
+              <a href="#" class="card-link">Ver detalles</a>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Botón que abre el modal -->
-    <button data-modal-target="modalPrueba">Abrir Modal</button>
+    <!-- ===================== -->
+    <!-- MODAL -->
+    <!-- ===================== -->
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-12 text-center">
+          <button class="btn btn-primary" data-modal-target="modalPrueba">
+            Abrir Modal
+          </button>
+        </div>
+      </div>
+    </div>
 
-    <!-- Modal -->
     <div class="modal" id="modalPrueba">
       <div class="modal-content">
         <div class="modal-header">
@@ -229,34 +201,35 @@
         </div>
 
         <div class="modal-body">
-          <p>
-            Aquí va el contenido del modal. Puede ser texto, formularios o
-            cualquier otro elemento.
-          </p>
+          <p>Contenido del modal.</p>
         </div>
 
         <div class="modal-footer">
-          <button class="btn-close-modal">Cancelar</button>
-          <button>Aceptar</button>
+          <button class="btn btn-outline-muted">Cancelar</button>
+          <button class="btn btn-primary">Aceptar</button>
         </div>
       </div>
     </div>
 
+    <!-- FOOTER -->
     <footer class="main-footer">
-      <div class="footer-content">
-        <h2 class="footer-logo">Persephone Framework</h2>
-        <p>Diseño responsivo y elegante sin complicaciones.</p>
-      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <h2 class="footer-logo">Persephone Framework</h2>
+            <p>Diseño responsivo y elegante</p>
+          </div>
 
-      <ul class="footer-links">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#componentes">Componentes</a></li>
-        <li><a href="#guia">Documentación</a></li>
-        <li><a href="#contacto">Soporte</a></li>
-      </ul>
+          <div class="col-12 col-md-6">
+            <ul class="footer-links">
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Componentes</a></li>
+              <li><a href="#">Docs</a></li>
+            </ul>
+          </div>
+        </div>
 
-      <div class="footer-copy">
-        &copy; 2026 PersephoneCSS. Desarrollado por Alexa.
+        <div class="footer-copy text-center">&copy; 2026 PersephoneCSS</div>
       </div>
     </footer>
 

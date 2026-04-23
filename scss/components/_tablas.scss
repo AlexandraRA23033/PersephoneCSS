@@ -4,17 +4,21 @@
 
 .table {
   @include tabla-base(true);
+  @include table-color($light, $primary);
 }
+
 .table-container {
   width: 100%;
   overflow-x: auto;
 }
+
 .table-sm {
   th, td {
     padding: 6px 10px;
-    font-size: 12px;
+    font-size: 16px;
   }
 }
+
 .table-lg {
   th, td {
     padding: 16px 20px;
@@ -32,15 +36,9 @@
     background-color: rgba($light, 0.3);
   }
 }
-.table-dark {
-  background-color: $dark;
-  color: $text-light;
 
-  th {
-    background-color: color.adjust($dark, $lightness: 5%);
-  }
-
-  td {
-    border-bottom: 1px solid color.adjust($dark, $lightness: 10%);
+@each $nombre, $valor in $theme-colors{
+  .table-#{$nombre}{
+    @include table-color($valor, $primary);
   }
 }

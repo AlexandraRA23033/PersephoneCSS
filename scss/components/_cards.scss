@@ -7,42 +7,53 @@
 
 @each $nombre, $valor in $theme-colors {
   .card-#{$nombre} {
-    background-color: $valor;
+    @include comp.card-color($valor);
   }
 }
 
+//Layout Horizontal
 .card-horizontal{
-    @include comp.card-base;
     flex-direction: row;
+
+    .card-img{
+        width: 40%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
+//ocultar footer
 .card-sin-footer{
     .card-footer{
         display: none;
     }
 }
-.card-centrada{
-    @include comp.flex-centrado(center, center, row);
-}
 
-.card-img-top{
-    .card-img{
-        border-bottom: 1px solid $muted;
+//centrado
+.card-centrada{
+    .card-body{
+    @include comp.flex-centrado(center, center, column);
     }
 }
-.card-img-left{
-    display: flex;
+
+//imagen arriba
+.card-img-top{
+    .card-img{
+        border-bottom: 1px solid rgb($dark, 0.1);
+    }
 }
 
+//efecto
 .card-hover{
-    transition: 0.3s;
+    @include comp.transicion;
 
     &:hover{
         transform: translateY(-5px);
-        @include comp.transicion();
         @include comp.sombra($dark, 0.2)
     }
 }
+
+//tipografia
 .card-title{
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
@@ -53,8 +64,8 @@
     margin-bottom: 1rem;
 }
 .card-link{
-    color: $light;
-    text-decoration: none;
+    @include comp.transicion;
+    color: $info;
 
     &:hover{
         text-decoration: underline;

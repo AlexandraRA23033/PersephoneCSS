@@ -1,25 +1,32 @@
 @use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as comp;
+@use '../abstracts/mixins' as *;
 
-@each $nombre, $valor in $theme-colors{
-    .btn-#{$nombre}{
-    }
 
-    .btn-#{$nombre}-outline{
-    }
-}
-.btn-sm {
-  @include comp.boton-tamano("movil");
+@each $nombre, $valor in $theme-colors {
+  .btn-#{$nombre} {
+    @include botones-base;          
+    @include boton-color($valor);     
+    @include boton-tamano("movil");   
+  }
+
+  .btn-outline-#{$nombre} {
+    @include botones-base;
+    @include boton-color($valor, "outline");
+    @include boton-tamano("movil");
+  }
+
+  .btn-solid-#{$nombre} {
+    @include botones-base;
+    @include boton-color($valor, "solid");
+    @include boton-tamano("movil");
+  }
 }
 
-.btn-md {
-  @include comp.boton-tamano("md");
+.btn{
+  @include botones-base();
 }
 
-.btn-lg {
-  @include comp.boton-tamano("lg");
-}
-
-.btn-block {
-  width: 100%;
-}
+.btn-sm{ @include boton-tamano("movil"); }
+.btn-md{ @include boton-tamano("md"); }
+.btn-lg {@include boton-tamano("lg"); }
+.btn-block {width: 100%; }
