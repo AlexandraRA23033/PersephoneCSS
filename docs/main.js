@@ -56,7 +56,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    //funcion para cerrar ls alertas 
+    document.addEventListener("click", (e) => {
+        if (e.target.classList.contains("alerta-close")) {
+            const alerta = e.target.closest(".alerta, .alerta-pildora");
+            if (alerta) alerta.remove();
+        }
+    });
+
 });
+
 
 /* --- LÓGICA DEL SIDEBAR --- */
 const sidebar = document.querySelector(".sidebar-main");

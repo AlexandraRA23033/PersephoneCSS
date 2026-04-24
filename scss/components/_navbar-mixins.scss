@@ -38,7 +38,7 @@
 }
 
 /*Mixin para diseño especifico de navbar dropdonw de elementos internos*/
-@mixin nav-dropdown {
+@mixin nav-dropdown($color: v.$primary) {
   .nav-menu {
     overflow: visible;
   }
@@ -55,7 +55,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background: inherit;
+    background: $color;
     min-width: 180px;
     flex-direction: column;
     @include m.sombra(v.$dark, 0.2);
