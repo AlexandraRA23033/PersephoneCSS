@@ -8,80 +8,139 @@
   </head>
 
   <body>
-    <nav class="navbar">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dropdown">
       <div class="nav-logo">Mi Marca</div>
+
       <button class="nav-toggle">☰</button>
       <ul class="nav-menu">
         <li><a href="#">Inicio</a></li>
-        <li><a href="#">Servicios</a></li>
+
+        <li>
+          <a href="#">Servicios ▾</a>
+          <ul class="submenu">
+            <li><a href="#">Diseño Web</a></li>
+            <li><a href="#">Desarrollo</a></li>
+            <li><a href="#">SEO</a></li>
+          </ul>
+        </li>
+
         <li><a href="#">Contacto</a></li>
       </ul>
     </nav>
+    <!-- ===================== -->
+    <!-- FORMULARIO -->
+    <!-- ===================== -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-5">
+          <form class="form">
+            <h2 class="mb-2">Formulario</h2>
 
-    <div class="main-wrapper">
-     <aside class="sidebar-main sidebar-info">
-        <button class="sidebar-toggle">
-            <span class="sidebar-arrow">▶</span>
-        </button>
-        
-        <div class="sidebar-header">Mi Panel Administrativo</div>
-        
-        <ul class="sidebar-menu">
-            <li><a href="#" class="active">Inicio</a></li>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Perfil de Usuario</a></li>
-            
-            <li><a href="#">Configuración</a></li>
-            <li><a href="#">Reportes Mensuales</a></li>
-            <li><a href="#">Estadísticas</a></li>
-            <li><a href="#">Usuarios Activos</a></li>
-            
-            <li><a href="#">Base de Datos</a></li>
-            <li><a href="#">Seguridad</a></li>
-            <li><a href="#">Logs del Sistema</a></li>
-            <li><a href="#">Mantenimiento</a></li>
-            
-            <li><a href="#">Notificaciones</a></li>
-            <li><a href="#">Mensajería</a></li>
-            <li><a href="#">Calendario</a></li>
-            <li><a href="#">Tareas Pendientes</a></li>
-            <li><a href="#">Archivos Multimedia</a></li>
-            <li><a href="#">Documentación</a></li>
-            <li><a href="#">Plugins</a></li>
-            <li><a href="#">Actualizaciones</a></li>
-            <li><a href="#">Soporte Técnico</a></li>
-            <li><a href="#">Cerrar Sesión</a></li>
-        </ul>
-        
-        <div class="sidebar-footer">Framework Persephone v1.0</div>
-    </aside>
+            <div class="form-group">
+              <label class="label">Nombre</label>
+              <input type="text" class="input" />
+            </div>
 
-      <main class="main-content">
-        <div class="container mt-3">
-          <div class="row">
-            <div class="col-12 col-md-6 col-lg-5">
-              <form class="form">
-                <h2 class="mb-2">Formulario</h2>
-                <div class="form-group">
-                  <label class="label">Nombre</label>
-                  <input type="text" class="input" />
-                </div>
-                <div class="form-group">
-                  <label class="label">Correo</label>
-                  <input type="email" class="input input-invalid" />
-                  <small class="form-text error">Correo inválido</small>
-                </div>
-                <div class="form-group">
-                  <label class="label">Usuario</label>
-                  <input type="text" class="input input-valid" />
-                  <small class="form-text success">Disponible</small>
-                </div>
-                <div class="form-group">
-                  <label class="label">Mensaje</label>
-                  <textarea class="textarea"></textarea>
-                </div>
-                <button class="btn btn-primary btn-block">Enviar</button>
-              </form>
+            <div class="form-group">
+              <label class="label">Correo</label>
+              <input type="email" class="input input-invalid" />
+              <small class="form-text error">Correo inválido</small>
+            </div>
+
+            <div class="form-group">
+              <label class="label">Usuario</label>
+              <input type="text" class="input input-valid" />
+              <small class="form-text success">Disponible</small>
+            </div>
+
+            <div class="form-group">
+              <label class="label">Mensaje</label>
+              <textarea class="textarea"></textarea>
+            </div>
+
+            <button class="btn btn-primary btn-block">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- TABLAS -->
+    <!-- ===================== -->
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <h3>Tabla básica</h3>
+          <div class="table-container">
+            <table class="table table-secondary">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Edad</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Juan</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td>Ana</td>
+                  <td>22</td>
+                </tr>
+                <tr>
+                  <td>Luis</td>
+                  <td>19</td>
+                </tr>
+                <tr>
+                  <td>Luis</td>
+                  <td>19</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <h3>Tabla con color</h3>
+          <div class="table-container">
+            <table class="table table-primary">
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Precio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mouse</td>
+                  <td>$10</td>
+                </tr>
+                <tr>
+                  <td>Teclado</td>
+                  <td>$20</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- CARDS -->
+    <!-- ===================== -->
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <div class="card card-centrada card-hover">
+            <div class="card-body">
+              <h5 class="card-title">Card centrada</h5>
+              <p class="card-text">Todo centrado</p>
+              <button class="btn btn-outline-accent btn-block">
+                Continuar
+              </button>
             </div>
           </div>
         </div>

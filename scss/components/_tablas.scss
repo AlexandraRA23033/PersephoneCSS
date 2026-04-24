@@ -10,6 +10,10 @@
 .table-container {
   width: 100%;
   overflow-x: auto;
+  border: 1px solid rgba($muted, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 10px;
 }
 
 .table-sm {
@@ -25,15 +29,16 @@
     font-size: 16px;
   }
 }
+
 .table-bordered {
   th, td {
     border: 1px solid $muted;
   }
 }
 
-.table-striped {
-  tbody tr:nth-child(even) {
-    background-color: rgba($light, 0.3);
+.table-clean {
+  th, td {
+    border-bottom: none;
   }
 }
 
