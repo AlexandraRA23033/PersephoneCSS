@@ -57,3 +57,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+/* --- LÓGICA DEL SIDEBAR --- */
+const sidebar = document.querySelector(".sidebar-main");
+const sidebarBtn = document.querySelector(".sidebar-toggle");
+
+if(sidebar && sidebarBtn) {
+    sidebarBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("is-open");
+    });
+}
