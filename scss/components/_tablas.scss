@@ -1,49 +1,51 @@
-@use '../abstracts/mixins' as *;
+@use '../abstracts/mixins' as m;
 @use '../abstracts/variables' as *;
-@use "sass:color";
+@use 'tablas-mixins' as v;
 
+// Base SIN zebra
 .table {
-  @include tabla-base(true);
-  @include table-color($light, $primary);
+  @include m.tabla-base(false);
+  @include m.table-color($light, $primary);
 }
 
 .table-container {
   width: 100%;
+  padding: 0 10px;
   overflow-x: auto;
   border: 1px solid rgba($muted, 0.3);
   border-radius: 8px;
   overflow: hidden;
-  padding: 10px;
 }
 
+// Tamaños
 .table-sm {
-  th, td {
-    padding: 6px 10px;
-    font-size: 16px;
-  }
+  th, td { padding: 6px 10px;  font-size: 12px; }
 }
 
 .table-lg {
-  th, td {
-    padding: 16px 20px;
-    font-size: 16px;
-  }
+  th, td { padding: 16px 20px; font-size: 16px; }
 }
 
+// Bordes
 .table-bordered {
-  th, td {
-    border: 1px solid $muted;
-  }
+  @include v.tabla-borde($dark);
 }
 
 .table-clean {
-  th, td {
-    border-bottom: none;
+  th, td { 
+    border-bottom: none; 
   }
 }
 
-@each $nombre, $valor in $theme-colors{
-  .table-#{$nombre}{
-    @include table-color($valor, $primary);
+// Striped — solo UNA definición
+.table-striped {
+  tbody tr:nth-child(even) {
+    background-color: rgba($light, 0.3);
   }
+}
+
+// Variantes de color — ya traen su propio zebra desde el mixin
+@each $nombre, $valor in $theme-colors {
+  .table-clara-#{$nombre}  { @include v.tabla-clara($valor); }
+  .table-oscura-#{$nombre} { @include v.tabla-oscura($valor); }
 }

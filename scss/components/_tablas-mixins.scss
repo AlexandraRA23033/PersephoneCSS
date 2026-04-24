@@ -1,3 +1,6 @@
+@use '../abstracts/variables' as *;
+@use "sass:color";
+
 /* Mixin para bordes de cualquier color */
 @mixin tabla-borde($color: $dark, $grosor: 1px) {
   th, td {

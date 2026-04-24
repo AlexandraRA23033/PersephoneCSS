@@ -1,0 +1,54 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.alerta {
+  @include m.alertas-badges($pildora: false, $es-badge: false);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.badge {
+  @include m.alertas-badges($pildora: false, $es-badge: true);
+}
+
+// Variante pildora
+.alerta-pildora {
+  @include m.alertas-badges($pildora: true, $es-badge: false);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.badge-pildora {
+  @include m.alertas-badges($pildora: true, $es-badge: true);
+}
+
+
+@each $nombre, $color in v.$theme-colors {
+  .#{$nombre} {
+    @include m.alerta-badges-color($color);
+  }
+}
+
+.alerta {
+  position: relative;
+
+  .alerta-close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    opacity: 0.6;
+    color: inherit;
+    padding: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
