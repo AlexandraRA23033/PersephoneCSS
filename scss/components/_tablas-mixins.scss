@@ -1,0 +1,42 @@
+/* Mixin para bordes de cualquier color */
+@mixin tabla-borde($color: $dark, $grosor: 1px) {
+  th, td {
+    border: $grosor solid rgba($color, 0.4);
+  }
+}
+
+/* Mixin para tonalidad clara */
+@mixin tabla-clara($color: $primary) {
+  $color-claro: color.adjust($color, $lightness: 25%);
+
+  th {
+    background-color: $color-claro;
+    color: $text-dark;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: rgba($color, 0.07);
+  }
+
+  tr:hover {
+    background-color: rgba($color, 0.15);
+  }
+}
+
+/* Mixin para tonalidad oscura */
+@mixin tabla-oscura($color: $secondary) {
+  $color-oscuro: color.adjust($color, $lightness: -15%);
+
+  th {
+    background-color: $color-oscuro;
+    color: $text-light;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: rgba($color, 0.12);
+  }
+
+  tr:hover {
+    background-color: rgba($color, 0.25);
+  }
+}

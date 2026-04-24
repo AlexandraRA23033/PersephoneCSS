@@ -4,16 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PersephoneCSS - Demo Layout</title>
-
     <link rel="stylesheet" href="../css/main.css" />
   </head>
 
   <body>
-    <!-- NAVBAR -->
     <nav class="navbar">
       <div class="nav-logo">Mi Marca</div>
       <button class="nav-toggle">☰</button>
-
       <ul class="nav-menu">
         <li><a href="#">Inicio</a></li>
         <li><a href="#">Servicios</a></li>
@@ -21,197 +18,149 @@
       </ul>
     </nav>
 
-    <!-- ===================== -->
-    <!-- FORMULARIO -->
-    <!-- ===================== -->
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-6 col-lg-5">
-          <form class="form ">
-            <h2 class="mb-2">Formulario</h2>
+    <div class="main-wrapper">
+     <aside class="sidebar-main sidebar-info">
+        <button class="sidebar-toggle">
+            <span class="sidebar-arrow">▶</span>
+        </button>
+        
+        <div class="sidebar-header">Mi Panel Administrativo</div>
+        
+        <ul class="sidebar-menu">
+            <li><a href="#" class="active">Inicio</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Perfil de Usuario</a></li>
+            
+            <li><a href="#">Configuración</a></li>
+            <li><a href="#">Reportes Mensuales</a></li>
+            <li><a href="#">Estadísticas</a></li>
+            <li><a href="#">Usuarios Activos</a></li>
+            
+            <li><a href="#">Base de Datos</a></li>
+            <li><a href="#">Seguridad</a></li>
+            <li><a href="#">Logs del Sistema</a></li>
+            <li><a href="#">Mantenimiento</a></li>
+            
+            <li><a href="#">Notificaciones</a></li>
+            <li><a href="#">Mensajería</a></li>
+            <li><a href="#">Calendario</a></li>
+            <li><a href="#">Tareas Pendientes</a></li>
+            <li><a href="#">Archivos Multimedia</a></li>
+            <li><a href="#">Documentación</a></li>
+            <li><a href="#">Plugins</a></li>
+            <li><a href="#">Actualizaciones</a></li>
+            <li><a href="#">Soporte Técnico</a></li>
+            <li><a href="#">Cerrar Sesión</a></li>
+        </ul>
+        
+        <div class="sidebar-footer">Framework Persephone v1.0</div>
+    </aside>
 
-            <div class="form-group">
-              <label class="label">Nombre</label>
-              <input type="text" class="input" />
-            </div>
-
-            <div class="form-group">
-              <label class="label">Correo</label>
-              <input type="email" class="input input-invalid" />
-              <small class="form-text error">Correo inválido</small>
-            </div>
-
-            <div class="form-group">
-              <label class="label">Usuario</label>
-              <input type="text" class="input input-valid" />
-              <small class="form-text success">Disponible</small>
-            </div>
-
-            <div class="form-group">
-              <label class="label">Mensaje</label>
-              <textarea class="textarea"></textarea>
-            </div>
-
-            <button class="btn btn-primary btn-block">Enviar</button>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===================== -->
-    <!-- TABLAS -->
-    <!-- ===================== -->
-    <div class="container mt-3">
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <h3>Tabla básica</h3>
-          <div class="table-container">
-            <table class="table table-striped table-bordered table-sm">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Edad</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Juan</td>
-                  <td>20</td>
-                </tr>
-                <tr>
-                  <td>Ana</td>
-                  <td>22</td>
-                </tr>
-                <tr>
-                  <td>Luis</td>
-                  <td>19</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <h3>Tabla con color</h3>
-          <div class="table-container">
-            <table class="table table-primary table-striped">
-              <thead>
-                <tr>
-                  <th>Producto</th>
-                  <th>Precio</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Mouse</td>
-                  <td>$10</td>
-                </tr>
-                <tr>
-                  <td>Teclado</td>
-                  <td>$20</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===================== -->
-    <!-- CARDS -->
-    <!-- ===================== -->
-    <div class="container mt-3">
-      <div class="row">
-        <div class="col-12 col-md-4">
-          <div class="card card-centrada card-hover">
-            <div class="card-body">
-              <h5 class="card-title">Card centrada</h5>
-              <p class="card-text">Todo centrado</p>
-              <button class="btn btn-outline-accent btn-block">
-                Continuar
-              </button>
+      <main class="main-content">
+        <div class="container mt-3">
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-5">
+              <form class="form">
+                <h2 class="mb-2">Formulario</h2>
+                <div class="form-group">
+                  <label class="label">Nombre</label>
+                  <input type="text" class="input" />
+                </div>
+                <div class="form-group">
+                  <label class="label">Correo</label>
+                  <input type="email" class="input input-invalid" />
+                  <small class="form-text error">Correo inválido</small>
+                </div>
+                <div class="form-group">
+                  <label class="label">Usuario</label>
+                  <input type="text" class="input input-valid" />
+                  <small class="form-text success">Disponible</small>
+                </div>
+                <div class="form-group">
+                  <label class="label">Mensaje</label>
+                  <textarea class="textarea"></textarea>
+                </div>
+                <button class="btn btn-primary btn-block">Enviar</button>
+              </form>
             </div>
           </div>
         </div>
 
-        <div class="col-12 col-md-4">
-          <div class="card card-warning card-sin-footer card-hover">
-            <div class="card-body">
-              <h5 class="card-title">Sin footer</h5>
-              <button class="btn btn-outline-dark btn-sm">Info</button>
+        <div class="container mt-3">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <h3>Tabla básica</h3>
+              <div class="table-container">
+                <table class="table table-striped table-bordered table-sm">
+                  <thead>
+                    <tr><th>Nombre</th><th>Edad</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Juan</td><td>20</td></tr>
+                    <tr><td>Ana</td><td>22</td></tr>
+                    <tr><td>Luis</td><td>19</td></tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div class="card-footer">Footer oculto</div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-4">
-          <div class="card card-primary card-hover">
-            <div class="card-body">
-              <h5 class="card-title">Card simple</h5>
-              <button class="btn btn-danger btn-sm">OK</button>
-              <button class="btn btn-outline-accent btn-sm">Cancelar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12 col-md-6 mt-3">
-          <div class="card card-primary card-img-top card-hover">
-            <img src="../img/cachorro.png" class="card-img" alt="img" />
-            <div class="card-body">
-              <h5 class="card-title">Imagen arriba</h5>
-              <p class="card-text">Uso de card-img-top</p>
-              <a href="#" class="card-link">Leer más</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6 mt-3">
-          <div class="card card-horizontal card-success card-hover">
-            <img src="../img/descarga.jpg" class="card-img" alt="img" />
-            <div class="card-body">
-              <h5 class="card-title">Card horizontal</h5>
-              <p class="card-text">Imagen a la izquierda.</p>
-              <a href="#" class="card-link">Ver detalles</a>
+            <div class="col-12 col-md-6">
+              <h3>Tabla con color</h3>
+              <div class="table-container">
+                <table class="table table-primary table-striped">
+                  <thead>
+                    <tr><th>Producto</th><th>Precio</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Mouse</td><td>$10</td></tr>
+                    <tr><td>Teclado</td><td>$20</td></tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- ===================== -->
-    <!-- MODAL -->
-    <!-- ===================== -->
-    <div class="container mt-3">
-      <div class="row">
-        <div class="col-12 text-center">
+        <div class="container mt-3">
+          <div class="row">
+            <div class="col-12 col-md-4">
+              <div class="card card-centrada card-hover">
+                <div class="card-body">
+                  <h5 class="card-title">Card centrada</h5>
+                  <p class="card-text">Todo centrado</p>
+                  <button class="btn btn-outline-accent btn-block">Continuar</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="card card-warning card-sin-footer card-hover">
+                <div class="card-body">
+                  <h5 class="card-title">Sin footer</h5>
+                  <button class="btn btn-outline-dark btn-sm">Info</button>
+                </div>
+                <div class="card-footer">Footer oculto</div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="card card-primary card-hover">
+                <div class="card-body">
+                  <h5 class="card-title">Card simple</h5>
+                  <button class="btn btn-danger btn-sm">OK</button>
+                  <button class="btn btn-outline-accent btn-sm">Cancelar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container mt-3 text-center mb-5">
           <button class="btn btn-primary" data-modal-target="modalPrueba">
             Abrir Modal
           </button>
         </div>
-      </div>
+      </main>
     </div>
 
-    <div class="modal" id="modalPrueba">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3>Título del modal</h3>
-          <button class="modal-close">&#x2715;</button>
-        </div>
-
-        <div class="modal-body">
-          <p>Contenido del modal.</p>
-        </div>
-
-        <div class="modal-footer">
-          <button class="btn btn-outline-muted">Cancelar</button>
-          <button class="btn btn-primary">Aceptar</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- FOOTER -->
+    <!-- Footer fuera del main-wrapper -->
     <footer class="main-footer">
       <div class="container">
         <div class="row">
@@ -219,7 +168,6 @@
             <h2 class="footer-logo">Persephone Framework</h2>
             <p>Diseño responsivo y elegante</p>
           </div>
-
           <div class="col-12 col-md-6">
             <ul class="footer-links">
               <li><a href="#">Inicio</a></li>
@@ -228,10 +176,25 @@
             </ul>
           </div>
         </div>
-
         <div class="footer-copy text-center">&copy; 2026 PersephoneCSS</div>
       </div>
     </footer>
+
+    <div class="modal" id="modalPrueba">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Título del modal</h3>
+          <button class="modal-close">&#x2715;</button>
+        </div>
+        <div class="modal-body">
+          <p>Contenido del modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-muted btn-close-modal">Cancelar</button>
+          <button class="btn btn-primary">Aceptar</button>
+        </div>
+      </div>
+    </div>
 
     <script src="main.js"></script>
   </body>

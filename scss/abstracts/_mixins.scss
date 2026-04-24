@@ -38,6 +38,14 @@
   transition: all 0.3s ease-in-out;
 }
 
+/* Mixin para limpiar listas */
+@mixin list-navegation {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
 /* Mixin para la base de los botones y hover */
 @mixin botones-base() {
   display: inline-block;
@@ -90,6 +98,27 @@
       background-color: $color;
       color: $color-texto;
     }
+  } @else if $estilo == "pildora" {
+    background-color: $color;
+    border-color: $color;
+    color: $color-texto;
+    border-radius: 50px;
+
+    &:hover:not(:disabled) {
+      background-color: color.adjust($color, $lightness: -10%);
+      border-color: color.adjust($color, $lightness: -10%);
+      transform: translateY(-3px) scale(1.02);
+    }
+  } @else if $estilo == "ghost" {
+    background-color: transparent;
+    border-color: transparent;
+    color: $color;
+
+    &:hover:not(:disabled) {
+      background-color: rgba($color, 0.1);
+      color: color.adjust($color, $lightness: -5%);
+      border-color: transparent;
+    }
   }
 }
 
@@ -108,14 +137,46 @@
 }
 
 /* Mixin para las alertas y los badges */
-@mixin alertas-badges($pildora: false) {
+@mixin alertas-badges($pildora: false, $es-badge: false) {
+  display: inline-block;
   border: 1px solid transparent;
-  padding: 0.5em 1em;
+  font-weight: 500;
+  line-height: 1;
 
   @if $pildora {
     border-radius: 50px;
   } @else {
     border-radius: 4px;
+  }
+
+  @if $es-badge {
+    font-size: 0.75rem;
+    padding: 0.25em 0.6em;
+    vertical-align: middle;
+  } @else {
+    padding: 0.5em 1em;
+  }
+}
+
+/*Mixin para el color de alerts y badges*/
+@mixin alerta-badges-color($color) {
+  $colores-texto-oscuro: ($info, $warning, $light, $accent, $muted);
+  $texto-final: $text-light;
+
+  @if list.index($colores-texto-oscuro, $color) {
+    $texto-final: $text-dark;
+  }
+
+  &.alerta {
+    background-color: rgba($color, 0.15);
+    border-color: rgba($color, 0.3);
+    color: $color;
+  }
+
+  &.badge {
+    background-color: $color;
+    border-color: $color;
+    color: $texto-final;
   }
 }
 
@@ -126,7 +187,6 @@
   border-radius: 6px;
   font-size: 14px;
   background-color: color.adjust($light, $lightness: 10%);
-;
   color: $text-dark;
   @include transicion;
 
@@ -149,6 +209,7 @@
     border-color: $alert;
   }
 }
+
 /* Mixin para card base*/
 @mixin card-base {
   border-radius: 8px;
@@ -202,7 +263,7 @@
 }
 
 /* Mixin para tablas */
-@mixin tabla-base($zebra: true) {
+@mixin tabla-base($zebra: false) {
   width: 100%;
   border-collapse: collapse;
   margin: 1rem 0;
@@ -248,14 +309,6 @@
   }
 }
 
-/* Mixin para limpiar listas */
-@mixin list-navegation {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
 /*Mixin para los navbar base*/
 @mixin navbar-base {
   display: flex;
@@ -263,14 +316,17 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.875rem $container-padding-x;
-  position: relative;
-  z-index: 1000;
+  position: fixed;
+  z-index: 3000;
+  width: 100%; 
+  top: 0;
+  left: 0;
 
   // ESTADO MÓVIL — oculto por defecto
   .nav-menu {
     display: none;
     flex-direction: column;
-    position: static; // ← antes era absolute
+    position: static;
     width: 100%;
     list-style: none;
     border-top: 1px solid rgba($text-light, 0.15);
@@ -323,7 +379,7 @@
         border-radius: 6px;
 
         &:hover {
-          padding-left: 1rem; // anula el desplazamiento del móvil
+          padding-left: 1rem;
         }
       }
     }
@@ -453,7 +509,7 @@
   width: 100%;
   height: 100%;
   z-index: 20000;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   background-color: rgba($color: $dark, $alpha: 0.6);
 
@@ -515,7 +571,7 @@
 }
 
 /*Mixin para el color de los modal*/
-@mixin modal-color($color-cabecera){
+@mixin modal-color($color-cabecera) {
   $colores-texto-oscuro: ($info, $warning, $light, $accent, $muted);
   $texto: $text-light;
 
@@ -530,5 +586,144 @@
     .modal-close {
       color: $texto;
     }
+  }
+}
+
+/*Mixin para el sidebar*/
+@mixin sidebar-base {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 100vh;
+  min-height: 0;
+  padding: 1rem 0;
+  flex-shrink: 0; 
+  position: sticky; 
+  top: 0;
+  z-index: 2000;
+  @include transicion;
+
+  .sidebar-header {
+    padding: 1rem 1.25rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .sidebar-menu {
+    @include list-navegation;
+    flex-direction: column;
+    margin-top: 1rem;
+    flex: 1;           // ← ocupa el espacio disponible
+  overflow-y: auto;
+  }
+
+  .sidebar-menu li a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .sidebar-menu li a:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .sidebar-toggle {
+    display: none;
+  }
+
+  // MÓVIL — sale del flujo y se fija a la izquierda
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    overflow-x: visible;  
+    overflow-y: visible;
+
+    &.is-open {
+      transform: translateX(0);
+    }
+
+    .sidebar-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      right: -35px;
+      top: 80px;
+      width: 35px;
+      height: 45px;
+      background-color: inherit;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-left: none;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  // DESKTOP — vuelve al flujo normal
+  @include responsive(md) {
+  position: fixed;  
+  top: $navbar-height; 
+  left: 0;
+  height: calc(100vh - #{$navbar-height}); 
+  overflow-x: hidden;
+  overflow-y: auto;
+  transform: translateX(0);
+
+    .sidebar-toggle {
+      display: none;
+    }
+  }
+}
+
+/*Mixin para los colores del sidebar*/
+@mixin sidebar-color($color-fondo) {
+  $colores-texto-oscuro: ($info, $warning, $light, $accent, $muted);
+  $texto: $text-light;
+  $hover-bg: rgba($text-light, 0.1);
+  $separador: rgba($text-light, 0.1);
+
+  @if list.index($colores-texto-oscuro, $color-fondo) {
+    $texto: $text-dark;
+    $hover-bg: rgba($dark, 0.07);
+    $separador: rgba($dark, 0.08);
+  }
+
+  background-color: $color-fondo;
+  color: $texto;
+
+  .sidebar-header {
+    border-bottom-color: $separador;
+  }
+
+  .sidebar-menu li a {
+    color: $texto;
+
+    &:hover {
+      background-color: $hover-bg;
+    }
+
+    &.active {
+      background-color: $hover-bg;
+    }
+  }
+
+  .sidebar-toggle {
+    color: $texto;
+    background: rgba($texto, 0.1);
+    border: 1px solid rgba($texto, 0.2);
+
+    &:hover {
+      background: rgba($texto, 0.2);
+    }
+  }
+
+  .sidebar-footer {
+    border-top-color: $separador;
+    color: $texto;
   }
 }
