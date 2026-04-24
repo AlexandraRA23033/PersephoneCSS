@@ -20,3 +20,72 @@
     @include m.transicion;
   }
 }
+
+.navbar-underline {
+  @include m.navbar-base;
+  @include m.navbar-color(v.$primary);
+
+  .nav-menu li a {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: currentColor;
+      transition: 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+.navbar-buttons {
+  @include m.navbar-base;
+  @include m.navbar-color(v.$primary);
+
+  .nav-menu li a {
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    margin: 0 4px;
+  }
+}
+
+.navbar-dropdown {
+  @include m.navbar-base;
+  @include m.navbar-color(v.$primary);
+
+  .nav-menu {
+    overflow: visible; 
+  }
+
+  .nav-menu li {
+    position: relative;
+  }
+ 
+  .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: inherit;
+    min-width: 180px;
+    flex-direction: column;
+    box-shadow: 0 8px 20px rgba(v.$dark, 0.2);
+    z-index: 999;
+    list-style: none;
+  }
+
+  .submenu li a {
+    padding: 10px 15px;
+  }
+
+  .nav-menu li:hover .submenu {
+    display: flex;
+  }
+}
