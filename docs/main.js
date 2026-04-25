@@ -69,16 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* --- LÓGICA DEL SIDEBAR --- */
-  const sidebar = document.querySelector(".sidebar-main");
-  const sidebarBtn = document.querySelector(".sidebar-toggle");
-
-  if (sidebar && sidebarBtn) {
-    sidebarBtn.addEventListener("click", () => {
-      sidebar.classList.toggle("is-open");
-    });
-  }
-
   /* --- CERRAR ALERTAS --- */
   document.addEventListener("click", (e) => {
     if (e.target.classList.contains("alerta-close")) {
@@ -88,3 +78,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+/* --- LÓGICA DEL SIDEBAR --- */
+const sidebar = document.querySelector(".sidebar-main");
+const sidebarToggleBtn = document.querySelector(".sidebar-toggle-btn");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+
+if (sidebar && sidebarToggleBtn) {
+  sidebarToggleBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("is-open");
+    sidebarToggleBtn.classList.toggle("is-open");
+    if (sidebarOverlay) sidebarOverlay.classList.toggle("is-active");
+  });
+
+  if (sidebarOverlay) {
+    sidebarOverlay.addEventListener("click", () => {
+      sidebar.classList.remove("is-open");
+      sidebarToggleBtn.classList.remove("is-open");
+      sidebarOverlay.classList.remove("is-active");
+    });
+  }
+}

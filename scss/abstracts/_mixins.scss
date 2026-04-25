@@ -597,8 +597,8 @@
   height: 100vh;
   min-height: 0;
   padding: 1rem 0;
-  flex-shrink: 0; 
-  position: sticky; 
+  flex-shrink: 0;
+  position: sticky;
   top: 0;
   z-index: 2000;
   @include transicion;
@@ -614,8 +614,8 @@
     @include list-navegation;
     flex-direction: column;
     margin-top: 1rem;
-    flex: 1;           // ← ocupa el espacio disponible
-  overflow-y: auto;
+    flex: 1;
+    overflow-y: auto;
   }
 
   .sidebar-menu li a {
@@ -629,53 +629,74 @@
     background: rgba(255, 255, 255, 0.05);
   }
 
-  .sidebar-toggle {
-    display: none;
-  }
-
-  // MÓVIL — sale del flujo y se fija a la izquierda
+  // MÓVIL
   @media (max-width: #{$breakpoint-md - 1px}) {
     position: fixed;
     top: 0;
     left: 0;
+    height: 100vh;
     transform: translateX(-100%);
-    overflow-x: visible;  
+    overflow-x: visible;
     overflow-y: visible;
 
     &.is-open {
       transform: translateX(0);
     }
-
-    .sidebar-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      right: -35px;
-      top: 80px;
-      width: 35px;
-      height: 45px;
-      background-color: inherit;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-left: none;
-      border-radius: 0 8px 8px 0;
-      cursor: pointer;
-      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    }
   }
 
-  // DESKTOP — vuelve al flujo normal
+  // DESKTOP
   @include responsive(md) {
-  position: fixed;  
-  top: $navbar-height; 
-  left: 0;
-  height: calc(100vh - #{$navbar-height}); 
-  overflow-x: hidden;
-  overflow-y: auto;
-  transform: translateX(0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transform: translateX(0);
+
+    .has-navbar & {
+      top: $navbar-height;
+      height: calc(100vh - #{$navbar-height});
+    }
 
     .sidebar-toggle {
       display: none;
+    }
+  }
+}
+
+/*Mixin para el toggle*/
+@mixin sidebar-toggle-base($color-fondo: $secondary) {
+  $colores-texto-oscuro: ($info, $warning, $light, $accent, $muted);
+  $texto: $text-light;
+
+  @if list.index($colores-texto-oscuro, $color-fondo) {
+    $texto: $text-dark;
+  }
+
+  display: none;
+
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 35px;
+    height: 45px;
+    background-color: $color-fondo;
+    color: $texto;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    box-shadow: 2px 0 5px rgba($dark, 0.2);
+    z-index: 2001;
+    @include transicion;
+
+    &.is-open {
+      left: 250px;
     }
   }
 }
@@ -712,18 +733,14 @@
     }
   }
 
-  .sidebar-toggle {
+   .sidebar-toggle {
     color: $texto;
-    background: rgba($texto, 0.1);
+    background-color: $dark; 
     border: 1px solid rgba($texto, 0.2);
+    border-left: none;
 
     &:hover {
-      background: rgba($texto, 0.2);
+      background-color: color.adjust($color-fondo, $lightness: -5%);
     }
-  }
-
-  .sidebar-footer {
-    border-top-color: $separador;
-    color: $texto;
   }
 }
