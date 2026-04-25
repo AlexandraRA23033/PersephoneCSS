@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colaboradoras — PersephoneCSS</title>
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar--dark">
+    <span class="fw-bold fs-3">✿ PersephoneCSS</span>
+    <button class="nav-toggle" aria-label="Menú">☰</button>
+    <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="introduccion.html">Documentación</a></li>
+        <li><a href="colaboradoras.html">Colaboradoras</a></li>
+      </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bg-accent p-3 text-center">
+    <div class="container">
+      <span class="badge badge-pildora bg-dark text-light">Equipo de desarrollo</span>
+      <h1 class="fs-1 text-dark mt-2 mb-2">Colaboradoras</h1>
+      <p class="text-dark">
+        PersephoneCSS fue desarrollado por dos estudiantes de Ingeniería de Sistemas Informáticos
+        de la Universidad de El Salvador — FMO.
+      </p>
+    </div>
+  </section>
+
+  <!-- TARJETAS DE COLABORADORAS -->
+  <section class="p-3">
+    <div class="container">
+      <div class="row">
+
+        <!-- July -->
+        <div class="col-12 col-md-6 mb-3">
+          <div class="card borde-top-primary">
+            <div class="card-header bg-primary text-light fw-bold">
+              🌸 Juliana Mariselda Torres Chavarría
+            </div>
+            <div class="card-body">
+              <p class="text-muted mb-2"><small>TC23011</small></p>
+
+              <span class="badge bg-primary text-light mb-2">Desarrollo de Componentes</span>
+              <p class="card-text mb-3">
+                Diseñó e implementó los componentes visuales del framework: botones, cards,
+                alertas, badges, modales, navbar, sidebar, tablas, formularios y footer —
+                cada uno con sus variantes de color y estilos (solid, outline, pildora, ghost).
+              </p>
+
+              <span class="badge bg-secondary text-light mb-2">Utilidades</span>
+              <p class="card-text mb-3">
+                Desarrolló el sistema de clases utilitarias: colores de fondo (<code>bg-*</code>),
+                texto (<code>text-*</code>), bordes (<code>border-*</code>, <code>borde-top-*</code>),
+                spacing (<code>p-*</code>, <code>m-*</code>), display (<code>d-*</code>),
+                flexbox (<code>d-flex</code>, <code>j-cont-*</code>) y tipografía (<code>fw-*</code>, <code>fs-*</code>).
+              </p>
+
+              <span class="badge bg-accent text-dark mb-2">Variables</span>
+              <p class="card-text">
+                Definió la paleta de colores semántica del framework — desde
+                <code>$primary</code> (Peach Blossom) hasta <code>$muted</code> (Stone Petal) —
+                y las variables de breakpoints, contenedor, botones y navbar.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="alerta border-primary">
+                <strong>Archivos:</strong>
+                <code>_variables.scss · _botones.scss · _cards.scss · _alerts.scss · _modal.scss · _navbar.scss · _sidebar.scss · _tablas.scss · _formulario.scss · _footer.scss · _utilities.scss · _components.scss</code>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fabi -->
+        <div class="col-12 col-md-6 mb-3">
+          <div class="card borde-top-secondary">
+            <div class="card-header bg-secondary text-light fw-bold">
+              🌿 Fabiola Alexandra Romero Amaya
+            </div>
+            <div class="card-body">
+              <p class="text-muted mb-2"><small>RA23033</small></p>
+
+              <span class="badge bg-secondary text-light mb-2">Arquitectura SASS &amp; Mixins</span>
+              <p class="card-text mb-3">
+                Diseñó la arquitectura modular del framework con <code>@use</code> y namespaces.
+                Construyó todos los mixins reutilizables: <code>responsive()</code>, <code>flex-centrado()</code>,
+                <code>boton-color()</code>, <code>card-base()</code>, <code>tabla-base()</code>,
+                <code>modal-base()</code>, <code>sidebar-base()</code> y más — incluyendo la
+                lógica de contraste automático con <code>list.index()</code> y
+                <code>color.adjust()</code>.
+              </p>
+
+              <span class="badge bg-info text-dark mb-2">Reset &amp; Base</span>
+              <p class="card-text mb-3">
+                Implementó el reset global del framework (<code>box-sizing</code>, márgenes, tipografía base,
+                normalización de formularios y enlaces) y la configuración del <code>body</code>
+                con <code>padding-top</code> automático para el navbar fijo.
+              </p>
+
+              <span class="badge bg-info text-dark mb-2">Layout</span>
+              <p class="card-text mb-3">
+                Desarrolló el sistema de grid de 12 columnas Mobile First con
+                <code>@for</code>, los contenedores (<code>.container</code>, <code>.container-fluid</code>),
+                filas (<code>.row</code>) y columnas responsivas (<code>col-md-*</code>, <code>col-lg-*</code>)
+                usando <code>@extend</code> y <code>math.div()</code>.
+              </p>
+
+              <span class="badge bg-dark text-light mb-2">Configuración GitHub</span>
+              <p class="card-text">
+                Configuró el repositorio público, el flujo de trabajo con ramas, el
+                <code>README.md</code> con la guía de instalación, y el despliegue del
+                sitio de documentación en GitHub Pages.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="alerta border-secondary">
+                <strong>Archivos:</strong>
+                <code>_mixins.scss · _base.scss · _layout.scss · _navbar-mixins.scss · _tablas-mixins.scss · main.scss · README.md</code>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Contribución conjunta -->
+      <div class="alerta border-accent mt-1">
+        <strong>✿ Trabajo conjunto:</strong>
+        La integración final, revisión de consistencia visual, pruebas de responsividad
+        y el sitio de documentación fueron desarrollados en conjunto por ambas integrantes.
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="main-footer main-footer-dark">
+    <div class="footer-content">
+      <p class="fw-bold text-accent mb-1">✿ PersephoneCSS <span class="badge bg-muted text-dark">v4.0.0</span></p>
+      <p class="mb-2" style="font-size:0.85rem; opacity:0.75;">
+        Juliana Torres · Fabiola Romero — Herramientas de Productividad, UES FMO · Ciclo I 2026
+      </p>
+    </div>
+    <p class="footer-copy">© 2026 PersephoneCSS. Construido con su propio framework.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

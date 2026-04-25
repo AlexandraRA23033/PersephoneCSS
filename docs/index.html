@@ -1,14 +1,355 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PersephoneCSS Demo</title>
-    <link rel="stylesheet" href="../css/main.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PersephoneCSS — Documentación</title>
+  <link rel="stylesheet" href="../css/main.css"/>
+</head>
+<body>
 
-  <body>
-    
-    <script src="main.js"></script>
-  </body>
+  <nav class="navbar--dark">
+    <span class="fw-bold fs-3">✿ PersephoneCSS</span>
+    <button class="nav-toggle" aria-label="Menú">☰</button>
+    <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="introduccion.html">Documentación</a></li>
+        <li><a href="colaboradoras.html">Colaboradoras</a></li>
+      </ul>
+  </nav>
+
+  <section class="bg-primary p-3 ">
+    <div class="container text-center ">
+      <span class="badge dark">v3.0.0 — Mobile First</span>
+      <h1 class="fs-1 fw-bold mt-1">PersephoneCSS</h1>
+      <p class="mt-1">Un framework CSS modular inspirado en peonias. Construido con SASS, diseñado con intención, listo para producción.</p>
+      <div class="d-flex f-wrap mt-2 j-cont-cent gap-1">
+        <a href="#instalacion" class="btn btn-dark btn-md">Comenzar →</a>
+        <a href="https://github.com/AlexandraRA23033/PersephoneCSS" target="_blank" class="btn btn-outline-dark btn-md">GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container p-3">
+    <h2 class="fs-2 fw-bold mb-1">¿Qué es PersephoneCSS?</h2>
+    <p class="mb-2">Un framework CSS desarrollado desde cero con arquitectura SASS modular y paradigma Mobile First. Incluye sistema grid de 12 columnas, 11 tokens de color, componentes reutilizables y utilidades de espaciado, tipografía y flexbox, sin dependencias externas.</p>
+    <div class="row">
+      <div class="col-12 col-md-4 mb-2">
+        <div class="card borde-top-primary shadow-sm">
+          <div class="card-body text-center">
+            <p class="fs-1 fw-bold text-primary">12</p>
+            <p class="text-muted">Columnas grid</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 mb-2">
+        <div class="card borde-top-primary shadow-sm">
+          <div class="card-body text-center">
+            <p class="fs-1 fw-bold text-primary">11</p>
+            <p class="text-muted">Tokens de color</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 mb-2">
+        <div class="card borde-top-primary shadow-sm">
+          <div class="card-body text-center">
+            <p class="fs-1 fw-bold text-primary">0</p>
+            <p class="text-muted">Dependencias</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-light p-3">
+    <div class="container" id="instalacion">
+      <h2 class="fs-2 fw-bold mb-1">Instalación</h2>
+      <p class="mb-2">No hay paquetes que instalar. Solo descarga o clona el repositorio e incluye <code>main.css</code> y <code>main.js</code> en tu proyecto.</p>
+      <div class="row">
+        <div class="col-12 col-md-6 mb-2">
+          <div class="card shadow-sm">
+            <div class="card-header bg-secondary text-light">
+              <span class="fw-bold">Opción 1 — Clonar</span>
+            </div>
+            <div class="card-body">
+              <pre class="font-mono"><code># Clona el repositorio
+git clone https://github.com/AlexandraRA23033/PersephoneCSS.git
+
+# Entra al directorio
+cd PersephoneCSS</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 mb-2">
+          <div class="card shadow-sm">
+            <div class="card-header bg-secondary text-light">
+              <span class="fw-bold">Opción 2 — Descarga directa</span>
+            </div>
+            <div class="card-body">
+              <p class="mb-2">Descarga el ZIP desde GitHub y descomprime en tu proyecto.</p>
+              <a href="https://github.com/AlexandraRA23033/PersephoneCSS/archive/refs/heads/main.zip" class="btn btn-secondary btn-md">Descargar ZIP ↓</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card shadow-sm mb-2">
+        <div class="card-header bg-secondary text-light">
+          <span class="fw-bold">Vincula los archivos en tu HTML</span>
+        </div>
+        <div class="card-body">
+          <pre class="font-mono"><code>&lt;head&gt;
+  &lt;link rel="stylesheet" href="main.css"/&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Tu contenido --&gt;
+  &lt;script src="main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre>
+        </div>
+      </div>
+      <div class="alerta info">
+        <strong>Compilación SASS opcional:</strong> Instala SASS y compila con <code>sass main.scss main.css --watch</code>. Los parciales están organizados en <code>abstracts/</code>, <code>base/</code> y <code>components/</code>.
+      </div>
+    </div>
+  </section>
+
+  <section class="container p-3">
+    <h2 class="fs-2 fw-bold mb-1">Paleta de colores — $theme-colors</h2>
+    <p class="mb-2">Los 11 tokens de color están definidos en <code>_variables.scss</code> y se propagan a todos los componentes mediante <code>@each</code>.</p>
+    <div class="row mb-2">
+      <div class="col-12 col-md-4 col-lg-2 mb-1">
+        <div class="card card-primary shadow-sm">
+          <div class="card-body text-center">
+            <p class="font-mono">#BB8588</p>
+            <small>primary</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-1">
+        <div class="card card-secondary shadow-sm">
+          <div class="card-body text-center">
+            <p class="font-mono">#4E5748</p>
+            <small>secondary</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-1">
+        <div class="card card-success shadow-sm">
+          <div class="card-body text-center">
+            <p class="font-mono">#6E8F6B</p>
+            <small>success</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-1">
+        <div class="card card-info shadow-sm">
+          <div class="card-body text-center">
+            <p class="font-mono">#7FA6A0</p>
+            <small>info</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-1">
+        <div class="card card-warning shadow-sm">
+          <div class="card-body text-center">
+            <p class="font-mono">#D1A85C</p>
+            <small>warning</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-1">
+        <div class="card card-danger shadow-sm">
+          <div class="card-body text-center">
+            <p class="font-mono">#D36B6B</p>
+            <small>danger</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-1">
+        <div class="card card-alert shadow-sm">
+          <div class="card-body text-center">
+            <p class="font-mono">#E85C5C</p>
+            <small>alert</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-1">
+        <div class="card card-light shadow-sm">
+          <div class="card-body text-center">
+            <p class="font-mono">#EFEBCE</p>
+            <small>light</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-1">
+        <div class="card card-dark shadow-sm">
+          <div class="card-body text-center">
+            <p class="font-mono">#2F332B</p>
+            <small>dark</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-1">
+        <div class="card card-accent shadow-sm">
+          <div class="card-body text-center">
+            <p class="font-mono">#D8A39D</p>
+            <small>accent</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2 mb-1">
+        <div class="card card-muted shadow-sm">
+          <div class="card-body text-center">
+            <p class="font-mono">#B8B2A0</p>
+            <small>muted</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card shadow-sm">
+      <div class="card-header bg-dark text-light">
+        <span class="fw-bold font-mono">_variables.scss</span>
+      </div>
+      <div class="card-body">
+        <pre class="font-mono"><code>$theme-colors: (
+  "primary":   #BB8588,
+  "secondary": #4E5748,
+  "success":   #6E8F6B,
+  "info":      #7FA6A0,
+  "warning":   #D1A85C,
+  "danger":    #D36B6B,
+  "alert":     #E85C5C,
+  "light":     #EFEBCE,
+  "dark":      #2F332B,
+  "accent":    #D8A39D,
+  "muted":     #B8B2A0,
+);</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-light p-3">
+    <div class="container">
+      <h2 class="fs-2 fw-bold mb-1">Arquitectura SASS</h2>
+      <p class="mb-2">El framework está estructurado en parciales con separación de responsabilidades. <code>main.scss</code> importa todos los módulos con <code>@use</code> y <code>@forward</code>.</p>
+      <div class="card shadow-sm mb-2">
+        <div class="card-header bg-dark text-light">
+          <span class="fw-bold font-mono">Árbol de parciales</span>
+        </div>
+        <div class="card-body">
+          <pre class="font-mono"><code>main.scss           ← punto de entrada
+├── _variables.scss    ← $theme-colors, tokens
+├── _mixins.scss       ← botones, cards, tablas, flex…
+├── _base.scss         ← reset, tipografía base
+├── _layout.scss       ← container, grid, wrapper
+├── _navbar.scss       ← nav, nav-toggle, nav-menu
+├── _sidebar.scss      ← sidebar-main, overlay
+├── _botones.scss      ← @each → .btn-{color}
+├── _cards.scss        ← @each → .card-{color}
+├── _alerts.scss       ← @each → .alerta-{color}
+├── _tablas.scss       ← table-clara, table-oscura
+├── _formulario.scss   ← input, select, textarea
+├── _modal.scss        ← modal, is-open
+├── _footer.scss       ← main-footer variantes
+└── _utilities.scss    ← @for/@each → spacing, color, flex</code></pre>
+        </div>
+      </div>
+      <div class="alerta secondary mb-2">
+        <strong>Modularidad SASS en práctica:</strong> Un solo <code>@each</code> sobre <code>$theme-colors</code> genera las clases de todos los componentes sin repetir código.
+      </div>
+      <div class="card shadow-sm">
+        <div class="card-header bg-dark text-light">
+          <span class="fw-bold font-mono">Ejemplo — _botones.scss</span>
+        </div>
+        <div class="card-body">
+          <pre class="font-mono"><code>// Genera .btn-{c} y .btn-outline-{c} para los 11 colores
+@each $nombre, $valor in $theme-colors {
+  .btn-#{$nombre} {
+    @include botones-base;
+    @include boton-color($valor);
+    @include boton-tamano("movil");
+  }
+  .btn-outline-#{$nombre} {
+    @include botones-base;
+    @include boton-color($valor, "outline");
+    @include boton-tamano("movil");
+  }
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container p-3">
+    <h2 class="fs-2 fw-bold mb-1">JavaScript — main.js</h2>
+    <p class="mb-2">El JS es mínimo y sin dependencias. Maneja el toggle del navbar, apertura/cierre de modales por <code>data-modal-target</code>, toggle del sidebar y cierre de alertas.</p>
+    <div class="row">
+      <div class="col-12 col-md-6 mb-2">
+        <div class="card shadow-sm">
+          <div class="card-header bg-dark text-light">
+            <span class="fw-bold font-mono">Toggle Navbar</span>
+          </div>
+          <div class="card-body">
+            <pre class="font-mono"><code>// Abre y cierra el nav-menu en móvil
+const navToggle = document
+  .querySelector(".nav-toggle");
+const navMenu = document
+  .querySelector(".nav-menu");
+
+navToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("is-active");
+});</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 mb-2">
+        <div class="card shadow-sm">
+          <div class="card-header bg-dark text-light">
+            <span class="fw-bold font-mono">Apertura de modales</span>
+          </div>
+          <div class="card-body">
+            <pre class="font-mono"><code>// Abre modal por data-modal-target
+const openBtns = document
+  .querySelectorAll("[data-modal-target]");
+
+openBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const id = btn.getAttribute(
+      "data-modal-target");
+    document.getElementById(id)
+      .classList.add("is-open");
+  });
+});</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 mb-2">
+        <div class="card shadow-sm">
+          <div class="card-header bg-dark text-light">
+            <span class="fw-bold font-mono">Cierre de alertas</span>
+          </div>
+          <div class="card-body">
+            <pre class="font-mono"><code>// Elimina la alerta al hacer click en .alerta-close
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("alerta-close")) {
+    const alerta = e.target
+      .closest(".alerta, .alerta-pildora");
+    if (alerta) alerta.remove();
+  }
+});</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="main-footer main-footer-dark">
+    <div class="footer-content">
+      <p class="fw-bold text-accent mb-1">✿ PersephoneCSS <span class="badge muted">v4.0.0</span></p>
+      <p class="mb-2">Juliana Torres &amp; Fabiola Romero — Herramientas de Productividad, UES FMO · Ciclo I 2026</p>
+    </div>
+    <p class="footer-copy">© 2026 PersephoneCSS. Construido con su propio framework.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
 </html>
