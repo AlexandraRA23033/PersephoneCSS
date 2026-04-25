@@ -9,3 +9,39 @@
     @include m.modal-color(v.$primary);
   }
 }
+
+.modal-alert {
+  @include m.modal-base;
+
+  .modal-content {
+    text-align: center;
+    max-width: 400px;
+  }
+
+  .modal-footer {
+    justify-content: center;
+  }
+}
+
+// ===============================
+// MODAL FORMULARIO / REGISTRO
+// ===============================
+
+.modal-form {
+  @include m.modal-base; 
+
+  .modal-content { 
+    max-width: 600px; 
+  }
+
+  .modal-body {
+    padding: 2rem;
+   }
+
+  .input {
+    @include m.formulario-base; 
+  }
+  .modal-footer {
+     justify-content: space-between; 
+    }
+}
