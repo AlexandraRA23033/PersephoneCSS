@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const modal = document.getElementById(modalId);
             if (modal) {
                 modal.classList.add("is-open");
-                // Evita que el fondo se mueva mientras el modal está abierto
                 document.body.style.overflow = "hidden";
             }
         });
@@ -33,13 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Función para cerrar el modal mejorada
     closeButtons.forEach(btn => {
         btn.addEventListener("click", (e) => {
-            e.preventDefault(); // Evita que el botón haga cosas raras
+            e.preventDefault();
             const modal = btn.closest(".modal");
             if (modal) {
                 modal.classList.remove("is-open");
                 document.body.style.overflow = "auto";
             } else {
-                // Si por alguna razón .closest no lo encuentra, buscamos el que esté abierto
                 const openModal = document.querySelector(".modal.is-open");
                 if(openModal) openModal.classList.remove("is-open");
                 document.body.style.overflow = "auto";
@@ -57,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    //funcion para cerrar ls alertas 
+    // Función para cerrar las alertas
     document.addEventListener("click", (e) => {
         if (e.target.classList.contains("alerta-close")) {
             const alerta = e.target.closest(".alerta, .alerta-pildora");
@@ -70,10 +68,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* --- LÓGICA DEL SIDEBAR --- */
 const sidebar = document.querySelector(".sidebar-main");
-const sidebarBtn = document.querySelector(".sidebar-toggle");
+const sidebarToggleBtn = document.querySelector(".sidebar-toggle-btn");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
 
-if(sidebar && sidebarBtn) {
-    sidebarBtn.addEventListener("click", () => {
+if (sidebar && sidebarToggleBtn) {
+    sidebarToggleBtn.addEventListener("click", () => {
         sidebar.classList.toggle("is-open");
+        sidebarToggleBtn.classList.toggle("is-open");
+        if (sidebarOverlay) sidebarOverlay.classList.toggle("is-active");
     });
+
+    if (sidebarOverlay) {
+        sidebarOverlay.addEventListener("click", () => {
+            sidebar.classList.remove("is-open");
+            sidebarToggleBtn.classList.remove("is-open");
+            sidebarOverlay.classList.remove("is-active");
+        });
+    }
 }
+

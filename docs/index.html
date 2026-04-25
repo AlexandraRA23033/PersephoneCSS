@@ -18,16 +18,29 @@
       </ul>
     </nav>
 
-    <div class="main-wrapper">
+    <div class="main-wrapper has-navbar">
       <!-- SIDEBAR -->
       <aside class="sidebar-main sidebar-success">
         <div class="sidebar-header">Menú</div>
         <ul class="sidebar-menu">
           <li><a href="#">Dashboard</a></li>
           <li><a href="#">Usuarios</a></li>
+            <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Usuarios</a></li>
+            <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Usuarios</a></li>
+            <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Usuarios</a></li>
+            <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Usuarios</a></li>
+            <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Usuarios</a></li>
+            <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Usuarios</a></li>
         </ul>
       </aside>
-
+      <button class="sidebar-toggle-btn">▶</button>
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
       <!-- CONTENIDO -->
       <main class="main-content">
         <!-- ALERTAS -->
@@ -48,7 +61,7 @@
             Tienes mensajes sin leer
             <span class="badge badge-pildora danger">5</span>
           </div>
-          <div class="alerta success ">Operación exitosa</div>
+          <div class="alerta success">Operación exitosa</div>
 
           <div class="alerta alerta-pildora warning">
             Advertencia tipo píldora
@@ -167,11 +180,35 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="main-footer">
-      <div class="container text-center">
-        <p>&copy; 2026 PersephoneCSS</p>
+   <footer class="main-footer main-footer-secondary">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <h3 class="footer-brand">PersephoneCSS</h3>
+        <p>Framework CSS personalizado con SASS. Diseño responsivo y elegante inspirado en peonías.</p>
       </div>
-    </footer>
+      <div class="col-12 col-md-4">
+        <h4>Navegación</h4>
+        <ul class="footer-links">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Componentes</a></li>
+          <li><a href="#">Utilidades</a></li>
+          <li><a href="#">Documentación</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-4">
+        <h4>Recursos</h4>
+        <ul class="footer-links">
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Changelog</a></li>
+          <li><a href="#">Licencia</a></li>
+          <li><a href="#">Soporte</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-copy">&copy; 2026 PersephoneCSS · Universidad de El Salvador FMO · HDP155</div>
+  </div>
+</footer>
 
     <script src="main.js"></script>
   </body>
