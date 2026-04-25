@@ -7,7 +7,6 @@ $estilos-navbar: ("base", "underline", "buttons", "dropdown");
 @each $nombre-color, $valor-color in v.$theme-colors {
   @each $estilo in $estilos-navbar {
 
-    // Reemplaza el if() en línea por un @if normal
     $sufijo-estilo: "navbar-#{$estilo}";
     @if $estilo == "base" {
       $sufijo-estilo: "navbar";

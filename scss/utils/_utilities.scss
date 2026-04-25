@@ -23,13 +23,9 @@
 
 @for $i from 1 through 3{
     .mt-#{$i}{margin-top: $i * 10px;}
-    .mt-#{$i}{margin-top: $i * 10px;}
     .mb-#{$i}{margin-bottom: $i * 10px;}
-    .mb-#{$i}{margin-bottom: $i * 10px;}
-    .pt-#{$i}{padding-top: $i * 10px;}
     .pt-#{$i}{padding-top: $i * 10px;}
     .pb-#{$i}{padding-bottom: $i * 10px}
-    .p-#{$i}{padding: $i * 10px;}
     .p-#{$i}{padding: $i * 10px;}
 }
 
@@ -52,9 +48,10 @@
 
 //BORDES 
 
-.br-1{border-radius: 5px;}
-.br-2{border-radius: 10px;}
-.br-3{border-radius: 15px;}
+@for $i from 1 through 3 {
+  .br-#{$i} { border-radius: $i * 5px; }
+}
+.rounded { border-radius: 50px; }
 .rounded{border-radius: 50px;}
 
 //SOMBRAS 
