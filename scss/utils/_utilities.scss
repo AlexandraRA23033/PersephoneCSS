@@ -22,11 +22,17 @@
 //ESPACIADOS GENERADOS CON FOR
 
 @for $i from 1 through 3{
+    .mg-#{$i}{margin: $i * 10px;}
     .mt-#{$i}{margin-top: $i * 10px;}
     .mb-#{$i}{margin-bottom: $i * 10px;}
+    .ml-#{$i}{margin-left: $i * 10px;}
+    .mr-#{$i}{margin-right: $i * 10px;}
     .pt-#{$i}{padding-top: $i * 10px;}
     .pb-#{$i}{padding-bottom: $i * 10px}
+    .pl-#{$i}{padding-left: $i * 10px;}
+    .pr-#{$i}{padding-right: $i * 10px;}
     .p-#{$i}{padding: $i * 10px;}
+    .gap-#{$i}{gap: $i * 10px;}
 }
 
 //Colores en un solo @each
