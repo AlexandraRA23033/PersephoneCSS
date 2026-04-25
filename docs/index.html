@@ -48,7 +48,7 @@
             Tienes mensajes sin leer
             <span class="badge badge-pildora danger">5</span>
           </div>
-          <div class="alerta success ">Operación exitosa</div>
+          <div class="alerta success">Operación exitosa</div>
 
           <div class="alerta alerta-pildora warning">
             Advertencia tipo píldora
@@ -152,7 +152,70 @@
             Abrir Modal
           </button>
         </div>
+        <div class="container mt-3 mb-5 text-center">
+          <button class="btn-primary" data-modal-target="modalAlert">
+            eliminar registro
+          </button>
+        </div>
+        <div class="container mt-3 mb-5 text-center">
+          <button class="btn-primary" data-modal-target="modalForm">
+            Registrarse
+          </button>
+        </div>
       </main>
+    </div>
+
+    <!-- Modal -->
+    <div id="modalForm" class="modal modal-primary modal-lg">
+      <div class="modal-content">
+        <!-- HEADER -->
+        <div class="modal-header">
+          <h3>Crear cuenta</h3>
+          <button class="modal-close">&times;</button>
+        </div>
+
+        <!-- BODY -->
+        <div class="modal-body">
+          <form id="formRegistro">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input
+                type="text"
+                class="input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Correo</label>
+              <input
+                type="email"
+                class="input"
+                placeholder="correo@email.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Contraseña</label>
+              <input type="password" class="input" required />
+            </div>
+
+            <div class="form-group">
+              <label>Confirmar contraseña</label>
+              <input type="password" class="input" required />
+            </div>
+          </form>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="modal-footer">
+          <button class="btn btn-secondary btn-close-modal">Cancelar</button>
+
+          <button class="btn btn-primary" id="btnGuardar">Registrarse</button>
+        </div>
+      </div>
     </div>
 
     <!-- MODAL -->
@@ -162,7 +225,25 @@
           <h3>Modal</h3>
           <button class="modal-close">✕</button>
         </div>
-        <div class="modal-body">Contenido del modal</div>
+        <div class="modal-body">Contenido del modal no pos</div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div id="modalAlert" class="modal modal-alert modal-danger">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>¿Eliminar registro?</h3>
+          <button class="modal-close">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <p>Esta acción no se puede deshacer.</p>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary btn-close-modal">Cancelar</button>
+          <button class="btn btn-danger">Eliminar</button>
+        </div>
       </div>
     </div>
 
