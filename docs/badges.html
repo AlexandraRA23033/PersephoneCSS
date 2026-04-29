@@ -1,0 +1,348 @@
+<!doctype html>
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Badges — PersephoneCSS Docs</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body>
+    <nav class="navbar--dark">
+      <span class="fw-bold fs-3">✿ PersephoneCSS</span>
+      <button class="nav-toggle" aria-label="Menú">☰</button>
+      <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="introduccion.html" class="active">Documentación</a></li>
+        <li><a href="colaboradoras.html">Colaboradoras</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="main-wrapper has-navbar">
+
+      <aside class="sidebar-main sidebar-secondary" id="sidebar">
+        <div class="sidebar-header">📖 Documentación</div>
+        <ul class="sidebar-menu">
+          <li><a href="introduccion.html">Introducción</a></li>
+          <li><a href="#instalacion">Instalación</a></li>
+          <li><a href="#estructura">Estructura del proyecto</a></li>
+          <li><a href="#paleta">Paleta de colores</a></li>
+          <li><a href="#inicio-rapido">Inicio rápido</a></li>
+
+          <div class="sidebar-header">Layout</div>
+          <li><a href="#contenedores">Contenedores</a></li>
+          <li><a href="#grid">Sistema Grid</a></li>
+          <li><a href="#breakpoints">Breakpoints</a></li>
+
+          <div class="sidebar-header">Componentes</div>
+          <li><a href="botones.html">Botones</a></li>
+          <li><a href="cards.html">Cards</a></li>
+          <li><a href="alertas.html">Alertas</a></li>
+          <li><a href="badges.html">Badges</a></li>
+          <li><a href="#navbar-doc">Navbar</a></li>
+          <li><a href="#sidebar-doc">Sidebar</a></li>
+          <li><a href="#tablas">Tablas</a></li>
+          <li><a href="formularios.html">Formularios</a></li>
+          <li><a href="#modales">Modales</a></li>
+
+           <div class="sidebar-header">Utilidades</div>
+          <li><a href="utils.html">Tipografía</a></li>
+          <li><a href="utils.html">Espaciado</a></li>
+          <li><a href="utils.html">Colores</a></li>
+          <li><a href="utils.html">Flexbox</a></li>
+          <li><a href="utils.html">Display</a></li>
+          <li><a href="utils.html">Bordes &amp; Sombras</a></li>
+        </ul>
+      </aside>
+
+      <button class="sidebar-toggle-btn" id="sidebarToggle">☰</button>
+
+      <main class="main-content">
+        <!-- HERO -->
+        <section class="bg-primary p-1 text-center">
+          <div class="container">
+            <span class="badge badge-pildora bg-dark text-light">
+              components / badges
+            </span>
+            <h1 class="fs-1 text-dark mt-2 mb-2">Badges</h1>
+            <p class="text-dark">
+              Alertas y badges comparten el mismo archivo
+              <code>_alerts.scss</code> y los mismos mixins.
+              Ambos se generan con <code>@each</code> sobre
+              <code>$theme-colors</code> y se diferencian por los parámetros
+              <code>$pildora</code> y <code>$es-badge</code>.
+            </p>
+          </div>
+        </section>
+
+        <div class="container">
+
+          <section class="p-3" id="badges">
+            <h2 class="fs-2 text-dark mb-1">Badge — <code>.badge.{color}</code></h2>
+            <p class="text-muted mb-3">
+              Etiquetas compactas con <code>font-size: 0.75rem</code> y
+              <code>padding: 0.25em 0.6em</code>. A diferencia de las alertas,
+              los badges usan fondo sólido con contraste automático de texto
+              (oscuro o claro según el color).
+            </p>
+
+            <div class="card">
+              <div class="card-body">
+                <span class="badge primary mb-1">primary</span>
+                <span class="badge secondary mb-1">secondary</span>
+                <span class="badge success mb-1">success</span>
+                <span class="badge info mb-1">info</span>
+                <span class="badge warning mb-1">warning</span>
+                <span class="badge danger mb-1">danger</span>
+                <span class="badge alert mb-1">alert</span>
+                <span class="badge light mb-1">light</span>
+                <span class="badge dark mb-1">dark</span>
+                <span class="badge accent mb-1">accent</span>
+                <span class="badge muted mb-1">muted</span>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">Badge base</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>
+&lt;!-- .badge + .#{color} --&gt;
+
+&lt;span class="badge primary "&gt;primary&lt;/span&gt;
+&lt;span class="badge secondary "&gt;secondary&lt;/span&gt;
+&lt;span class="badge success "&gt;success&lt;/span&gt;
+&lt;span class="badge info "&gt;info&lt;/span&gt;
+&lt;span class="badge warning "&gt;warning&lt;/span&gt;
+&lt;span class="badge danger "&gt;danger&lt;/span&gt;
+&lt;span class="badge alert "&gt;alert&lt;/span&gt;
+&lt;span class="badge light "&gt;light&lt;/span&gt;
+&lt;span class="badge dark "&gt;dark&lt;/span&gt;
+&lt;span class="badge accent "&gt;accent&lt;/span&gt;
+&lt;span class="badge muted "&gt;muted&lt;/span&gt;
+                </code></pre>
+              </div>
+            </div>
+          </section>
+
+          <section class="p-3">
+            <h2 class="fs-2 text-dark mb-1">
+              Badge píldora — <code>.badge-pildora.{color}</code>
+            </h2>
+            <p class="text-muted mb-3">
+              Igual que <code>.badge</code> pero con
+              <code>border-radius: 50px</code>. Generado con
+              <code>$pildora: true, $es-badge: true</code>.
+            </p>
+
+            <div class="card">
+              <div class="card-body">
+                <span class="badge badge-pildora primary mb-1">primary</span>
+                <span class="badge badge-pildora secondary mb-1">secondary</span>
+                <span class="badge badge-pildora success mb-1">success</span>
+                <span class="badge badge-pildora info mb-1">info</span>
+                <span class="badge badge-pildora warning mb-1">warning</span>
+                <span class="badge badge-pildora danger mb-1">danger</span>
+                <span class="badge badge-pildora alert mb-1">alert</span>
+                <span class="badge badge-pildora light mb-1">light</span>
+                <span class="badge badge-pildora dark mb-1">dark</span>
+                <span class="badge badge-pildora accent mb-1">accent</span>
+                <span class="badge badge-pildora muted mb-1">muted</span>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">Badge píldora</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>
+&lt;!--.badge + .badge-pildora + .{color} + --&gt;
+
+&lt;span class="badge badge-pildora primary "&gt;primary&lt;/span&gt;
+&lt;span class="badge badge-pildora secondary "&gt;secondary&lt;/span&gt;
+&lt;span class="badge badge-pildora success "&gt;success&lt;/span&gt;
+&lt;span class="badge badge-pildora info "&gt;info&lt;/span&gt;
+&lt;span class="badge badge-pildora warning "&gt;warning&lt;/span&gt;
+&lt;span class="badge badge-pildora danger "&gt;danger&lt;/span&gt;
+&lt;span class="badge badge-pildora alert "&gt;alert&lt;/span&gt;
+&lt;span class="badge badge-pildora light "&gt;light&lt;/span&gt;
+&lt;span class="badge badge-pildora dark "&gt;dark&lt;/span&gt;
+&lt;span class="badge badge-pildora accent "&gt;accent&lt;/span&gt;
+&lt;span class="badgebadge-pildora  muted "&gt;muted&lt;/span&gt;
+
+                </code></pre>
+              </div>
+            </div>
+          </section>
+
+          <section class="p-3">
+            <h2 class="fs-2 text-dark mb-1">
+              Referencia SCSS — <code>_alerts.scss</code>
+            </h2>
+            <p class="text-muted mb-3">
+              Alertas y badges viven en el mismo archivo y comparten los mismos
+              dos mixins. La diferencia entre uno y otro la controlan los
+              parámetros <code>$pildora</code> y <code>$es-badge</code>.
+            </p>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">_alerts.scss</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+// Alertas
+.alerta {
+  @include m.alertas-badges($pildora: false, $es-badge: false);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.alerta-pildora {
+  @include m.alertas-badges($pildora: true, $es-badge: false);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+// Badges
+.badge {
+  @include m.alertas-badges($pildora: false, $es-badge: true);
+}
+
+.badge-pildora {
+  @include m.alertas-badges($pildora: true, $es-badge: true);
+}
+
+// Genera colores para los 11 tokens del tema
+@each $nombre, $color in v.$theme-colors {
+  .#{$nombre} {
+    @include m.alerta-badges-color($color);
+  }
+}
+
+// Botón de cierre (solo alertas)
+.alerta {
+  position: relative;
+
+  .alerta-close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    opacity: 0.6;
+    color: inherit;
+    padding: 0;
+
+    &:hover { opacity: 1; }
+  }
+}
+                </code></pre>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">@mixin alertas-badges() — _mixins.scss</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>
+@mixin alertas-badges($pildora: false, $es-badge: false) {
+  display: inline-block;
+  border: 1px solid transparent;
+  font-weight: 500;
+  line-height: 1;
+
+  @if $pildora {
+    border-radius: 50px;   // píldora
+  } @else {
+    border-radius: 4px;    // base
+  }
+
+  @if $es-badge {
+    font-size: 0.75rem;
+    padding: 0.25em 0.6em;
+    vertical-align: middle;
+  } @else {
+    padding: 0.5em 1em;    // alerta
+  }
+}
+
+@mixin alerta-badges-color($color) {
+  &.alerta {
+    background-color: rgba($color, 0.15);
+    border-color: rgba($color, 0.3);
+    color: $color;
+  }
+
+  &.badge {
+    background-color: $color;
+    border-color: $color;
+    color: $texto-final; // oscuro o claro según lista de contraste
+  }
+}
+                </code></pre>
+              </div>
+            </div>
+
+            <div class="table-container mt-2">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Clase</th>
+                    <th>Border-radius</th>
+                    <th>Fondo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr>
+                    <td><code>.badge</code></td>
+                    <td>4px</td>
+                    <td>sólido</td>
+                  </tr>
+                  <tr>
+                    <td><code>.badge-pildora</code></td>
+                    <td>50px</td>
+                    <td>sólido</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="main-footer main-footer-dark">
+          <div class="footer-content">
+            <p class="fw-bold text-accent mb-1">
+              ✿ PersephoneCSS <span class="badge muted">v3.0.0</span>
+            </p>
+            <p class="mb-2">
+              Juliana Torres &amp; Fabiola Romero — Herramientas de
+              Productividad, UES FMO · Ciclo I 2026
+            </p>
+          </div>
+          <p class="footer-copy">
+            © 2026 PersephoneCSS. Construido con su propio framework.
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
