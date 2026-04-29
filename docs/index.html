@@ -20,7 +20,7 @@
 
   <section class="bg-primary p-3 ">
     <div class="container text-center ">
-      <span class="badge dark">v3.0.0 — Mobile First</span>
+      <span class="badge dark">v4.0.0 — Mobile First</span>
       <h1 class="fs-1 fw-bold mt-1">PersephoneCSS</h1>
       <p class="mt-1">Un framework CSS modular inspirado en peonias. Construido con SASS, diseñado con intención, listo para producción.</p>
       <div class="d-flex f-wrap mt-2 j-cont-cent gap-1">
@@ -93,12 +93,12 @@ cd PersephoneCSS</code></pre>
         </div>
       </div>
       <div class="card shadow-sm mb-2">
-        <div class="card-header bg-secondary text-light">
+        <div class="card-header card-secondary">
           <span class="fw-bold">Vincula los archivos en tu HTML</span>
         </div>
         <div class="card-body">
           <pre class="font-mono"><code>&lt;head&gt;
-  &lt;link rel="stylesheet" href="main.css"/&gt;
+  &lt;link rel="stylesheet" href="../css/main.css"/&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;!-- Tu contenido --&gt;
@@ -206,7 +206,7 @@ cd PersephoneCSS</code></pre>
       </div>
     </div>
     <div class="card shadow-sm">
-      <div class="card-header bg-dark text-light">
+      <div class="card-header card-dark">
         <span class="fw-bold font-mono">_variables.scss</span>
       </div>
       <div class="card-body">
@@ -232,7 +232,7 @@ cd PersephoneCSS</code></pre>
       <h2 class="fs-2 fw-bold mb-1">Arquitectura SASS</h2>
       <p class="mb-2">El framework está estructurado en parciales con separación de responsabilidades. <code>main.scss</code> importa todos los módulos con <code>@use</code> y <code>@forward</code>.</p>
       <div class="card shadow-sm mb-2">
-        <div class="card-header bg-dark text-light">
+        <div class="card-header card-dark">
           <span class="fw-bold font-mono">Árbol de parciales</span>
         </div>
         <div class="card-body">
@@ -257,7 +257,7 @@ cd PersephoneCSS</code></pre>
         <strong>Modularidad SASS en práctica:</strong> Un solo <code>@each</code> sobre <code>$theme-colors</code> genera las clases de todos los componentes sin repetir código.
       </div>
       <div class="card shadow-sm">
-        <div class="card-header bg-dark text-light">
+        <div class="card-header card-dark">
           <span class="fw-bold font-mono">Ejemplo — _botones.scss</span>
         </div>
         <div class="card-body">
@@ -285,7 +285,7 @@ cd PersephoneCSS</code></pre>
     <div class="row">
       <div class="col-12 col-md-6 mb-2">
         <div class="card shadow-sm">
-          <div class="card-header bg-dark text-light">
+          <div class="card-header card-dark">
             <span class="fw-bold font-mono">Toggle Navbar</span>
           </div>
           <div class="card-body">
@@ -303,7 +303,7 @@ navToggle.addEventListener("click", () => {
       </div>
       <div class="col-12 col-md-6 mb-2">
         <div class="card shadow-sm">
-          <div class="card-header bg-dark text-light">
+          <div class="card-header card-dark">
             <span class="fw-bold font-mono">Apertura de modales</span>
           </div>
           <div class="card-body">
@@ -324,7 +324,7 @@ openBtns.forEach((btn) => {
       </div>
       <div class="col-12 mb-2">
         <div class="card shadow-sm">
-          <div class="card-header bg-dark text-light">
+          <div class="card-header card-dark">
             <span class="fw-bold font-mono">Cierre de alertas</span>
           </div>
           <div class="card-body">
@@ -343,12 +343,19 @@ document.addEventListener("click", (e) => {
   </section>
 
   <footer class="main-footer main-footer-dark">
-    <div class="footer-content">
-      <p class="fw-bold text-accent mb-1">✿ PersephoneCSS <span class="badge muted">v4.0.0</span></p>
-      <p class="mb-2">Juliana Torres &amp; Fabiola Romero — Herramientas de Productividad, UES FMO · Ciclo I 2026</p>
-    </div>
-    <p class="footer-copy">© 2026 PersephoneCSS. Construido con su propio framework.</p>
-  </footer>
+          <div class="footer-content">
+            <p class="fw-bold text-accent mb-1">
+              ✿ PersephoneCSS <span class="badge muted">v4.0.0</span>
+            </p>
+            <p class="mb-2">
+              Juliana Torres &amp; Fabiola Romero — Herramientas de
+              Productividad, UES FMO · Ciclo I 2026
+            </p>
+          </div>
+          <p class="footer-copy">
+            © 2026 PersephoneCSS. Construido con su propio framework.
+          </p>
+        </footer>
 
   <script src="main.js"></script>
 </body>
