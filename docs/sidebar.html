@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PersephoneCSS — Sidebar</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body>
+    <nav class="navbar--dark">
+      <span class="fw-bold fs-3">✿ PersephoneCSS</span>
+      <button class="nav-toggle" aria-label="Menú">☰</button>
+      <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="introduccion.html" class="active">Documentación</a></li>
+        <li><a href="colaboradoras.html">Colaboradoras</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="main-wrapper has-navbar">
+      <aside class="sidebar-main sidebar-secondary" id="sidebar">
+      <div class="sidebar-header">📖 Documentación</div>
+      <ul class="sidebar-menu">
+        <li><a href="#introduccion" class="active">Introducción</a></li>
+        <li><a href="#instalacion">Instalación</a></li>
+        <li><a href="#estructura">Estructura del proyecto</a></li>
+        <li><a href="#paleta">Paleta de colores</a></li>
+        <li><a href="#inicio-rapido">Inicio rápido</a></li>
+
+        <div class="sidebar-header">Layout</div>
+        <li><a href="contenedores.html">Contenedores</a></li>
+        <li><a href="grid.html">Sistema Grid</a></li>
+        <li><a href="breakpoints.html">Breakpoints</a></li>
+
+        <div class="sidebar-header">Componentes</div>
+        <li><a href="botones.html">Botones</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="alertas.html">Alertas</a></li>
+        <li><a href="badges.html">Badges</a></li>
+        <li><a href="navbar.html">Navbar</a></li>
+        <li><a href="sidebar.html" class="active">Sidebar</a></li>
+        <li><a href="tablas.html">Tablas</a></li>
+        <li><a href="formularios.html">Formularios</a></li>
+        <li><a href="modales.html">Modales</a></li>
+
+        <div class="sidebar-header">Utilidades</div>
+        <li><a href="utils.html">Tipografía</a></li>
+        <li><a href="utils.html">Espaciado</a></li>
+        <li><a href="utils.html">Colores</a></li>
+        <li><a href="utils.html">Flexbox</a></li>
+        <li><a href="utils.html">Display</a></li>
+        <li><a href="utils.html">Bordes &amp; Sombras</a></li>
+      </ul>
+    </aside>
+      <button class="sidebar-toggle-btn" id="sidebarToggle">&#9776;</button>
+      <main class="main-content">
+        <section class="bg-primary p-3">
+          <div class="container">
+            <span class="badge dark">Componentes</span>
+            <h1 class="fs-1 fw-bold mt-1">Sidebar</h1>
+            <p class="mt-1">
+              Panel lateral fijo con soporte para toggle en móvil y overlay.
+              Generado en 11 variantes de color mediante
+              <code>@each</code> sobre <code>$theme-colors</code>.
+            </p>
+          </div>
+        </section>
+
+        <div class="container p-3">
+          <section id="como-funciona">
+            <h2 class="fs-2 fw-bold mb-1">¿Cómo funciona?</h2>
+            <p class="mb-1">
+              El sidebar siempre usa dos clases juntas:
+              <code>.sidebar-main</code> define la estructura base
+              (posicionamiento, ancho 250px, scroll) y
+              <code>.sidebar-{color}</code> aplica el color de fondo, texto y
+              estados de los enlaces.
+            </p>
+            <p class="mb-1">
+              En móvil el sidebar se oculta con
+              <code>transform: translateX(-100%)</code> y el botón
+              <code>.sidebar-toggle-btn</code> lo abre añadiendo
+              <code>.is-open</code> vía JavaScript. Un
+              <code>.sidebar-overlay</code> cubre el contenido de fondo mientras
+              está abierto.
+            </p>
+
+            <div class="warning alerta mt-1" role="alert">
+              <div>
+                El sidebar usa <code>position: fixed</code> en todos los tamaños
+                de pantalla. El <code>.main-content</code> tiene un
+                <code>margin-left: 250px</code> automático desde el breakpoint
+                <code>md</code> para compensarlo.
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="elementos">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">Elementos del sidebar</h2>
+            <p class="mb-2">
+              Todos los elementos que componen el sidebar y su función.
+            </p>
+
+            <div class="table-container mb-2">
+              <table class="table table-bordered table-oscura-secondary">
+                <thead>
+                  <tr>
+                    <th>Clase</th>
+                    <th>Elemento</th>
+                    <th>Descripción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>.sidebar-main</code></td>
+                    <td><code>&lt;aside&gt;</code></td>
+                    <td>
+                      Estructura base: posición fixed, ancho 250px, scroll
+                      vertical
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>.sidebar-{color}</code></td>
+                    <td><code>&lt;aside&gt;</code></td>
+                    <td>
+                      Variante de color: fondo, texto, hover y estado activo
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>.sidebar-header</code></td>
+                    <td><code>&lt;div&gt;</code></td>
+                    <td>Encabezado de sección dentro del sidebar</td>
+                  </tr>
+                  <tr>
+                    <td><code>.sidebar-menu</code></td>
+                    <td><code>&lt;ul&gt;</code></td>
+                    <td>Lista de enlaces de navegación</td>
+                  </tr>
+                  <tr>
+                    <td><code>.active</code></td>
+                    <td><code>&lt;a&gt;</code></td>
+                    <td>Resalta el enlace de la página actual</td>
+                  </tr>
+                  <tr>
+                    <td><code>.sidebar-toggle-btn</code></td>
+                    <td><code>&lt;button&gt;</code></td>
+                    <td>
+                      Botón que abre el sidebar en móvil, siempre visible en
+                      mobile
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>.sidebar-overlay</code></td>
+                    <td><code>&lt;div&gt;</code></td>
+                    <td>
+                      Fondo oscuro semitransparente al abrir el sidebar en móvil
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>.main-wrapper</code></td>
+                    <td><code>&lt;div&gt;</code></td>
+                    <td>
+                      Contenedor flex que agrupa sidebar y contenido principal
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>.main-wrapper.has-navbar</code></td>
+                    <td><code>&lt;div&gt;</code></td>
+                    <td>Ajusta el margen superior cuando hay navbar fija</td>
+                  </tr>
+                  <tr>
+                    <td><code>.main-content</code></td>
+                    <td><code>&lt;main&gt;</code></td>
+                    <td>
+                      Área de contenido. Recibe
+                      <code>margin-left: 250px</code> en md+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="estructura">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">Estructura HTML</h2>
+            <p class="mb-2">
+              Plantilla completa con todos los elementos necesarios para que el
+              sidebar funcione con navbar y toggle móvil.
+            </p>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">HTML — Plantilla completa</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>&lt;!-- Overlay para móvil --&gt;
+&lt;div class="sidebar-overlay" id="sidebarOverlay"&gt;&lt;/div&gt;
+ 
+&lt;div class="main-wrapper has-navbar"&gt;
+ 
+  &lt;!-- Sidebar --&gt;
+  &lt;aside class="sidebar-main sidebar-secondary" id="sidebar"&gt;
+    &lt;div class="sidebar-header"&gt;📖 Menú&lt;/div&gt;
+    &lt;ul class="sidebar-menu"&gt;
+      &lt;li&gt;&lt;a href="#" class="active"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Sección 1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Sección 2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+ 
+    &lt;div class="sidebar-header"&gt;Otro grupo&lt;/div&gt;
+    &lt;ul class="sidebar-menu"&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Sección 3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/aside&gt;
+ 
+  &lt;!-- Botón toggle (visible solo en móvil) --&gt;
+  &lt;button class="sidebar-toggle-btn" id="sidebarToggle"&gt;&amp;#9776;&lt;/button&gt;
+ 
+  &lt;!-- Contenido principal --&gt;
+  &lt;main class="main-content"&gt;
+    &lt;div class="container"&gt;
+      &lt;h1&gt;Contenido&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+ 
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+
+            <div class="info alerta" role="alert">
+              <div>
+                Los <code>id="sidebar"</code> y
+                <code>id="sidebarOverlay"</code> son requeridos por el
+                JavaScript del framework para que el toggle y el cierre por
+                overlay funcionen.
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="variantes">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Variantes de color — <code>.sidebar-{color}</code>
+            </h2>
+            <p class="mb-2">
+              Las 11 variantes se generan con <code>@each</code> sobre
+              <code>$theme-colors</code>. Siempre se combinan con
+              <code>.sidebar-main</code>.
+            </p>
+
+
+            <div class="d-flex j-cont-cent">
+              <img src="../img/sidebar.png" alt="sidebar" class="br-2 shadow-sm mt-2 mb-2"/>
+            </div>
+            <div class="card shadow-sm">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">HTML — Cambiar el color</span>
+              </div>
+              <div class="card-body">
+                <pre
+                  class="font-mono"
+                ><code>&lt;aside class="sidebar-main sidebar-primary"&gt;...&lt;/aside&gt;
+&lt;aside class="sidebar-main sidebar-dark"&gt;...&lt;/aside&gt;
+&lt;aside class="sidebar-main sidebar-accent"&gt;...&lt;/aside&gt;
+&lt;!-- disponible para los 11 colores del tema --&gt;</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="resumen">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">Resumen de variantes</h2>
+            <p class="mb-2">
+              Las 11 clases de color disponibles para combinar con
+              <code>.sidebar-main</code>.
+            </p>
+
+            <div class="table-container">
+              <table class="table table-bordered table-oscura-secondary">
+                <thead>
+                  <tr>
+                    <th>Color</th>
+                    <th>Clase completa</th>
+                    <th>Token</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="primary badge">primary</span></td>
+                    <td><code>.sidebar-main .sidebar-primary</code></td>
+                    <td><code>$primary — #BB8588</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="secondary badge">secondary</span></td>
+                    <td><code>.sidebar-main .sidebar-secondary</code></td>
+                    <td><code>$secondary — #4E5748</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="success badge">success</span></td>
+                    <td><code>.sidebar-main .sidebar-success</code></td>
+                    <td><code>$success — #6E8F6B</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="info badge">info</span></td>
+                    <td><code>.sidebar-main .sidebar-info</code></td>
+                    <td><code>$info — #7FA6A0</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="warning badge">warning</span></td>
+                    <td><code>.sidebar-main .sidebar-warning</code></td>
+                    <td><code>$warning — #D1A85C</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="danger badge">danger</span></td>
+                    <td><code>.sidebar-main .sidebar-danger</code></td>
+                    <td><code>$danger — #D36B6B</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="alert badge">alert</span></td>
+                    <td><code>.sidebar-main .sidebar-alert</code></td>
+                    <td><code>$alert — #E85C5C</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="light badge">light</span></td>
+                    <td><code>.sidebar-main .sidebar-light</code></td>
+                    <td><code>$light — #EFEBCE</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="dark badge">dark</span></td>
+                    <td><code>.sidebar-main .sidebar-dark</code></td>
+                    <td><code>$dark — #2F332B</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="accent badge">accent</span></td>
+                    <td><code>.sidebar-main .sidebar-accent</code></td>
+                    <td><code>$accent — #D8A39D</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="muted badge">muted</span></td>
+                    <td><code>.sidebar-main .sidebar-muted</code></td>
+                    <td><code>$muted — #B8B2A0</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -7,8 +7,6 @@
   <link rel="stylesheet" href="../css/main.css"/>
 </head>
 <body>
-
-  <!-- ═══ NAVBAR ═══ -->
   <nav class="navbar--dark">
     <span class="fw-bold fs-3">✿ PersephoneCSS</span>
     <button class="nav-toggle" aria-label="Menú">☰</button>
@@ -19,13 +17,10 @@
     </ul>
   </nav>
 
-  <!-- ═══ OVERLAY SIDEBAR MÓVIL ═══ -->
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-  <!-- ═══ WRAPPER ═══ -->
   <div class="main-wrapper has-navbar">
 
-    <!-- ═══ SIDEBAR ═══ -->
     <aside class="sidebar-main sidebar-secondary" id="sidebar">
       <div class="sidebar-header">📖 Documentación</div>
       <ul class="sidebar-menu">
@@ -61,16 +56,13 @@
       </ul>
     </aside>
 
-    <!-- ═══ SIDEBAR TOGGLE BTN MÓVIL ═══ -->
     <button class="sidebar-toggle-btn" id="sidebarToggle">&#9776;</button>
 
-    <!-- ═══ MAIN CONTENT ═══ -->
     <main class="main-content">
 
-      <!-- HERO -->
       <section class="bg-primary p-3">
         <div class="container">
-          <span class="badge dark">v3.0.0 — Mobile First</span>
+          <span class="badge dark">v4.0.0 — Mobile First</span>
           <h1 class="fs-1 fw-bold mt-1">Introducción</h1>
           <p class="mt-1">Guía completa de PersephoneCSS: instalación, arquitectura SASS, paleta de colores y componentes.</p>
         </div>
@@ -78,11 +70,10 @@
 
       <div class="container p-3">
 
-        <!-- ═══ INTRODUCCIÓN ═══ -->
         <section id="introduccion">
           <h2 class="fs-2 fw-bold mb-1">¿Qué es PersephoneCSS?</h2>
           <p class="mb-1">
-            <span class="primary badge">V3.0.0</span>
+            <span class="primary badge">V4.0.0</span>
             <span class="success badge">Estable</span>
           </p>
           <p class="mb-1">
@@ -100,7 +91,6 @@
 
         <hr/>
 
-        <!-- ═══ INSTALACIÓN ═══ -->
         <section id="instalacion">
           <h2 class="fs-2 fw-bold mt-2 mb-1">Instalación</h2>
           <p class="mb-1">Existen dos formas de agregar PersephoneCSS a tu proyecto:</p>
@@ -109,15 +99,15 @@
           <p class="mb-1">Descarga o clona el repositorio y vincula el archivo CSS compilado directamente en tu HTML. Es la opción más sencilla para comenzar.</p>
 
           <div class="card shadow-sm mb-2">
-            <div class="card-header bg-dark text-light">
+            <div class="card-header card-dark">
               <span class="fw-bold font-mono">HTML — Vinculación del CSS</span>
             </div>
             <div class="card-body">
               <pre class="font-mono"><code>&lt;!-- En el &lt;head&gt; de tu documento --&gt;
-&lt;link rel="stylesheet" href="path/to/main.css"/&gt;
+&lt;link rel="stylesheet" href="../css/main.css"/&gt;
 
 &lt;!-- Antes del cierre de &lt;/body&gt; (para modales, navbar y sidebar) --&gt;
-&lt;script src="path/to/main.js"&gt;&lt;/script&gt;</code></pre>
+&lt;script src="main.js"&gt;&lt;/script&gt;</code></pre>
             </div>
           </div>
 
@@ -125,7 +115,7 @@
           <p class="mb-1">Si deseas personalizar variables o extender el framework, necesitas <strong>Node.js</strong> y <strong>SASS</strong> instalados en tu entorno.</p>
 
           <div class="card shadow-sm mb-2">
-            <div class="card-header bg-dark text-light">
+            <div class="card-header card-dark">
               <span class="fw-bold font-mono">Bash — Compilación con SASS</span>
             </div>
             <div class="card-body">
@@ -158,7 +148,7 @@ sass --watch scss/main.scss:css/main.css</code></pre>
           <p class="mb-1">PersephoneCSS sigue una arquitectura SASS modular. Cada capa tiene una responsabilidad clara, lo que facilita el mantenimiento y la extensión del framework.</p>
 
           <div class="card shadow-sm mb-2">
-            <div class="card-header bg-dark text-light">
+            <div class="card-header card-dark">
               <span class="fw-bold font-mono">Árbol de directorios</span>
             </div>
             <div class="card-body">
@@ -192,7 +182,6 @@ sass --watch scss/main.scss:css/main.css</code></pre>
 
         <hr/>
 
-        <!-- ═══ PALETA DE COLORES ═══ -->
         <section id="paleta">
           <h2 class="fs-2 fw-bold mt-2 mb-1">Paleta de colores</h2>
           <p class="mb-2">PersephoneCSS utiliza nombres semánticos inspirados en la naturaleza. Cada color tiene una variable SASS y genera automáticamente variantes para botones, alertas, badges, cards, navbar y sidebar.</p>
@@ -314,13 +303,12 @@ sass --watch scss/main.scss:css/main.css</code></pre>
 
         <hr/>
 
-        <!-- ═══ INICIO RÁPIDO ═══ -->
         <section id="inicio-rapido">
           <h2 class="fs-2 fw-bold mt-2 mb-1">Inicio rápido</h2>
           <p class="mb-1">Con menos de 20 líneas de HTML ya puedes tener una página con navbar, sidebar y contenido responsivo funcionando.</p>
 
           <div class="card shadow-sm mb-2">
-            <div class="card-header bg-dark text-light">
+            <div class="card-header card-dark">
               <span class="fw-bold font-mono">HTML — Plantilla mínima</span>
             </div>
             <div class="card-body">
@@ -329,7 +317,7 @@ sass --watch scss/main.scss:css/main.css</code></pre>
 &lt;head&gt;
   &lt;meta charset="UTF-8"/&gt;
   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;
-  &lt;link rel="stylesheet" href="main.css"/&gt;
+  &lt;link rel="stylesheet" href="../css/main.css"/&gt;
 &lt;/head&gt;
 &lt;body&gt;
 
@@ -371,12 +359,11 @@ sass --watch scss/main.scss:css/main.css</code></pre>
             </div>
           </div>
         </section>
-      </div><!-- /container -->
+      </div>
 
-      <!-- ═══ FOOTER ═══ -->
       <footer class="main-footer main-footer-dark">
         <div class="footer-content">
-          <p class="fw-bold text-accent mb-1">✿ PersephoneCSS <span class="badge muted">v3.0.0</span></p>
+          <p class="fw-bold text-accent mb-1">✿ PersephoneCSS <span class="badge muted">v4.0.0</span></p>
           <p class="mb-2">Juliana Torres &amp; Fabiola Romero — Herramientas de Productividad, UES FMO · Ciclo I 2026</p>
           
         </div>
@@ -384,7 +371,7 @@ sass --watch scss/main.scss:css/main.css</code></pre>
       </footer>
 
     </main>
-  </div><!-- /main-wrapper -->
+  </div>
 
   <script src="main.js"></script>
 </body>

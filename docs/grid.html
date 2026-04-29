@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PersephoneCSS — Sistema Grid</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body>
+    <nav class="navbar--dark">
+      <span class="fw-bold fs-3">✿ PersephoneCSS</span>
+      <button class="nav-toggle" aria-label="Menú">☰</button>
+      <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="introduccion.html" class="active">Documentación</a></li>
+        <li><a href="colaboradoras.html">Colaboradoras</a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="main-wrapper has-navbar">
+      <aside class="sidebar-main sidebar-secondary" id="sidebar">
+      <div class="sidebar-header">📖 Documentación</div>
+      <ul class="sidebar-menu">
+        <li><a href="#introduccion">Introducción</a></li>
+        <li><a href="#instalacion">Instalación</a></li>
+        <li><a href="#estructura">Estructura del proyecto</a></li>
+        <li><a href="#paleta">Paleta de colores</a></li>
+        <li><a href="#inicio-rapido">Inicio rápido</a></li>
+
+        <div class="sidebar-header">Layout</div>
+        <li><a href="contenedores.html">Contenedores</a></li>
+        <li><a href="grid.html" class="active">Sistema Grid</a></li>
+        <li><a href="breakpoints.html">Breakpoints</a></li>
+
+        <div class="sidebar-header">Componentes</div>
+        <li><a href="botones.html">Botones</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="alertas.html">Alertas</a></li>
+        <li><a href="badges.html">Badges</a></li>
+        <li><a href="navbar.html">Navbar</a></li>
+        <li><a href="sidebar.html">Sidebar</a></li>
+        <li><a href="tablas.html">Tablas</a></li>
+        <li><a href="formularios.html">Formularios</a></li>
+        <li><a href="modales.html">Modales</a></li>
+
+        <div class="sidebar-header">Utilidades</div>
+        <li><a href="utils.html">Tipografía</a></li>
+        <li><a href="utils.html">Espaciado</a></li>
+        <li><a href="utils.html">Colores</a></li>
+        <li><a href="utils.html">Flexbox</a></li>
+        <li><a href="utils.html">Display</a></li>
+        <li><a href="utils.html">Bordes &amp; Sombras</a></li>
+      </ul>
+    </aside>
+      <button class="sidebar-toggle-btn" id="sidebarToggle">&#9776;</button>
+
+      <main class="main-content">
+        <section class="bg-primary p-3">
+          <div class="container">
+            <span class="badge dark">Layout</span>
+            <h1 class="fs-1 fw-bold mt-1">Sistema Grid</h1>
+            <p class="mt-1">
+              Sistema de rejilla de 12 columnas construido con Flexbox y SASS.
+              Mobile First: las columnas apilan en móvil y se distribuyen
+              horizontalmente en pantallas más grandes.
+            </p>
+          </div>
+        </section>
+        <div class="container p-3">
+          <section id="como-funciona">
+            <h2 class="fs-2 fw-bold mb-1">¿Cómo funciona?</h2>
+            <p class="mb-1">
+              El grid de PersephoneCSS usa tres elementos clave que siempre van
+              juntos en ese orden:
+            </p>
+            <ul class="sidebar-menu mb-2">
+              <li>
+                <a href="#filas"
+                  ><code>.container</code> — envuelve y centra el contenido</a
+                >
+              </li>
+              <li>
+                <a href="#filas"
+                  ><code>.row</code> — crea la fila flex con gutter negativo</a
+                >
+              </li>
+              <li>
+                <a href="#columnas"
+                  ><code>.col-{n}</code> — define el ancho de cada columna
+                  (1–12)</a
+                >
+              </li>
+            </ul>
+            <p class="mb-1">
+              Las columnas generadas con <code>@for</code> calculan su ancho con
+              la fórmula <code>(100% / 12) × n</code>. El gutter entre columnas
+              se controla con <code>padding-left</code> y
+              <code>padding-right</code> en cada columna, compensado con margen
+              negativo en <code>.row</code>.
+            </p>
+            <div class="info alerta mt-1" role="alert">
+              <div>
+                Las clases <code>.col-{n}</code> aplican en todos los tamaños.
+                Usa <code>.col-md-{n}</code> y <code>.col-lg-{n}</code> para
+                sobreescribir a partir de un breakpoint específico.
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section class="tabla-clases">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Clases del grid por breakpoint
+            </h2>
+            <p class="mb-2">
+              La tabla muestra qué clase usar según el tamaño objetivo y cómo se
+              comportan las columnas en cada breakpoint.
+            </p>
+            <div class="table-container mb-2">
+              <table class="table table-bordered table-oscura-secondary">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Extra small<br /><small>&lt; 768px</small></th>
+                    <th>Medium<br /><small>≥ 768px</small></th>
+                    <th>Large<br /><small>≥ 1024px</small></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Clase base</td>
+                    <td><code>.col-{n}</code></td>
+                    <td><code>.col-md-{n}</code></td>
+                    <td><code>.col-lg-{n}</code></td>
+                  </tr>
+                  <tr>
+                    <td>Columnas disponibles</td>
+                    <td>1 – 12</td>
+                    <td>1 – 12</td>
+                    <td>1 – 12</td>
+                  </tr>
+                  <tr>
+                    <td>Comportamiento sin clase del bp</td>
+                    <td>100% del ancho</td>
+                    <td>Hereda la clase anterior</td>
+                    <td>Hereda la clase anterior</td>
+                  </tr>
+                  <tr>
+                    <td>Generado con</td>
+                    <td><code>@for 1–12</code></td>
+                    <td><code>@include responsive(md)</code></td>
+                    <td><code>@include responsive(lg)</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <hr />
+
+          <section id="filas">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">.row</h2>
+            <p class="mb-2">
+              <code>.row</code> activa el contexto flex con
+              <code>flex-wrap: wrap</code> y aplica márgenes negativos laterales
+              para compensar el padding interno de las columnas y lograr que los
+              bordes queden alineados con el contenedor.
+            </p>
+
+            <div class="card shadow-sm">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">SCSS - _layout.scss</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>.row {
+display:flex;
+flex-wrap: wrap;
+margin-right: -($gutter/2);
+margin-left: -($gutter/2);
+}
+                    </code></pre>
+              </div>
+            </div>
+          </section>
+          <hr />
+
+          <section id="columnas">
+            <div class="card shadow-sm mb-2">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono"
+                  >SCSS — Base compartida de columnas</span
+                >
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>[class*="col-"] {
+  position: relative;
+  width: 100%;
+  padding-right: $gutter / 2;
+  padding-left:  $gutter / 2;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  min-width: 0;
+}
+ 
+// Generación automática con @for
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    $width: (100% * $i / 12);
+    flex: 0 0 $width;
+    max-width: $width;
+  }
+}</code></pre>
+              </div>
+            </div>
+          </section>
+          <hr />
+
+          <section id="ejemplo-basico">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Ejemplo básico — tres columnas iguales
+            </h2>
+            <p class="mb-2">
+              Tres columnas que ocupan 4/12 del ancho cada una (igual a un
+              tercio). En móvil apilan al 100%.
+            </p>
+
+            <div class="bg-light p-2 mb-1">
+              <div class="row">
+                <div class="col-12 col-md-4">
+                  <div class="card bg-primary p-1 text-center mb-1">
+                    <span class="font-mono">.col-12 .col-md-4</span>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="card bg-primary p-1 text-center mb-1">
+                    <span class="font-mono">.col-12 .col-md-4</span>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="card bg-primary p-1 text-center mb-1">
+                    <span class="font-mono">.col-12 .col-md-4</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">HTML</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>&lt;div class="row"&gt;
+  &lt;div class="col-12 col-md-4"&gt;Columna 1&lt;/div&gt;
+  &lt;div class="col-12 col-md-4"&gt;Columna 2&lt;/div&gt;
+  &lt;div class="col-12 col-md-4"&gt;Columna 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="anchuras-variables">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">Anchuras variables</h2>
+            <p class="mb-2">
+              Las columnas no tienen por qué ser iguales. Cualquier combinación
+              que sume 12 funcionará en la misma fila.
+            </p>
+
+            <p class="fw-bold mb-1">.col-md-8 + .col-md-4</p>
+            <div class="bg-light p-2 mb-2">
+              <div class="row">
+                <div class="col-12 col-md-8">
+                  <div class="card bg-secondary p-1 text-center mb-1">
+                    <span class="font-mono">.col-md-8</span>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="card bg-accent p-1 text-center mb-1">
+                    <span class="font-mono">.col-md-4</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="fw-bold mb-1">.col-md-6 + .col-md-6</p>
+            <div class="bg-light p-2 mb-2">
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <div class="card bg-secondary p-1 text-center mb-1">
+                    <span class="font-mono">.col-md-6</span>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="card bg-accent p-1 text-center mb-1">
+                    <span class="font-mono">.col-md-6</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="fw-bold mb-1">.col-md-3 + .col-md-6 + .col-md-3</p>
+            <div class="bg-light p-2 mb-2">
+              <div class="row">
+                <div class="col-12 col-md-3">
+                  <div class="card bg-secondary p-1 text-center mb-1">
+                    <span class="font-mono">.col-md-3</span>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="card bg-primary p-1 text-center mb-1">
+                    <span class="font-mono">.col-md-6</span>
+                  </div>
+                </div>
+                <div class="col-12 col-md-3">
+                  <div class="card bg-secondary p-1 text-center mb-1">
+                    <span class="font-mono">.col-md-3</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">HTML</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>&lt;!-- 8 + 4 --&gt;
+&lt;div class="row"&gt;
+  &lt;div class="col-12 col-md-8"&gt;Contenido principal&lt;/div&gt;
+  &lt;div class="col-12 col-md-4"&gt;Sidebar&lt;/div&gt;
+&lt;/div&gt;
+ 
+&lt;!-- 6 + 6 --&gt;
+&lt;div class="row"&gt;
+  &lt;div class="col-12 col-md-6"&gt;Mitad izquierda&lt;/div&gt;
+  &lt;div class="col-12 col-md-6"&gt;Mitad derecha&lt;/div&gt;
+&lt;/div&gt;
+ 
+&lt;!-- 3 + 6 + 3 --&gt;
+&lt;div class="row"&gt;
+  &lt;div class="col-12 col-md-3"&gt;Lateral&lt;/div&gt;
+  &lt;div class="col-12 col-md-6"&gt;Centro&lt;/div&gt;
+  &lt;div class="col-12 col-md-3"&gt;Lateral&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="tres-breakpoints">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Combinando los tres breakpoints
+            </h2>
+            <p class="mb-2">
+              Se pueden combinar <code>.col-{n}</code>,
+              <code>.col-md-{n}</code> y <code>.col-lg-{n}</code> en el mismo
+              elemento para un control total del layout en cada tamaño de
+              pantalla.
+            </p>
+
+            <div class="bg-light p-2 mb-1">
+              <div class="row">
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card bg-primary p-1 text-center mb-1">
+                    <span class="font-mono">12 / md-6 / lg-3</span>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card bg-primary p-1 text-center mb-1">
+                    <span class="font-mono">12 / md-6 / lg-3</span>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card bg-primary p-1 text-center mb-1">
+                    <span class="font-mono">12 / md-6 / lg-3</span>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card bg-primary p-1 text-center mb-1">
+                    <span class="font-mono">12 / md-6 / lg-3</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">HTML</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>&lt;div class="row"&gt;
+  &lt;div class="col-12 col-md-6 col-lg-3"&gt;Card 1&lt;/div&gt;
+  &lt;div class="col-12 col-md-6 col-lg-3"&gt;Card 2&lt;/div&gt;
+  &lt;div class="col-12 col-md-6 col-lg-3"&gt;Card 3&lt;/div&gt;
+  &lt;div class="col-12 col-md-6 col-lg-3"&gt;Card 4&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+
+            <div class="table-container">
+              <table class="table table-bordered table-oscura-secondary">
+                <thead>
+                  <tr>
+                    <th>Viewport</th>
+                    <th>Columnas por fila</th>
+                    <th>Clase activa</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt; 768px</td>
+                    <td>1 (apiladas)</td>
+                    <td><code>.col-12</code></td>
+                  </tr>
+                  <tr>
+                    <td>≥ 768px</td>
+                    <td>2 por fila</td>
+                    <td><code>.col-md-6</code></td>
+                  </tr>
+                  <tr>
+                    <td>≥ 1024px</td>
+                    <td>4 por fila</td>
+                    <td><code>.col-lg-3</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="referencia">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Referencia de anchos por columna
+            </h2>
+            <p class="mb-2">
+              Todos los valores que puede tomar <code>n</code> y el porcentaje
+              que representan sobre las 12 columnas.
+            </p>
+
+            <div class="table-container mb-2">
+              <table
+                class="table table-bordered table-striped table-oscura-primary"
+              >
+                <thead>
+                  <tr>
+                    <th>Clases</th>
+                    <th>Columnas</th>
+                    <th>Ancho (%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>.col-1 / .col-md-1 / .col-lg-1</code></td>
+                    <td>1 / 12</td>
+                    <td>8.33%</td>
+                  </tr>
+                  <tr>
+                    <td><code>.col-2 / .col-md-2 / .col-lg-2</code></td>
+                    <td>2 / 12</td>
+                    <td>16.66%</td>
+                  </tr>
+                  <tr>
+                    <td><code>.col-3 / .col-md-3 / .col-lg-3</code></td>
+                    <td>3 / 12</td>
+                    <td>25%</td>
+                  </tr>
+                  <tr>
+                    <td><code>.col-4 / .col-md-4 / .col-lg-4</code></td>
+                    <td>4 / 12</td>
+                    <td>33.33%</td>
+                  </tr>
+                  <tr>
+                    <td><code>.col-5 / .col-md-5 / .col-lg-5</code></td>
+                    <td>5 / 12</td>
+                    <td>41.66%</td>
+                  </tr>
+                  <tr>
+                    <td><code>.col-6 / .col-md-6 / .col-lg-6</code></td>
+                    <td>6 / 12</td>
+                    <td>50%</td>
+                  </tr>
+                  <tr>
+                    <td><code>.col-7 / .col-md-7 / .col-lg-7</code></td>
+                    <td>7 / 12</td>
+                    <td>58.33%</td>
+                  </tr>
+                  <tr>
+                    <td><code>.col-8 / .col-md-8 / .col-lg-8</code></td>
+                    <td>8 / 12</td>
+                    <td>66.66%</td>
+                  </tr>
+                  <tr>
+                    <td><code>.col-9 / .col-md-9 / .col-lg-9</code></td>
+                    <td>9 / 12</td>
+                    <td>75%</td>
+                  </tr>
+                  <tr>
+                    <td><code>.col-10 / .col-md-10 / .col-lg-10</code></td>
+                    <td>10 / 12</td>
+                    <td>83.33%</td>
+                  </tr>
+                  <tr>
+                    <td><code>.col-11 / .col-md-11 / .col-lg-11</code></td>
+                    <td>11 / 12</td>
+                    <td>91.66%</td>
+                  </tr>
+                  <tr>
+                    <td><code>.col-12 / .col-md-12 / .col-lg-12</code></td>
+                    <td>12 / 12</td>
+                    <td>100%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="warning alerta" role="alert">
+              <div>
+                Las columnas de una fila deben sumar 12. Si la suma supera 12,
+                las columnas restantes saltan a la siguiente fila gracias a
+                <code>flex-wrap: wrap</code>.
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <footer class="main-footer main-footer-dark">
+          <div class="footer-content">
+            <p class="fw-bold text-accent mb-1">
+              ✿ PersephoneCSS <span class="badge muted">v4.0.0</span>
+            </p>
+            <p class="mb-2">
+              Juliana Torres &amp; Fabiola Romero — Herramientas de
+              Productividad, UES FMO · Ciclo I 2026
+            </p>
+          </div>
+          <p class="footer-copy">
+            © 2026 PersephoneCSS. Construido con su propio framework.
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
