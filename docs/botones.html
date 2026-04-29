@@ -1,0 +1,461 @@
+<!doctype html>
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Botones — PersephoneCSS Docs</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+
+    <nav class="navbar--dark">
+      <span class="fw-bold fs-3">✿ PersephoneCSS</span>
+      <button class="nav-toggle" aria-label="Menú">☰</button>
+      <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="introduccion.html" class="active">Documentación</a></li>
+        <li><a href="colaboradoras.html">Colaboradoras</a></li>
+      </ul>
+    </nav>
+
+    <!-- OVERLAY -->
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="main-wrapper has-navbar">
+      <!-- SIDEBAR -->
+
+      <aside class="sidebar-main sidebar-secondary" id="sidebar">
+        <div class="sidebar-header">📖 Documentación</div>
+        <ul class="sidebar-menu">
+          <li><a href="#introduccion" class="active">Introducción</a></li>
+          <li><a href="#instalacion">Instalación</a></li>
+          <li><a href="#estructura">Estructura del proyecto</a></li>
+          <li><a href="#paleta">Paleta de colores</a></li>
+          <li><a href="#inicio-rapido">Inicio rápido</a></li>
+
+          <div class="sidebar-header">Layout</div>
+          <li><a href="contenedores.html">Contenedores</a></li>
+          <li><a href="grid.html">Sistema Grid</a></li>
+          <li><a href="breakpoints.html">Breakpoints</a></li>
+
+          <div class="sidebar-header">Componentes</div>
+          <li><a href="botones.html">Botones</a></li>
+          <li><a href="cards.html">Cards</a></li>
+          <li><a href="alertas.html">Alertas</a></li>
+          <li><a href="badges.html">Badges</a></li>
+          <li><a href="navbar.html">Navbar</a></li>
+          <li><a href="sidebar.html">Sidebar</a></li>
+          <li><a href="tablas.html">Tablas</a></li>
+          <li><a href="formularios.html">Formularios</a></li>
+          <li><a href="modales.html">Modales</a></li>
+
+          <div class="sidebar-header">Utilidades</div>
+          <li><a href="utils.html">Tipografía</a></li>
+          <li><a href="utils.html">Espaciado</a></li>
+          <li><a href="utils.html">Colores</a></li>
+          <li><a href="utils.html">Flexbox</a></li>
+          <li><a href="utils.html">Display</a></li>
+          <li><a href="utils.html">Bordes &amp; Sombras</a></li>
+        </ul>
+      </aside>
+
+      <button class="sidebar-toggle-btn" id="sidebarToggle">☰</button>
+
+      <main class="main-content">
+        <!-- HERO -->
+        <section class="bg-primary p-1 text-center">
+          <div class="container">
+            <span class="badge badge-pildora bg-dark text-light">
+              components / buttons
+            </span>
+            <h1 class="fs-1 text-dark mt-2 mb-2">Botones</h1>
+            <p class="text-dark">
+              Variantes de color, estilos solid y outline, tamaños y estados.
+              Generados con <code>@each</code> sobre el mapa
+              <code>$theme-colors</code>.
+            </p>
+          </div>
+        </section>
+
+        <div class="container">
+          <!-- COLORES -->
+          <section class="p-3">
+            <h2 class="fs-2 text-dark mb-1">Colores del tema</h2>
+            <p class="text-muted">
+              Los botones heredan los 11 colores definidos en
+              <code>$theme-colors</code>.
+            </p>
+
+            <div class="preview-box p-2">
+              <span class="badge bg-primary text-light">primary</span>
+              <span class="badge bg-secondary text-light">secondary</span>
+              <span class="badge bg-success text-light">success</span>
+              <span class="badge bg-info text-dark">info</span>
+              <span class="badge bg-warning text-dark">warning</span>
+              <span class="badge bg-danger text-light">danger</span>
+              <span class="badge bg-alert text-light">alert</span>
+              <span class="badge bg-light text-dark">light</span>
+              <span class="badge bg-dark text-light">dark</span>
+              <span class="badge bg-accent text-dark">accent</span>
+              <span class="badge bg-muted text-dark">muted</span>
+            </div>
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">_variables.scss</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>$theme-colors: (
+  "primary":   #BB8588,
+  "secondary": #4E5748,
+  "success":   #6E8F6B,
+  "info":      #7FA6A0,
+  "warning":   #D1A85C,
+  "danger":    #D36B6B,
+  "alert":     #E85C5C,
+  "light":     #EFEBCE,
+  "dark":      #2F332B,
+  "accent":    #D8A39D,
+  "muted":     #B8B2A0,
+);</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <!-- SOLID -->
+          <section class="p-3">
+            <h2 class="fs-2 text-dark mb-1">
+              Solid — <code>.btn-{color}</code>
+            </h2>
+            <p class="text-muted mb-3">
+              Variante rellena con contraste automático.
+            </p>
+
+            <div class="card">
+              <div class="card-body">
+                <button class="btn btn-md btn-primary mb-1">Primary</button>
+                <button class="btn btn-md btn-secondary">Secondary</button>
+                <button class="btn btn-md btn-success">Success</button>
+                <button class="btn btn-md btn-info">Info</button>
+                <button class="btn btn-md btn-warning mb-1">Warning</button>
+                <button class="btn btn-md btn-danger">Danger</button>
+                <button class="btn btn-md btn-alert">Alert</button>
+                <button class="btn btn-md btn-light">Light</button>
+                <button class="btn btn-md btn-dark">Dark</button>
+                <button class="btn btn-md btn-accent">Accent</button>
+                <button class="btn btn-md btn-muted">Muted</button>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">Boton solido</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>
+&lt;button class="btn btn-md btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn-md btn-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="btn btn-md btn-success"&gt;Success&lt;/button&gt;
+&lt;button class="btn btn-md btn-info"&gt;Info&lt;/button&gt;
+&lt;button class="btn btn-md btn-warning"&gt;Warning&lt;/button&gt;
+&lt;button class="btn btn-md btn-danger"&gt;Danger&lt;/button&gt;
+&lt;button class="btn btn-md btn-alert"&gt;Alert&lt;/button&gt;
+&lt;button class="btn btn-md btn-light"&gt;Light&lt;/button&gt;
+&lt;button class="btn btn-md btn-dark"&gt;Dark&lt;/button&gt;
+&lt;button class="btn btn-md btn-accent"&gt;Accent&lt;/button&gt;
+&lt;button class="btn btn-md btn-muted"&gt;Muted&lt;/button&gt;
+  </code></pre>
+              </div>
+            </div>
+          </section>
+
+          <section class="p-3">
+            <h2 class="fs-2 text-dark mb-1">
+              Outline — <code>.btn-outline-{color}</code>
+            </h2>
+            <p class="text-muted mb-3">
+              Fondo transparente con borde del color del tema. El hover rellena
+              con el color correspondiente.
+            </p>
+
+            <div class="card">
+              <div class="card-body">
+                <div class="preview-box">
+                  <button class="btn btn-md btn-outline-primary mb-1">
+                    Primary
+                  </button>
+                  <button class="btn btn-md btn-outline-secondary">
+                    Secondary
+                  </button>
+                  <button class="btn btn-md btn-outline-success">
+                    Success
+                  </button>
+                  <button class="btn btn-md btn-outline-info">Info</button>
+                  <button class="btn btn-md btn-outline-warning mb-1">
+                    Warning
+                  </button>
+                  <button class="btn btn-md btn-outline-danger">Danger</button>
+                  <button class="btn btn-md btn-outline-alert">Alert</button>
+                  <button class="btn btn-md btn-outline-dark">Dark</button>
+                  <button class="btn btn-md btn-outline-accent">Accent</button>
+                  <button class="btn btn-md btn-outline-muted">Muted</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">Boton outline</span>
+              </div>
+              <div class="card-body">
+                <pre><code>
+&lt;!-- .btn + .btn-outline-{color} + .btn-{tamaño} --&gt;
+
+&lt;button class="btn btn-md btn-outline-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn-md btn-outline-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="btn btn-md btn-outline-success"&gt;Success&lt;/button&gt;
+&lt;button class="btn btn-md btn-outline-info"&gt;Info&lt;/button&gt;
+&lt;button class="btn btn-md btn-outline-warning"&gt;Warning&lt;/button&gt;
+&lt;button class="btn btn-md btn-outline-danger"&gt;Danger&lt;/button&gt;
+&lt;button class="btn btn-md btn-outline-alert"&gt;Alert&lt;/button&gt;
+&lt;button class="btn btn-md btn-outline-light"&gt;Light&lt;/button&gt;
+&lt;button class="btn btn-md btn-outline-dark"&gt;Dark&lt;/button&gt;
+&lt;button class="btn btn-md btn-outline-accent"&gt;Accent&lt;/button&gt;
+&lt;button class="btn btn-md btn-outline-muted"&gt;Muted&lt;/button&gt;
+
+&lt;!-- disponible para los 11 colores del tema --&gt;
+  </code></pre>
+              </div>
+            </div>
+          </section>
+
+          <!-- TAMAÑOS -->
+          <section class="p-3">
+            <h2 class="fs-2 text-dark mb-1">Tamaños</h2>
+            <p class="text-muted mb-3">
+              Tres tamaños definidos por <code>@mixin boton-tamano()</code>.
+              Base mobile-first: <code>btn-sm</code>.
+            </p>
+
+            <div class="card">
+              <div class="card-body">
+                <div class="preview-box">
+                  <button class="btn btn-sm btn-secondary">Small</button>
+                  <button class="btn btn-md btn-success">Medium</button>
+                  <button class="btn btn-lg btn-outline-info">Large</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">sm, ms, lg</span>
+              </div>
+              <div class="card-body">
+                <pre><code>
+&lt;button class="btn btn-sm btn-primary"&gt;Small&lt;/button&gt;
+
+&lt;button class="btn btn-md btn-success"&gt;Medium&lt;/button&gt;
+
+&lt;button class="btn btn-lg btn-outline-info"&gt;Large&lt;/button&gt;
+  </code></pre>
+              </div>
+            </div>
+
+            <div class="table-container mt-2">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Clase</th>
+                    <th>Padding</th>
+                    <th>Font-size</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>.btn-sm</td>
+                    <td>8px 16px</td>
+                    <td>14px</td>
+                  </tr>
+                  <tr>
+                    <td>.btn-md</td>
+                    <td>12px 22px</td>
+                    <td>16px</td>
+                  </tr>
+                  <tr>
+                    <td>.btn-lg</td>
+                    <td>16px 30px</td>
+                    <td>18px</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- ESTADOS -->
+          <section class="p-3">
+            <h2 class="fs-2 text-dark mb-1">Estados</h2>
+            <p class="text-muted mb-3">
+              El estado <code>:disabled</code> aplica opacidad 50% y escala de
+              grises automáticamente.
+            </p>
+
+            <div class="card">
+              <div class="card-body">
+                <div class="preview-box">
+                  <button class="btn btn-md btn-primary">Normal</button>
+                  <button class="btn btn-md btn-primary" disabled>
+                    Disabled
+                  </button>
+                  <button class="btn btn-md btn-outline-secondary">
+                    Outline
+                  </button>
+                  <button class="btn btn-md btn-outline-secondary" disabled>
+                    Disabled
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">Estados</span>
+              </div>
+              <div class="card-body">
+                <pre><code>
+&lt;!-- Botón normal --&gt;
+&lt;button class="btn btn-md btn-primary"&gt;Normal&lt;/button&gt;
+
+&lt;!-- Botón deshabilitado --&gt;
+&lt;button class="btn btn-md btn-primary" disabled&gt;Disabled&lt;/button&gt;
+
+&lt;!-- Outline deshabilitado --&gt;
+&lt;button class="btn btn-md btn-outline-secondary" disabled&gt;
+    Disabled
+&lt;/button&gt;
+  </code></pre>
+              </div>
+            </div>
+
+            <div class="alerta border-info mt-2">
+              <strong>Nota:</strong> Hover y estados activos gestionados por
+              mixins. El hover aplica
+              <code>color.adjust($color, $lightness: -10%)</code> y
+              <code>translateY(-2px)</code>.
+            </div>
+          </section>
+
+          <!-- BLOQUE -->
+          <section class="p-3">
+            <h2 class="fs-2 text-dark mb-1">Bloque</h2>
+            <p class="text-muted mb-3">
+              Agrega <code>.btn-block</code> para que el botón ocupe el 100% del
+              ancho del contenedor.
+            </p>
+
+            <div class="card">
+              <div class="card-body">
+                <button class="btn btn-md btn-primary btn-block mb-1">
+                  Botón ancho completo
+                </button>
+                <button class="btn btn-md btn-outline-secondary btn-block">
+                  Outline ancho completo
+                </button>
+              </div>
+            </div>
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">Block</span>
+              </div>
+              <div class="card-body">
+                <pre><code>
+&lt;button class="btn btn-md btn-primary btn-block"&gt;
+    Botón ancho completo
+&lt;/button&gt;
+&lt;button class="btn btn-md btn-outline-secondary btn-block"&gt;
+    Outline ancho completo
+&lt;/button&gt;
+  </code></pre>
+              </div>
+            </div>
+          </section>
+
+          <!-- REFERENCIA SCSS -->
+          <section class="p-3">
+            <h2 class="fs-2 text-dark mb-1">
+              Referencia SCSS — <code>_botones.scss</code>
+            </h2>
+            <p class="text-muted mb-3">
+              Todas las clases se generan con un único <code>@each</code> sobre
+              <code>$theme-colors</code>, sin repetición de código.
+            </p>
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">_botones.scss</span>
+              </div>
+              <div class="card-body">
+                <pre><code>
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Genera .btn-{c}, .btn-outline-{c} y .btn-solid-{c}
+@each $nombre, $valor in $theme-colors {
+
+  .btn-#{$nombre} {
+    @include botones-base;
+    @include boton-color($valor);
+    @include boton-tamano("movil");
+  }
+
+  .btn-outline-#{$nombre} {
+    @include botones-base;
+    @include boton-color($valor, "outline");
+    @include boton-tamano("movil");
+  }
+
+}
+
+// Modificadores de tamaño
+.btn-sm {
+  @include boton-tamano("movil");
+}
+
+.btn-md {
+  @include boton-tamano("md");
+}
+
+.btn-lg {
+  @include boton-tamano("lg");
+}
+
+.btn-block {
+  width: 100%;
+}
+  </code></pre>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="main-footer main-footer-dark">
+          <div class="footer-content">
+            <p class="fw-bold text-accent mb-1">
+              ✿ PersephoneCSS <span class="badge muted">v3.0.0</span>
+            </p>
+            <p class="mb-2">
+              Juliana Torres &amp; Fabiola Romero — Herramientas de
+              Productividad, UES FMO · Ciclo I 2026
+            </p>
+          </div>
+          <p class="footer-copy">
+            © 2026 PersephoneCSS. Construido con su propio framework.
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1125 @@
+<!doctype html>
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utilidades — PersephoneCSS Docs</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+
+    <nav class="navbar--dark">
+      <span class="fw-bold fs-3">✿ PersephoneCSS</span>
+      <button class="nav-toggle" aria-label="Menú">☰</button>
+      <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="introduccion.html" class="active">Documentación</a></li>
+        <li><a href="colaboradoras.html">Colaboradoras</a></li>
+      </ul>
+    </nav>
+
+    <!-- OVERLAY -->
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="main-wrapper has-navbar">
+      <!-- SIDEBAR -->
+
+      <aside class="sidebar-main sidebar-secondary" id="sidebar">
+        <div class="sidebar-header">📖 Documentación</div>
+        <ul class="sidebar-menu">
+          <li><a href="introduccion.html">Introducción</a></li>
+          <li><a href="#instalacion">Instalación</a></li>
+          <li><a href="#estructura">Estructura del proyecto</a></li>
+          <li><a href="#paleta">Paleta de colores</a></li>
+          <li><a href="#inicio-rapido">Inicio rápido</a></li>
+
+          <div class="sidebar-header">Layout</div>
+          <li><a href="#contenedores">Contenedores</a></li>
+          <li><a href="#grid">Sistema Grid</a></li>
+          <li><a href="#breakpoints">Breakpoints</a></li>
+
+          <div class="sidebar-header">Componentes</div>
+          <li><a href="botones.html">Botones</a></li>
+          <li><a href="cards.html">Cards</a></li>
+          <li><a href="alertas.html">Alertas</a></li>
+          <li><a href="badges.html">Badges</a></li>
+          <li><a href="#navbar-doc">Navbar</a></li>
+          <li><a href="#sidebar-doc">Sidebar</a></li>
+          <li><a href="#tablas">Tablas</a></li>
+          <li><a href="formularios.html">Formularios</a></li>
+          <li><a href="#modales">Modales</a></li>
+
+          <div class="sidebar-header">Utilidades</div>
+          <li><a href="#tipografia" >Tipografía</a></li>
+          <li><a href="#espaciado" >Espaciado</a></li>
+          <li><a href="#colores-util">Colores</a></li>
+          <li><a href="#flexbox">Flexbox</a></li>
+          <li><a href="#display">Display</a></li>
+          <li><a href="#bordes">Bordes &amp; Sombras</a></li>
+        </ul>
+      </aside>
+
+      <button class="sidebar-toggle-btn" id="sidebarToggle">☰</button>
+
+      <main class="main-content">
+        <section class="bg-primary p-1 text-center">
+          <div class="container">
+            <span class="badge badge-pildora bg-dark text-light">
+              utilities
+            </span>
+            <h1 class="fs-1 text-dark mt-2 mb-2">Utilidades</h1>
+            <p class="text-dark">
+              Clases de un solo propósito generadas con <code>@for</code> y
+              <code>@each</code> sobre <code>$theme-colors</code>. Cubren
+              tipografía, espaciado, colores, bordes, sombras, display y
+              flexbox.
+            </p>
+          </div>
+        </section>
+
+        <div class="container">
+          <section class="p-3" id="tipografia">
+            <h2 class="fs-2 text-dark mb-1">Tipografía</h2>
+            <p class="text-muted mb-3">
+              Alineación, peso, estilo, familia y tamaño de fuente.
+            </p>
+
+            <div class="card">
+              <div class="card-body bg-info">
+                <p class="text-left">Texto alineado a la izquierda</p>
+                <p class="text-center">Texto centrado</p>
+                <p class="text-right">Texto alineado a la derecha</p>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">Alineación</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>
+&lt;p class="text-left"&gt;Izquierda&lt;/p&gt;
+&lt;p class="text-center"&gt;Centrado&lt;/p&gt;
+&lt;p class="text-right"&gt;Derecha&lt;/p&gt;
+                </code></pre>
+              </div>
+            </div>
+
+            <span class="fw-bold">Peso y estilo</span>
+            <div class="card">
+              <div class="card-body bg-accent">
+                <p class="fw-bold">Texto en negrita</p>
+                <p class="fw-light">Texto ligero</p>
+                <p class="fs-cursive">Texto en cursiva</p>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">Peso y estilo</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>
+&lt;p class="fw-bold"&gt;Negrita&lt;/p&gt;
+&lt;p class="fw-light"&gt;Ligero (300)&lt;/p&gt;
+&lt;p class="fs-cursive"&gt;Cursiva&lt;/p&gt;
+                </code></pre>
+              </div>
+            </div>
+
+            <span class="fw-bold font-mono">Fuentes</span>
+            <div class="card">
+              <div class="card-body bg-muted">
+                <p class="font-times">Familia Times New Roman</p>
+                <p class="font-mono">Familia monoespaciada</p>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">Familias</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>
+&lt;p class="font-times"&gt;Times New Roman&lt;/p&gt;
+&lt;p class="font-mono"&gt;Monoespaciado&lt;/p&gt;
+                </code></pre>
+              </div>
+            </div>
+
+            <span class="fw-bold font-mono">Tamaños</span>
+            <div class="card">
+              <div class="card-body bg-success">
+                <p class="fs-1">Hola mundo</p>
+                <p class="fs-2">Hola Mundo</p>
+                <p class="fs-3">Hola mundo</p>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">Tamaños</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>
+&lt;p class="fs-1"&gt;Hola mundo&lt;/p&gt;
+&lt;p class="fs-2"&gt;Hola mundo&lt;/p&gt;
+&lt;p class="fs-3"&gt;Hola mundo&lt;/p&gt;
+                </code></pre>
+              </div>
+            </div>
+
+            <div class="table-container mt-2">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Clase</th>
+                    <th>Propiedad</th>
+                    <th>Valor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>.text-left</code></td>
+                    <td>text-align</td>
+                    <td>left</td>
+                  </tr>
+                  <tr>
+                    <td><code>.text-center</code></td>
+                    <td>text-align</td>
+                    <td>center</td>
+                  </tr>
+                  <tr>
+                    <td><code>.text-right</code></td>
+                    <td>text-align</td>
+                    <td>right</td>
+                  </tr>
+                  <tr>
+                    <td><code>.fw-bold</code></td>
+                    <td>font-weight</td>
+                    <td>bold</td>
+                  </tr>
+                  <tr>
+                    <td><code>.fw-light</code></td>
+                    <td>font-weight</td>
+                    <td>300</td>
+                  </tr>
+                  <tr>
+                    <td><code>.fs-cursive</code></td>
+                    <td>font-style</td>
+                    <td>italic</td>
+                  </tr>
+                  <tr>
+                    <td><code>.font-times</code></td>
+                    <td>font-family</td>
+                    <td>Times New Roman</td>
+                  </tr>
+                  <tr>
+                    <td><code>.font-mono</code></td>
+                    <td>font-family</td>
+                    <td>monospace</td>
+                  </tr>
+                  <tr>
+                    <td><code>.fs-1</code></td>
+                    <td>font-size</td>
+                    <td>32px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.fs-2</code></td>
+                    <td>font-size</td>
+                    <td>24px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.fs-3</code></td>
+                    <td>font-size</td>
+                    <td>18px</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="p-3" id="espaciado">
+            <h2 class="fs-2 text-dark mb-1">Espaciado</h2>
+            <p class="text-muted mb-3">
+              Márgenes y paddings generados con
+              <code>@for $i from 1 through 3</code>.
+            </p>
+
+            <div class="row">
+              <div class="col-12 col-md-4 mb-2">
+                <div class="card border-primary">
+                  <div class="card-body bg-primary mt-1 text-center text-dark">
+                    margin-top — 10px
+                  </div>
+                  <div class="card-body">
+                    <pre class="font-mono"><code>
+&lt;div class="mt-1"&gt;...&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-4 mb-2">
+                <div class="card border-secondary">
+                  <div
+                    class="card-body bg-secondary mt-2 text-center text-light">
+                    margin-top — 20px
+                  </div>
+                  <div class="card-body">
+                    <pre class="font-mono"><code>
+&lt;div class="mt-2"&gt;...&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-4 mb-2">
+                <div class="card border-accent">
+                  <div class="card-body bg-accent mt-3 text-center text-dark">
+                    margin-top — 30px
+                  </div>
+                  <div class="card-body">
+                    <pre class="font-mono"><code>
+&lt;div class="mt-3"&gt;...&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-4 mb-2">
+                <div class="card">
+                  <div class="card-body bg-primary mb-1 text-center text-dark">
+                    margin-bottom — 10px
+                  </div>
+                  <div class="card-body border-primary">
+                    <pre class="font-mono"><code>
+&lt;div class="mb-1"&gt;...&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-4 mb-2">
+                <div class="card">
+                  <div
+                    class="card-body bg-secondary mb-2 text-center text-light">
+                    margin-bottom — 20px
+                  </div>
+                  <div class="card-body border-secondary">
+                    <pre class="font-mono"><code>
+&lt;div class="mb-2"&gt;...&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-4 mb-2">
+                <div class="card">
+                  <div class="card-body bg-accent mb-3 text-center text-dark">
+                    margin-bottom — 30px
+                  </div>
+                  <div class="card-body border-accent">
+                    <pre class="font-mono"><code>
+&lt;div class="mb-3"&gt;...&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-4 mb-2">
+                <div class="card">
+                  <div
+                    class="card-body bg-info p-1 text-center text-dark border-dark">
+                    padding — 10px
+                  </div>
+                  <div class="card-body">
+                    <pre class="font-mono"><code>
+&lt;div class="p-1"&gt;...&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-4 mb-2">
+                <div class="card">
+                  <div
+                    class="card-body bg-warning p-2 text-center text-dark border-dark">
+                    padding — 20px
+                  </div>
+                  <div class="card-body">
+                    <pre class="font-mono"><code>
+&lt;div class="p-2"&gt;...&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-4 mb-2">
+                <div class="card">
+                  <div
+                    class="card-body bg-danger p-3 text-center text-light border-dark">
+                    padding — 30px
+                  </div>
+                  <div class="card-body">
+                    <pre class="font-mono"><code>
+&lt;div class="p-3"&gt;...&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="table-container mt-2">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Clase</th>
+                    <th>Propiedad</th>
+                    <th>Valor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>.mt-1</code></td>
+                    <td>margin-top</td>
+                    <td>10px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.mt-2</code></td>
+                    <td>margin-top</td>
+                    <td>20px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.mt-3</code></td>
+                    <td>margin-top</td>
+                    <td>30px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.mb-1</code></td>
+                    <td>margin-bottom</td>
+                    <td>10px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.mb-2</code></td>
+                    <td>margin-bottom</td>
+                    <td>20px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.mb-3</code></td>
+                    <td>margin-bottom</td>
+                    <td>30px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.pt-1</code></td>
+                    <td>padding-top</td>
+                    <td>10px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.pt-2</code></td>
+                    <td>padding-top</td>
+                    <td>20px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.pt-3</code></td>
+                    <td>padding-top</td>
+                    <td>30px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.pb-1</code></td>
+                    <td>padding-bottom</td>
+                    <td>10px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.pb-2</code></td>
+                    <td>padding-bottom</td>
+                    <td>20px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.pb-3</code></td>
+                    <td>padding-bottom</td>
+                    <td>30px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.p-1</code></td>
+                    <td>padding</td>
+                    <td>10px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.p-2</code></td>
+                    <td>padding</td>
+                    <td>20px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.p-3</code></td>
+                    <td>padding</td>
+                    <td>30px</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="p-3" id="colores-util">
+            <h2 class="fs-2 text-dark mb-1">Colores</h2>
+            <p class="text-muted mb-3">
+              Paleta basada en <code>$theme-colors</code>.
+            </p>
+
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card bg-primary p-2 text-center">
+                      <p class="fw-bold text-dark">primary</p>
+                      <span class="text-dark">#BB8588</span><br />
+                      <small class="text-dark">.bg-primary</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card bg-secondary p-2 text-center">
+                      <p class="fw-bold text-light">secondary</p>
+                      <span class="text-light">#4E5748</span><br />
+                      <small class="text-light">.bg-secondary</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card bg-success p-2 text-center">
+                      <p class="fw-bold text-light">success</p>
+                      <span class="text-light">#6E8F6B</span><br />
+                      <small class="text-light">.bg-success</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card bg-info p-2 text-center">
+                      <p class="fw-bold text-dark">info</p>
+                      <span class="text-dark">#7FA6A0</span><br />
+                      <small class="text-dark">.bg-info</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card bg-warning p-2 text-center">
+                      <p class="fw-bold text-dark">warning</p>
+                      <span class="text-dark">#D1A85C</span><br />
+                      <small class="text-dark">.bg-warning</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card bg-danger p-2 text-center">
+                      <p class="fw-bold text-light">danger</p>
+                      <span class="text-light">#D36B6B</span><br />
+                      <small class="text-light">.bg-danger</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card bg-alert p-2 text-center">
+                      <p class="fw-bold text-light">alert</p>
+                      <span class="text-light">#E85C5C</span><br />
+                      <small class="text-light">.bg-alert</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card bg-light p-2 text-center">
+                      <p class="fw-bold text-dark">light</p>
+                      <span class="text-dark">#EFEBCE</span><br />
+                      <small class="text-dark">.bg-light</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card bg-dark p-2 text-center">
+                      <p class="fw-bold text-light">dark</p>
+                      <span class="text-light">#2F332B</span><br />
+                      <small class="text-light">.bg-dark</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card bg-accent p-2 text-center">
+                      <p class="fw-bold text-dark">accent</p>
+                      <span class="text-dark">#D8A39D</span><br />
+                      <small class="text-dark">.bg-accent</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card bg-muted p-2 text-center">
+                      <p class="fw-bold text-dark">muted</p>
+                      <span class="text-dark">#B8B2A0</span><br />
+                      <small class="text-dark">.bg-muted</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">Colores </span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>
+ /*Los 11 tipos de colores*/
+&lt;div class="bg-primary"&gt;Primary&lt;/div&gt;
+&lt;div class="bg-success"&gt;success&lt;/div&gt;
+&lt;div class="bg-danger"&gt;danger&lt;/div&gt;
+
+/* usado en cards */
+
+&lt;div class="card bg-muted p-2 text-center"&gt;
+  &lt;p class="fw-bold text-dark"&gt;muted&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+              </div>
+            </div>
+
+            <div class="alerta border-info mt-2">
+              <strong>Tip:</strong> Mantén contraste usando
+              <code>.text-light</code> en fondos oscuros.
+            </div>
+          </section>
+
+          <section class="p-3" id="bordes-colores">
+            <h2 class="fs-2 text-dark mb-1">Bordes de color</h2>
+            <p class="text-muted mb-3">
+              Variantes: completo, inferior y superior.
+            </p>
+
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card border-primary p-2 text-center">
+                      <p class="fw-bold">primary</p>
+                      <small>.border-primary</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card border-success p-2 text-center">
+                      <p class="fw-bold">success</p>
+                      <small>.border-success</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card border-danger p-2 text-center">
+                      <p class="fw-bold">danger</p>
+                      <small>.border-danger</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card border-bottom-primary p-2 text-center">
+                      <p class="fw-bold">primary</p>
+                      <small>.border-bottom-primary</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card border-bottom-warning p-2 text-center">
+                      <p class="fw-bold">warning</p>
+                      <small>.border-bottom-warning</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card border-bottom-info p-2 text-center">
+                      <p class="fw-bold">info</p>
+                      <small>.border-bottom-info</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card borde-top-primary p-2 text-center">
+                      <p class="fw-bold">primary</p>
+                      <small>.borde-top-primary</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card borde-top-success p-2 text-center">
+                      <p class="fw-bold">success</p>
+                      <small>.borde-top-success</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-4 mb-1">
+                    <div class="card borde-top-danger p-2 text-center">
+                      <p class="fw-bold">danger</p>
+                      <small>.borde-top-danger</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">Bordes de color</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>
+&lt;!-- Borde completo --&gt;
+&lt;div class="border-primary"&gt;&lt;/div&gt;
+
+&lt;!-- Borde inferior --&gt;
+&lt;div class="border-bottom-success"&gt;&lt;/div&gt;
+
+&lt;!-- Borde superior --&gt;
+&lt;div class="borde-top-danger"&gt;&lt;/div&gt;
+</code></pre>
+              </div>
+            </div>
+
+            <div class="alerta border-info mt-2">
+              <strong>Tip:</strong> Combina bordes con <code>.bg-light</code> o
+              <code>.p-2</code> para mejor visibilidad.
+            </div>
+          </section>
+
+          <section class="p-3" id="bordes">
+            <h2 class="fs-2 text-dark mb-1">Bordes & Sombras</h2>
+            <p class="text-muted mb-3">
+              Border-radius generado con <code>@for</code> más la variante
+              píldora. Sombras con <code>@mixin sombra()</code>.
+            </p>
+
+            <div class="d-grid">
+              <div class="card">
+                <div class="card-body text-center bg-primary text-dark br-1">
+                  borde de 5px
+                </div>
+                <div class="card-body">
+                  <pre class="font-mono"><code>
+&lt;div class="br-1"&gt;5px&lt;/div&gt;
+        </code></pre>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-body text-center bg-primary text-dark br-2">
+                  borde de 10px
+                </div>
+                <div class="card-body">
+                  <pre class="font-mono"><code>
+&lt;div class="br-2"&gt;10px&lt;/div&gt;
+        </code></pre>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-body text-center bg-primary text-dark br-3">
+                  borde de 15px
+                </div>
+                <div class="card-body">
+                  <pre class="font-mono"><code>
+&lt;div class="br-3"&gt;15px&lt;/div&gt;
+        </code></pre>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-body text-center bg-primary text-dark rounded">
+                  rounded — 50px
+                </div>
+                <div class="card-body">
+                  <pre class="font-mono"><code>
+&lt;div class="rounded"&gt;50px&lt;/div&gt;
+        </code></pre>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-body text-center bg-light shadow-sm br-1">
+                  sombra suave
+                </div>
+                <div class="card-body">
+                  <pre class="font-mono"><code>
+&lt;div class="shadow-sm"&gt;Sombra suave&lt;/div&gt;
+        </code></pre>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-body text-center bg-light shadow-lg br-1">
+                  sombra fuerte
+                </div>
+                <div class="card-body">
+                  <pre class="font-mono"><code>
+&lt;div class="shadow-lg"&gt;Sombra fuerte&lt;/div&gt;
+        </code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="table-container mt-2">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Clase</th>
+                    <th>Propiedad</th>
+                    <th>Valor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>.br-1</code></td>
+                    <td>border-radius</td>
+                    <td>5px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.br-2</code></td>
+                    <td>border-radius</td>
+                    <td>10px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.br-3</code></td>
+                    <td>border-radius</td>
+                    <td>15px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.rounded</code></td>
+                    <td>border-radius</td>
+                    <td>50px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.shadow-sm</code></td>
+                    <td>box-shadow</td>
+                    <td>sombra($dark, 0.08)</td>
+                  </tr>
+                  <tr>
+                    <td><code>.shadow-lg</code></td>
+                    <td>box-shadow</td>
+                    <td>sombra($dark, 0.25)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="p-3" id="display">
+            <h2 class="fs-2 text-dark mb-1">Display</h2>
+            <p class="text-muted mb-3">
+              Clases para controlar la propiedad <code>display</code>.
+            </p>
+
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-3 mb-2">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <div class="d-block bg-accent p-2 text-dark">display: block</div>
+                  </div>
+                  <div class="card-body">
+                    <pre class="font-mono"><code>
+&lt;div class="d-block"&gt;Bloque
+&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-3 mb-2">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <span class="d-inline-b bg-primary p-2 text-dark">
+                      display: inline-block
+                    </span>
+                  </div>
+                  <div class="card-body">
+                    <pre class="font-mono"><code>
+&lt;span class="d-inline-b"&gt;Inline-block
+&lt;/span&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-3 mb-2">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <div class="d-flex bg-light p-2 text-dark">
+                      <span>Item 1</span>
+                      <span class="ml-1">Item 2</span>
+                    </div>
+                    <small class="text-muted">display:flex</small>
+                  </div>
+                  <div class="card-body">
+                    <pre class="font-mono"><code>
+&lt;div class="d-flex"&gt;Flex
+&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <!-- d-none -->
+              <div class="col-12 col-md-6 col-lg-3 mb-2">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <div class="bg-danger p-2 text-light">display: none(oculto)</div>
+                  </div>
+                  <div class="card-body">
+                    <pre class="font-mono"><code>
+&lt;div class="d-none"&gt;Oculto
+&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TABLA -->
+            <div class="table-container mt-2">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Clase</th>
+                    <th>display</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>.d-none</code></td>
+                    <td>none</td>
+                  </tr>
+                  <tr>
+                    <td><code>.d-block</code></td>
+                    <td>block</td>
+                  </tr>
+                  <tr>
+                    <td><code>.d-inline-b</code></td>
+                    <td>inline-block</td>
+                  </tr>
+                  <tr>
+                    <td><code>.d-flex</code></td>
+                    <td>flex</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- ===================== FLEXBOX ===================== -->
+          <section class="p-3" id="flexbox">
+            <h2 class="fs-2 text-dark mb-1">Flexbox</h2>
+            <p class="text-muted mb-3">
+              Modificadores de <code>justify-content</code>,
+              <code>align-items</code>, <code>flex-direction</code> y
+              <code>flex-wrap</code>.
+            </p>
+
+            <div class="row">
+              <!-- justify center -->
+              <div class="col-12 col-md-6 col-lg-4 mb-2">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex j-cont-cent bg-light p-2">
+                      <span class="badge bg-primary text-light">Item</span>
+                      <span class="badge bg-secondary text-light ml-1"
+                        >Item</span
+                      >
+                    </div>
+                  </div>
+                  <div class="card-body text-center">
+                    <p class="fw-bold">justify-content</p>
+                    <span class="badge bg-info text-dark">center</span>
+                  </div>
+                  <div class="card-body">
+                    <pre class="font-mono"><code>
+&lt;div class="d-flex j-cont-cent"&gt;...&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <!-- justify between -->
+              <div class="col-12 col-md-6 col-lg-4 mb-2">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex j-cont-bet bg-light p-2">
+                      <span class="badge bg-primary text-light">Inicio</span>
+                      <span class="badge bg-secondary text-light">Fin</span>
+                    </div>
+                  </div>
+                  <div class="card-body text-center">
+                    <p class="fw-bold">justify-content</p>
+                    <span class="badge bg-info text-dark">space-between</span>
+                  </div>
+                  <div class="card-body">
+                    <pre class="font-mono"><code>
+&lt;div class="d-flex j-cont-bet"&gt;...&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <!-- justify end -->
+              <div class="col-12 col-md-6 col-lg-4 mb-2">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex j-cont-end bg-light p-2">
+                      <span class="badge bg-primary text-light">Item</span>
+                    </div>
+                  </div>
+                  <div class="card-body text-center">
+                    <p class="fw-bold">justify-content</p>
+                    <span class="badge bg-info text-dark">flex-end</span>
+                  </div>
+                  <div class="card-body">
+                    <pre class="font-mono"><code>
+&lt;div class="d-flex j-cont-end"&gt;...&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <!-- align items -->
+              <div class="col-12 col-md-6 col-lg-4 mb-2">
+                <div class="card">
+                  <div class="card-body">
+                    <div
+                      class="d-flex align-item bg-light p-2"
+                      style="min-height: 60px"
+                    >
+                      <span class="badge bg-info text-dark"
+                        >centrado vertical</span
+                      >
+                    </div>
+                  </div>
+                  <div class="card-body text-center">
+                    <p class="fw-bold">align-items</p>
+                    <span class="badge bg-info text-dark">center</span>
+                  </div>
+                  <div class="card-body">
+                    <pre class="font-mono"><code>
+&lt;div class="d-flex align-item"&gt;...&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <!-- flex column -->
+              <div class="col-12 col-md-6 col-lg-4 mb-2">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex f-colum bg-light p-2">
+                      <span class="badge bg-warning text-dark mb-1"
+                        >Item 1</span
+                      >
+                      <span class="badge bg-warning text-dark">Item 2</span>
+                    </div>
+                  </div>
+                  <div class="card-body text-center">
+                    <p class="fw-bold">flex-direction</p>
+                    <span class="badge bg-info text-dark">column</span>
+                  </div>
+                  <div class="card-body">
+                    <pre class="font-mono"><code>
+&lt;div class="d-flex f-colum"&gt;...&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <!-- flex wrap -->
+              <div class="col-12 col-md-6 col-lg-4 mb-2">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex f-wrap bg-light p-2">
+                      <span class="badge bg-accent text-dark mb-1">1</span>
+                      <span class="badge bg-accent text-dark mb-1">2</span>
+                      <span class="badge bg-accent text-dark mb-1">3</span>
+                      <span class="badge bg-accent text-dark">4</span>
+                    </div>
+                  </div>
+                  <div class="card-body text-center">
+                    <p class="fw-bold">flex-wrap</p>
+                    <span class="badge bg-info text-dark">wrap</span>
+                  </div>
+                  <div class="card-body">
+                    <pre class="font-mono"><code>
+&lt;div class="d-flex f-wrap"&gt;...&lt;/div&gt;
+          </code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TABLA -->
+            <div class="table-container mt-2">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Clase</th>
+                    <th>Propiedad</th>
+                    <th>Valor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>.j-cont-cent</code></td>
+                    <td>justify-content</td>
+                    <td>center</td>
+                  </tr>
+                  <tr>
+                    <td><code>.j-cont-bet</code></td>
+                    <td>justify-content</td>
+                    <td>space-between</td>
+                  </tr>
+                  <tr>
+                    <td><code>.j-cont-end</code></td>
+                    <td>justify-content</td>
+                    <td>flex-end</td>
+                  </tr>
+                  <tr>
+                    <td><code>.align-item</code></td>
+                    <td>align-items</td>
+                    <td>center</td>
+                  </tr>
+                  <tr>
+                    <td><code>.f-colum</code></td>
+                    <td>flex-direction</td>
+                    <td>column</td>
+                  </tr>
+                  <tr>
+                    <td><code>.f-wrap</code></td>
+                    <td>flex-wrap</td>
+                    <td>wrap</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="main-footer main-footer-dark">
+          <div class="footer-content">
+            <p class="fw-bold text-accent mb-1">
+              ✿ PersephoneCSS <span class="badge muted">v3.0.0</span>
+            </p>
+            <p class="mb-2">
+              Juliana Torres &amp; Fabiola Romero — Herramientas de
+              Productividad, UES FMO · Ciclo I 2026
+            </p>
+          </div>
+          <p class="footer-copy">
+            © 2026 PersephoneCSS. Construido con su propio framework.
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

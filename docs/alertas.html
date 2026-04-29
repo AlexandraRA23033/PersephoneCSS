@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alertas - PersephoneCSS</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body>
+    <nav class="navbar--dark">
+      <span class="fw-bold fs-3">✿ PersephoneCSS</span>
+      <button class="nav-toggle" aria-label="Menú">☰</button>
+      <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="introduccion.html">Documentacion</a></li>
+        <li><a href="colaboradoras.html">Colaboradores</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="main-wrapper has-navbar">
+      <aside class="sidebar-main sidebar-secondary" id="sidebar">
+      <div class="sidebar-header">📖 Documentación</div>
+      <ul class="sidebar-menu">
+        <li><a href="#introduccion" class="active">Introducción</a></li>
+        <li><a href="#instalacion">Instalación</a></li>
+        <li><a href="#estructura">Estructura del proyecto</a></li>
+        <li><a href="#paleta">Paleta de colores</a></li>
+        <li><a href="#inicio-rapido">Inicio rápido</a></li>
+
+        <div class="sidebar-header">Layout</div>
+        <li><a href="contenedores.html">Contenedores</a></li>
+        <li><a href="grid.html">Sistema Grid</a></li>
+        <li><a href="breakpoints.html">Breakpoints</a></li>
+
+        <div class="sidebar-header">Componentes</div>
+        <li><a href="botones.html">Botones</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="alertas.html">Alertas</a></li>
+        <li><a href="badges.html">Badges</a></li>
+        <li><a href="navbar.html">Navbar</a></li>
+        <li><a href="sidebar.html">Sidebar</a></li>
+        <li><a href="tablas.html">Tablas</a></li>
+        <li><a href="formularios.html">Formularios</a></li>
+        <li><a href="modales.html">Modales</a></li>
+
+        <div class="sidebar-header">Utilidades</div>
+        <li><a href="utils.html">Tipografía</a></li>
+        <li><a href="utils.html">Espaciado</a></li>
+        <li><a href="utils.html">Colores</a></li>
+        <li><a href="utils.html">Flexbox</a></li>
+        <li><a href="utils.html">Display</a></li>
+        <li><a href="utils.html">Bordes &amp; Sombras</a></li>
+      </ul>
+    </aside>
+      <button class="sidebar-toggle-btn" id="sidebarToggle">☰</button>
+
+      <main class="main-content">
+        <section class="bg-primary p-1 text-center">
+          <div class="container">
+            <span class="badge badge-pildora bg-dark text-light"
+              >Componentes / alertas
+            </span>
+            <h1 class="fs-1 text-dark mt-2 mb-2">Alertas</h1>
+            <p class="text-dark">
+              Variantes de color en estilo sutil y pildora, con soporte para
+              cierre. Generados con <code>@each</code> sobre el mapa
+              <code>$theme-colors</code>
+            </p>
+          </div>
+        </section>
+
+        <div class="container">
+          <section class="p-3">
+            <h2 class="fs-2 text-dark mb-2">
+              Alerta base - <code>.alerta.{color}</code>
+            </h2>
+            <p class="text-muted mb-3">
+              Variante sutil: fondo con opacidad 15%, bode con opacidad 30% y
+              texto de color del tema. Se genera con
+              <code> @mixin Alerta-Badges-color() </code>
+            </p>
+
+            <div class="card">
+              <div class="card-body">
+                <div class="primary alerta mb-1">Alerta Primaray</div>
+                <div class="secondary alerta mb-1">Alerta Secondary</div>
+                <div class="success alerta mb-1">Alerta Success</div>
+                <div class="info alerta mb-1">Alerta Info</div>
+                <div class="warning alerta mb-1">Alerta warning</div>
+                <div class="danger alerta mb-1">Alerta danger</div>
+                <div class="alert alerta mb-1">Alerta alert</div>
+                <div class="light alerta mb-1">Alerta light</div>
+                <div class="dark alerta mb-1">Alerta dark</div>
+                <div class="accent alerta mb-1">Alerta accent</div>
+                <div class="muted alerta mb-1">Alerta muted</div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">Alertas</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono">
+                            <code>
+&lt;--.{color} + .alerta--&gt;
+
+&lt;div class"primary alerta"&gt; Alerta Primary&lt;/div&gt;
+&lt;div class="secondary alerta"&gt;Alerta secondary&lt;/div&gt;
+&lt;div class="success alerta"&gt;Alerta success&lt;/div&gt;
+&lt;div class="info alerta"&gt;Alerta info&lt;/div&gt;
+&lt;div class="warning alerta"&gt;Alerta warning&lt;/div&gt;
+&lt;div class="danger alerta"&gt;Alerta danger&lt;/div&gt;
+&lt;div class="alert alerta"&gt;Alerta alert&lt;/div&gt;
+&lt;div class="light alerta"&gt;Alerta light&lt;/div&gt;
+&lt;div class="dark alerta"&gt;Alerta dark&lt;/div&gt;
+&lt;div class="accent alerta"&gt;Alerta accent&lt;/div&gt;
+&lt;div class="muted alerta"&gt;Alerta muted&lt;/div&gt;
+                            </code>
+                        </pre>
+              </div>
+            </div>
+          </section>
+
+          <section class="p-3">
+            <h2 class="fs-2 text-dark mb-2">
+              Pildora - <code>.alerta-pildora.{color}</code>
+            </h2>
+            <p class="text-muted mb-3">
+              Mismos colores y opacidad que la alerta base pero con
+              <code> boder-radius: 50px; </code>.Aplica el mismo mixin con
+              <code>$pildora: true</code>
+            </p>
+            <div class="card">
+              <div class="card-body">
+                <div class="alerta primary alerta-pildora mb-1">
+                  Alert primary
+                </div>
+                <div class="alerta secondary alerta-pildora mb-1">
+                  Alert secondary
+                </div>
+                <div class="alerta success alerta-pildora mb-1">
+                  Alert success
+                </div>
+                <div class="alerta info alerta-pildora mb-1">Alert info</div>
+                <div class="alerta warning alerta-pildora mb-1">
+                  Alert warning
+                </div>
+                <div class="alerta danger alerta-pildora mb-1">
+                  Alert danger
+                </div>
+                <div class="alerta alert alerta-pildora mb-1">Alert alert</div>
+                <div class="alerta light alerta-pildora mb-1">Alert light</div>
+                <div class="alerta dark alerta-pildora mb-1">Alert dark</div>
+                <div class="alerta accent alerta-pildora mb-1">
+                  Alert accent
+                </div>
+                <div class="alerta muted alerta-pildora mb-1">Alert muted</div>
+              </div>
+            </div>
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">Alerta píldora</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>
+&lt;!--.alerta + .{color} + .alerta-pildora  --&gt;
+ 
+&lt;div class="alerta primary alerta-pildora"&gt;Alerta primary&lt;/div&gt;
+&lt;div class="alerta secondary alerta-pildora"&gt;Alerta secondary&lt;/div&gt;
+&lt;div class="alerta success alerta-pildora"&gt;Alerta success&lt;/div&gt;
+&lt;div class="alerta info alerta-pildora"&gt;Alerta info&lt;/div&gt;
+&lt;div class="alerta warning alerta-pildora"&gt;Alerta warning&lt;/div&gt;
+&lt;div class="alerta danger alerta-pildora"&gt;Alerta danger&lt;/div&gt;
+&lt;div class="alerta alert alerta-pildora"&gt;Alerta alert&lt;/div&gt;
+&lt;div class="alerta light alerta-pildora"&gt;Alerta light&lt;/div&gt;
+&lt;div class="alerta dark alerta-pildora"&gt;Alerta dark&lt;/div&gt;
+&lt;div class="alerta accent alerta-pildora"&gt;Alerta accent&lt;/div&gt;
+&lt;div class="alerta muted alerta-pildora"&gt;Alerta muted&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </section>
+
+          <section class="p-3">
+            <h2 class="fs-2 text-dark mb-1">
+              Con cierre — <code>.alerta-close</code>
+            </h2>
+            <p class="text-muted mb-3">
+              Agrega un <code>&lt;button class="alerta-close"&gt;</code> dentro
+              de la alerta. El JS escucha el clic y elimina el elemento con
+              <code>.remove()</code>. Funciona en <code>.alerta</code> y
+              <code>.alerta-pildora</code>.
+            </p>
+
+            <div class="card">
+              <div class="card-body">
+                <div class="success alerta mb-1">
+                  Operación completada con éxito.
+                  <button class="alerta-close">✕</button>
+                </div>
+                <div class="danger alerta mb-1">
+                  Ha ocurrido un error inesperado.
+                  <button class="alerta-close">✕</button>
+                </div>
+                <div class="alerta warning alerta-pildora mb-1">
+                  Revisa los campos del formulario.
+                  <button class="alerta-close">✕</button>
+                </div>
+                <div class=" alerta info alerta-pildora">
+                  <strong>Info:</strong> Tienes nuevas notificaciones.
+                  <button class="alerta-close">✕</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">Alerta con cierre</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>
+&lt;div class="success alerta"&gt;
+  Operación completada con éxito.
+  &lt;button class="alerta-close"&gt;✕&lt;/button&gt;
+&lt;/div&gt;
+ 
+&lt;div class="warning alerta-pildora"&gt;
+  Revisa los campos del formulario.
+  &lt;button class="alerta-close"&gt;✕&lt;/button&gt;
+&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+
+            <div class="alerta border-info mt-2">
+              <strong>Nota:</strong> <code>.alerta-close</code> usa
+              <code>margin-left: auto</code> para alinearse al extremo derecho
+              gracias al <code>display: flex</code> de la alerta padre.
+             <p>El codigo js esta en la pagina principal</p>
+            </div>
+          </section>
+
+          <section class="p-3">
+            <h2 class="fs-2 text-dark mb-1">Con contenido enriquecido</h2>
+            <p class="text-muted mb-3">
+              Las alertas admiten HTML interno: puedes combinar
+              <code>&lt;strong&gt;</code>, <code>&lt;code&gt;</code> u otros
+              elementos inline para mensajes más descriptivos.
+            </p>
+
+            <div class="card">
+              <div class="card-body">
+                <div class="info alerta mb-1">
+                  <strong>Info:</strong> Este componente se genera con
+                  <code>@each</code> sobre <code>$theme-colors</code>.
+                  <button class="alerta-close">✕</button>
+                </div>
+                <div class="warning alerta mb-1">
+                  <strong>Atención:</strong> Los cambios no guardados se
+                  perderán al salir de la página.
+                  <button class="alerta-close">✕</button>
+                </div>
+                <div class="danger alerta">
+                  <strong>Error 404:</strong> No se encontró el recurso
+                  solicitado. Verifica la URL e inténtalo de nuevo.
+                  <button class="alerta-close">✕</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">Contenido enriquecido</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>
+&lt;div class="info alerta"&gt;
+  &lt;strong&gt;Info:&lt;/strong&gt; Este componente se genera con
+  &lt;code&gt;@each&lt;/code&gt; sobre &lt;code&gt;$theme-colors&lt;/code&gt;.
+  &lt;button class="alerta-close"&gt;✕&lt;/button&gt;
+&lt;/div&gt;
+ 
+&lt;div class="danger alerta"&gt;
+  &lt;strong&gt;Error 404:&lt;/strong&gt; No se encontró el recurso solicitado.
+  &lt;button class="alerta-close"&gt;✕&lt;/button&gt;
+&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </section>
+          <section class="p-3">
+            <h2 class="fs-2 text-dark mb-1">
+              Referencia SCSS — <code>_alerts.scss</code>
+            </h2>
+           <p class="text-muted mb-3">
+              Alertas y badges viven en el mismo archivo y comparten los mismos
+              dos mixins. La diferencia entre uno y otro la controlan los
+              parámetros <code>$pildora</code> y <code>$es-badge</code>.
+            </p>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">_alerts.scss</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+ 
+.alerta {
+  @include m.alertas-badges($pildora: false, $es-badge: false);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  width: 100%;
+}
+ 
+// Variante píldora
+.alerta-pildora {
+  @include m.alertas-badges($pildora: true, $es-badge: false);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  width: 100%;
+}
+ 
+// Genera .{color}.alerta y .{color}.badge para los 11 colores
+@each $nombre, $color in v.$theme-colors {
+  .#{$nombre} {
+    @include m.alerta-badges-color($color);
+  }
+}
+ 
+// Botón de cierre
+.alerta {
+  position: relative;
+ 
+  .alerta-close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    opacity: 0.6;
+    color: inherit;
+    padding: 0;
+ 
+    &:hover { opacity: 1; }
+  }
+}
+                </code></pre>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">@mixin alertas-badges()</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>
+@mixin alertas-badges($pildora: false, $es-badge: false) {
+  display: inline-block;
+  border: 1px solid transparent;
+  font-weight: 500;
+  line-height: 1;
+ 
+  @if $pildora {
+    border-radius: 50px;
+  } @else {
+    border-radius: 4px;
+  }
+ 
+  @if $es-badge {
+    font-size: 0.75rem;
+    padding: 0.25em 0.6em;
+    vertical-align: middle;
+  } @else {
+    padding: 0.5em 1em;
+  }
+}
+ 
+@mixin alerta-badges-color($color) {
+  &.alerta {
+    background-color: rgba($color, 0.15);
+    border-color: rgba($color, 0.3);
+    color: $color;
+  }
+}
+                </code></pre>
+              </div>
+            </div>
+
+            <div class="table-container mt-2">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Clase</th>
+                    <th>Border-radius</th>
+                    <th>Fondo</th>
+                    <th>Borde</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>.alerta</code></td>
+                    <td>4px</td>
+                    <td>rgba(color, 0.15)</td>
+                    <td>rgba(color, 0.3)</td>
+                  </tr>
+                  <tr>
+                    <td><code>.alerta-pildora</code></td>
+                    <td>50px</td>
+                    <td>rgba(color, 0.15)</td>
+                    <td>rgba(color, 0.3)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+        <footer class="main-footer main-footer-dark">
+          <div class="footer-content">
+            <p class="fw-bold text-accent mb-1">
+              ✿ PersephoneCSS <span class="badge muted">v3.0.0</span>
+            </p>
+            <p class="mb-2">
+              Juliana Torres &amp; Fabiola Romero — Herramientas de
+              Productividad, UES FMO · Ciclo I 2026
+            </p>
+          </div>
+          <p class="footer-copy">
+            © 2026 PersephoneCSS. Construido con su propio framework.
+          </p>
+        </footer>
+      </main>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
