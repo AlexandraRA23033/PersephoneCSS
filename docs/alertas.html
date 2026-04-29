@@ -20,39 +20,41 @@
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <div class="main-wrapper has-navbar">
       <aside class="sidebar-main sidebar-secondary" id="sidebar">
-      <div class="sidebar-header">📖 Documentación</div>
-      <ul class="sidebar-menu">
-        <li><a href="#introduccion" class="active">Introducción</a></li>
-        <li><a href="#instalacion">Instalación</a></li>
-        <li><a href="#estructura">Estructura del proyecto</a></li>
-        <li><a href="#paleta">Paleta de colores</a></li>
-        <li><a href="#inicio-rapido">Inicio rápido</a></li>
+        <div class="sidebar-header">📖 Documentación</div>
+        <ul class="sidebar-menu">
+          <li><a href="introduccion.html#introduccion">Introducción</a></li>
+          <li><a href="introduccion.html#instalacion">Instalación</a></li>
+          <li>
+            <a href="introduccion.html#estructura">Estructura del proyecto</a>
+          </li>
+          <li><a href="introduccion.html#paleta">Paleta de colores</a></li>
+          <li><a href="introduccion.html#inicio-rapido">Inicio rápido</a></li>
 
-        <div class="sidebar-header">Layout</div>
-        <li><a href="contenedores.html">Contenedores</a></li>
-        <li><a href="grid.html">Sistema Grid</a></li>
-        <li><a href="breakpoints.html">Breakpoints</a></li>
+          <div class="sidebar-header">Layout</div>
+          <li><a href="contenedores.html">Contenedores</a></li>
+          <li><a href="grid.html">Sistema Grid</a></li>
+          <li><a href="breakpoints.html">Breakpoints</a></li>
 
-        <div class="sidebar-header">Componentes</div>
-        <li><a href="botones.html">Botones</a></li>
-        <li><a href="cards.html">Cards</a></li>
-        <li><a href="alertas.html">Alertas</a></li>
-        <li><a href="badges.html">Badges</a></li>
-        <li><a href="navbar.html">Navbar</a></li>
-        <li><a href="sidebar.html">Sidebar</a></li>
-        <li><a href="tablas.html">Tablas</a></li>
-        <li><a href="formularios.html">Formularios</a></li>
-        <li><a href="modales.html">Modales</a></li>
+          <div class="sidebar-header">Componentes</div>
+          <li><a href="botones.html">Botones</a></li>
+          <li><a href="cards.html">Cards</a></li>
+          <li><a href="alertas.html" class="active">Alertas</a></li>
+          <li><a href="badges.html">Badges</a></li>
+          <li><a href="navbar.html">Navbar</a></li>
+          <li><a href="sidebar.html">Sidebar</a></li>
+          <li><a href="tablas.html">Tablas</a></li>
+          <li><a href="formularios.html">Formularios</a></li>
+          <li><a href="modales.html">Modales</a></li>
 
-        <div class="sidebar-header">Utilidades</div>
-        <li><a href="utils.html">Tipografía</a></li>
-        <li><a href="utils.html">Espaciado</a></li>
-        <li><a href="utils.html">Colores</a></li>
-        <li><a href="utils.html">Flexbox</a></li>
-        <li><a href="utils.html">Display</a></li>
-        <li><a href="utils.html">Bordes &amp; Sombras</a></li>
-      </ul>
-    </aside>
+          <div class="sidebar-header">Utilidades</div>
+          <li><a href="utils.html">Tipografía</a></li>
+          <li><a href="utils.html">Espaciado</a></li>
+          <li><a href="utils.html">Colores</a></li>
+          <li><a href="utils.html">Flexbox</a></li>
+          <li><a href="utils.html">Display</a></li>
+          <li><a href="utils.html">Bordes &amp; Sombras</a></li>
+        </ul>
+      </aside>
       <button class="sidebar-toggle-btn" id="sidebarToggle">☰</button>
 
       <main class="main-content">
@@ -98,7 +100,7 @@
             </div>
 
             <div class="card shadow-sm mb-2">
-              <div class="card-header bg-dark text-light">
+              <div class="card-header card-dark">
                 <span class="fw-bold font-mono">Alertas</span>
               </div>
               <div class="card-body">
@@ -160,7 +162,7 @@
               </div>
             </div>
             <div class="card shadow-sm mb-2">
-              <div class="card-header bg-dark text-light">
+              <div class="card-header card-dark">
                 <span class="fw-bold font-mono">Alerta píldora</span>
               </div>
               <div class="card-body">
@@ -208,7 +210,7 @@
                   Revisa los campos del formulario.
                   <button class="alerta-close">✕</button>
                 </div>
-                <div class=" alerta info alerta-pildora">
+                <div class="alerta info alerta-pildora">
                   <strong>Info:</strong> Tienes nuevas notificaciones.
                   <button class="alerta-close">✕</button>
                 </div>
@@ -216,7 +218,7 @@
             </div>
 
             <div class="card shadow-sm mb-2">
-              <div class="card-header bg-dark text-light">
+              <div class="card-header card-dark">
                 <span class="fw-bold font-mono">Alerta con cierre</span>
               </div>
               <div class="card-body">
@@ -238,7 +240,7 @@
               <strong>Nota:</strong> <code>.alerta-close</code> usa
               <code>margin-left: auto</code> para alinearse al extremo derecho
               gracias al <code>display: flex</code> de la alerta padre.
-             <p>El codigo js esta en la pagina principal</p>
+              <p>El codigo js esta en la pagina principal</p>
             </div>
           </section>
 
@@ -271,7 +273,7 @@
             </div>
 
             <div class="card shadow-sm mb-2">
-              <div class="card-header bg-dark text-light">
+              <div class="card-header card-dark">
                 <span class="fw-bold font-mono">Contenido enriquecido</span>
               </div>
               <div class="card-body">
@@ -294,14 +296,14 @@
             <h2 class="fs-2 text-dark mb-1">
               Referencia SCSS — <code>_alerts.scss</code>
             </h2>
-           <p class="text-muted mb-3">
+            <p class="text-muted mb-3">
               Alertas y badges viven en el mismo archivo y comparten los mismos
               dos mixins. La diferencia entre uno y otro la controlan los
               parámetros <code>$pildora</code> y <code>$es-badge</code>.
             </p>
 
             <div class="card shadow-sm mb-2">
-              <div class="card-header bg-dark text-light">
+              <div class="card-header card-dark">
                 <span class="fw-bold font-mono">_alerts.scss</span>
               </div>
               <div class="card-body">
@@ -355,7 +357,7 @@
             </div>
 
             <div class="card shadow-sm mb-2">
-              <div class="card-header bg-dark text-light">
+              <div class="card-header card-dark">
                 <span class="fw-bold font-mono">@mixin alertas-badges()</span>
               </div>
               <div class="card-body">
@@ -423,7 +425,7 @@
         <footer class="main-footer main-footer-dark">
           <div class="footer-content">
             <p class="fw-bold text-accent mb-1">
-              ✿ PersephoneCSS <span class="badge muted">v3.0.0</span>
+              ✿ PersephoneCSS <span class="badge muted">v4.0.0</span>
             </p>
             <p class="mb-2">
               Juliana Torres &amp; Fabiola Romero — Herramientas de
