@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-  /* --- FUNCIÓN REUTILIZABLE PARA CERRAR MODAL --- */
+  /* FUNCIÓN REUTILIZABLE PARA CERRAR MODAL */
   function closeModal(modal) {
     if (!modal) return;
     modal.classList.remove("is-open");
     document.body.style.overflow = "auto";
   }
 
-  /* --- LÓGICA DEL NAVBAR --- */
+  /* LÓGICA DEL NAVBAR */
   const toggle = document.querySelector(".nav-toggle");
   const menu = document.querySelector(".nav-menu");
 
@@ -17,10 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* --- LÓGICA DE LOS MODALES --- */
+  /* LÓGICA DE LOS MODALES */
   const openButtons = document.querySelectorAll("[data-modal-target]");
-  const closeButtons = document.querySelectorAll(".modal-close, .btn-close-modal");
-  const modals = document.querySelectorAll(".modal");
+  const closeButtons = document.querySelectorAll("[data-modal-close]");
+  const modals = document.querySelectorAll(".modal, .modal-alert, .modal-form");
 
   openButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -36,11 +35,15 @@ document.addEventListener("DOMContentLoaded", () => {
   closeButtons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      const modal = btn.closest(".modal");
+      const modal = btn.closest(".modal, .modal-alert, .modal-form");
       if (modal) {
         closeModal(modal);
       } else {
-        closeModal(document.querySelector(".modal.is-open"));
+        closeModal(
+          document.querySelector(
+            ".modal.is-open, .modal-alert.is-open, .modal-form.is-open",
+          ),
+        );
       }
     });
   });
@@ -53,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* --- LÓGICA DEL FORMULARIO --- */
+  /* LÓGICA DEL FORMULARIO */
   const form = document.getElementById("formRegistro");
   const btnGuardar = document.getElementById("btnGuardar");
 
@@ -69,17 +72,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* --- CERRAR ALERTAS --- */
+  /* CERRAR ALERTAS */
   document.addEventListener("click", (e) => {
     if (e.target.classList.contains("alerta-close")) {
       const alerta = e.target.closest(".alerta, .alerta-pildora");
       if (alerta) alerta.remove();
     }
   });
-
 });
 
-/* --- LÓGICA DEL SIDEBAR --- */
+/* LÓGICA DEL SIDEBAR */
 const sidebar = document.querySelector(".sidebar-main");
 const sidebarToggleBtn = document.querySelector(".sidebar-toggle-btn");
 const sidebarOverlay = document.getElementById("sidebarOverlay");

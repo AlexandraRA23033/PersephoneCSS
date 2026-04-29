@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PersephoneCSS — Navbar</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body>
+    <nav class="navbar--dark">
+      <span class="fw-bold fs-3">✿ PersephoneCSS</span>
+      <button class="nav-toggle" aria-label="Menú">☰</button>
+      <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="introduccion.html" class="active">Documentación</a></li>
+        <li><a href="colaboradoras.html">Colaboradoras</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="main-wrapper has-navbar">
+      <aside class="sidebar-main sidebar-secondary" id="sidebar">
+      <div class="sidebar-header">📖 Documentación</div>
+      <ul class="sidebar-menu">
+        <li><a href="#introduccion">Introducción</a></li>
+        <li><a href="#instalacion">Instalación</a></li>
+        <li><a href="#estructura">Estructura del proyecto</a></li>
+        <li><a href="#paleta">Paleta de colores</a></li>
+        <li><a href="#inicio-rapido">Inicio rápido</a></li>
+
+        <div class="sidebar-header">Layout</div>
+        <li><a href="contenedores.html">Contenedores</a></li>
+        <li><a href="grid.html">Sistema Grid</a></li>
+        <li><a href="breakpoints.html">Breakpoints</a></li>
+
+        <div class="sidebar-header">Componentes</div>
+        <li><a href="botones.html">Botones</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="alertas.html">Alertas</a></li>
+        <li><a href="badges.html">Badges</a></li>
+        <li><a href="navbar.html" class="active">Navbar</a></li>
+        <li><a href="sidebar.html">Sidebar</a></li>
+        <li><a href="tablas.html">Tablas</a></li>
+        <li><a href="formularios.html">Formularios</a></li>
+        <li><a href="modales.html">Modales</a></li>
+
+        <div class="sidebar-header">Utilidades</div>
+        <li><a href="utils.html">Tipografía</a></li>
+        <li><a href="utils.html">Espaciado</a></li>
+        <li><a href="utils.html">Colores</a></li>
+        <li><a href="utils.html">Flexbox</a></li>
+        <li><a href="utils.html">Display</a></li>
+        <li><a href="utils.html">Bordes &amp; Sombras</a></li>
+      </ul>
+    </aside>
+      <button class="sidebar-toggle-btn" id="sidebarToggle">&#9776;</button>
+      <main class="main-content">
+        <section class="bg-primary p-3">
+          <div class="container">
+            <span class="badge dark">Componentes</span>
+            <h1 class="fs-1 fw-bold mt-1">Navbar</h1>
+            <p class="mt-1">
+              Barra de navegación fija, responsiva y generada automáticamente en
+              4 estilos × 11 colores. Incluye toggle para móvil y soporte para
+              submenús dropdown.
+            </p>
+          </div>
+        </section>
+
+        <div class="container p-3">
+          <section id="como-funciona">
+            <h2 class="fs-2 fw-bold mb-1">¿Cómo funciona?</h2>
+            <p class="mb-1">
+              La navbar se genera con un doble <code>@each</code> en
+              <code>_navbar.scss</code>: uno itera sobre los 4 estilos y otro
+              sobre los 11 colores de <code>$theme-colors</code>, produciendo 44
+              variantes sin repetir código.
+            </p>
+            <p class="mb-1">
+              La convención de nombre es <code>.navbar-{estilo}--{color}</code>,
+              excepto el estilo base que usa <code>.navbar--{color}</code>. En
+              móvil el menú se oculta y el botón <code>.nav-toggle</code> lo
+              despliega añadiendo <code>.is-active</code> vía JavaScript.
+            </p>
+            <div class="warning alerta mt-1" role="alert">
+              <div>
+                La navbar usa <code>position: fixed</code> y
+                <code>z-index: 3000</code>. El wrapper de la página necesita la
+                clase <code>.has-navbar</code> para que el contenido no quede
+                tapado debajo de ella.
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="estructura">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">Estructura HTML</h2>
+            <p class="mb-2">
+              Todos los estilos de navbar comparten la misma estructura interna
+              de elementos.
+            </p>
+
+            <div class="table-container mb-2">
+              <table class="table table-bordered table-oscura-secondary">
+                <thead>
+                  <tr>
+                    <th>Elemento</th>
+                    <th>Clase / Atributo</th>
+                    <th>Descripción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;nav&gt;</code></td>
+                    <td><code>.navbar--{color}</code></td>
+                    <td>Contenedor principal, fijo en el top de la pantalla</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;span&gt;</code> / <code>&lt;a&gt;</code></td>
+                    <td>—</td>
+                    <td>Brand o nombre del sitio</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;button&gt;</code></td>
+                    <td><code>.nav-toggle</code></td>
+                    <td>Botón hamburguesa, visible solo en móvil</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;ul&gt;</code></td>
+                    <td><code>.nav-menu</code></td>
+                    <td>
+                      Lista de enlaces. JS añade <code>.is-active</code> al
+                      abrir en móvil
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;li&gt;&lt;a&gt;</code></td>
+                    <td><code>.active</code> (opcional)</td>
+                    <td>Enlace activo resaltado visualmente</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header bg-dark">
+                <span class="fw-bold font-mono">HTML — Estructura base</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>&lt;nav class="navbar--dark"&gt;
+  &lt;span class="fw-bold"&gt;Mi Sitio&lt;/span&gt;
+  &lt;button class="nav-toggle" aria-label="Menú"&gt;☰&lt;/button&gt;
+  &lt;ul class="nav-menu"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" class="active"&gt;Docs&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+ 
+&lt;!-- Compensar el position: fixed de la navbar --&gt;
+&lt;div class="main-wrapper has-navbar"&gt;
+  &lt;main class="main-content"&gt;...&lt;/main&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="estilo-base">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Estilo base — <code>.navbar--{color}</code>
+            </h2>
+            <p class="mb-2">
+              Fondo sólido del color elegido con hover de fondo semitransparente
+              sobre los enlaces. Es el estilo más simple y versátil.
+            </p>
+
+            <img src="../img/normal.png" alt="navabr normal" class="br-2 shadow-sm mt-2 mb-2"/>
+
+            <p>Ejemplos demostrativos de colores/p>
+            <div class="row mb-2">
+              <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card card-primary shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">.navbar--primary</p>
+                    <p class="font-mono">
+                      Inicio &nbsp; <u>Docs</u> &nbsp; Contacto
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card card-secondary shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">.navbar--secondary</p>
+                    <p class="font-mono">
+                      Inicio &nbsp; <u>Docs</u> &nbsp; Contacto
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card card-dark shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">.navbar--dark</p>
+                    <p class="font-mono">
+                      Inicio &nbsp; <u>Docs</u> &nbsp; Contacto
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card card-success shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">.navbar--success</p>
+                    <p class="font-mono">
+                      Inicio &nbsp; <u>Docs</u> &nbsp; Contacto
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card card-info shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">.navbar--info</p>
+                    <p class="font-mono">
+                      Inicio &nbsp; <u>Docs</u> &nbsp; Contacto
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card card-warning shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">.navbar--warning</p>
+                    <p class="font-mono">
+                      Inicio &nbsp; <u>Docs</u> &nbsp; Contacto
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card card-danger shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">.navbar--danger</p>
+                    <p class="font-mono">
+                      Inicio &nbsp; <u>Docs</u> &nbsp; Contacto
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card card-accent shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">.navbar--accent</p>
+                    <p class="font-mono">
+                      Inicio &nbsp; <u>Docs</u> &nbsp; Contacto
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card card-muted shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">.navbar--muted</p>
+                    <p class="font-mono">
+                      Inicio &nbsp; <u>Docs</u> &nbsp; Contacto
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card card-alert shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">.navbar--alert</p>
+                    <p class="font-mono">
+                      Inicio &nbsp; <u>Docs</u> &nbsp; Contacto
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card card-light shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">.navbar--light</p>
+                    <p class="font-mono">
+                      Inicio &nbsp; <u>Docs</u> &nbsp; Contacto
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header bg-dark">
+                <span class="fw-bold font-mono">HTML</span>
+              </div>
+              <div class="card-body">
+                <pre
+                  class="font-mono"
+                ><code>&lt;nav class="navbar--primary"&gt;...&lt;/nav&gt;
+&lt;nav class="navbar--secondary"&gt;...&lt;/nav&gt;
+&lt;nav class="navbar--dark"&gt;...&lt;/nav&gt;
+&lt;!-- disponible para los 11 colores del tema --&gt;</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="estilo-underline">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Underline — <code>.navbar-underline--{color}</code>
+            </h2>
+            <p class="mb-2">
+              Los enlaces no tienen fondo en hover. En su lugar aparece una
+              línea inferior animada con <code>::after</code> que crece de 0% al
+              100% del ancho del enlace al hacer hover.
+            </p>
+
+            <img src="../img/underline.png" alt="navbar undeerline" class="br-2 shadow-sm mt-2 mb-2"/>
+
+            <p>Ejemplos demostrativos de colores</p>
+            <div class="row mb-2">
+              <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card card-primary shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">
+                      .navbar-underline--primary
+                    </p>
+                    <p class="font-mono">
+                      Inicio &nbsp; <u>Docs</u> &nbsp; Contacto
+                    </p>
+                    <p class="mt-1">
+                      <span class="primary badge">_ _ _</span> línea inferior
+                      animada
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card card-secondary shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">
+                      .navbar-underline--secondary
+                    </p>
+                    <p class="font-mono">
+                      Inicio &nbsp; <u>Docs</u> &nbsp; Contacto
+                    </p>
+                    <p class="mt-1">
+                      <span class="secondary badge">_ _ _</span> línea inferior
+                      animada
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card card-dark shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">
+                      .navbar-underline--dark
+                    </p>
+                    <p class="font-mono">
+                      Inicio &nbsp; <u>Docs</u> &nbsp; Contacto
+                    </p>
+                    <p class="mt-1">
+                      <span class="dark badge">_ _ _</span> línea inferior
+                      animada
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark">
+                <span class="fw-bold font-mono">HTML</span>
+              </div>
+              <div class="card-body">
+                <pre
+                  class="font-mono"
+                ><code>&lt;nav class="navbar-underline--primary"&gt;
+  &lt;span class="fw-bold"&gt;Mi Sitio&lt;/span&gt;
+  &lt;button class="nav-toggle" aria-label="Menú"&gt;☰&lt;/button&gt;
+  &lt;ul class="nav-menu"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" class="active"&gt;Docs&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+              </div>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header bg-dark">
+                <span class="fw-bold font-mono"
+                  >_navbar-mixins.scss — nav-underline</span
+                >
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>@mixin nav-underline {
+  .nav-menu li a {
+    position: relative;
+ 
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: currentColor;
+      @include transicion;
+    }
+ 
+    &:hover::after {
+      width: 100%;    // la línea crece al hacer hover
+    }
+  }
+}</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="estilo-buttons">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Buttons (pill) — <code>.navbar-buttons--{color}</code>
+            </h2>
+            <p class="mb-2">
+              Cada enlace aparece envuelto en una píldora con fondo
+              semitransparente y <code>border-radius: 20px</code>. El fondo se
+              intensifica en hover. Ideal para dashboards y aplicaciones.
+            </p>
+
+            <img src="../img/pill.png" alt="navbar pildora" class="br-2 shadow-sm mt-2 mb-2"/>
+
+            <p>Ejemplos demostrativos de colores</p>
+            <div class="row mb-2">
+              <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card card-primary shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">
+                      .navbar-buttons--primary
+                    </p>
+                    <div class="d-flex f-wrap">
+                      <span class="primary badge-pildora">Inicio</span>
+                      <span class="dark badge-pildora">Docs</span>
+                      <span class="primary badge-pildora">Contacto</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card card-secondary shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">
+                      .navbar-buttons--secondary
+                    </p>
+                    <div class="d-flex f-wrap">
+                      <span class="secondary badge-pildora">Inicio</span>
+                      <span class="dark badge-pildora">Docs</span>
+                      <span class="secondary badge-pildora">Contacto</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card card-dark shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">.navbar-buttons--dark</p>
+                    <div class="d-flex f-wrap">
+                      <span class="dark badge-pildora">Inicio</span>
+                      <span class="primary badge-pildora">Docs</span>
+                      <span class="dark badge-pildora">Contacto</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">HTML</span>
+              </div>
+              <div class="card-body">
+                <pre
+                  class="font-mono"
+                ><code>&lt;nav class="navbar-buttons--dark"&gt;
+  &lt;span class="fw-bold"&gt;Mi Sitio&lt;/span&gt;
+  &lt;button class="nav-toggle" aria-label="Menú"&gt;☰&lt;/button&gt;
+  &lt;ul class="nav-menu"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" class="active"&gt;Docs&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+              </div>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header bg-dark">
+                <span class="fw-bold font-mono"
+                  >_navbar-mixins.scss — nav-pill</span
+                >
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>@mixin nav-pill {
+  .nav-menu li a {
+    background: rgba($text-light, 0.1);
+    border-radius: 20px;
+    margin: 0 4px;
+ 
+    &:hover {
+      background: rgba($text-light, 0.22);
+    }
+  }
+}</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="estilo-dropdown">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Dropdown — <code>.navbar-dropdown--{color}</code>
+            </h2>
+            <p class="mb-2">
+              Añade soporte para submenús. Al hacer hover sobre un
+              <code>&lt;li&gt;</code> que contiene una lista
+              <code>.submenu</code>, el submenú aparece posicionado debajo del
+              enlace padre con el mismo color de fondo de la navbar.
+            </p>
+
+            <img src="../img/dropdown.png" alt="navbar dropdown" class="br-2 shadow-sm mt-2 mb-2"/>
+
+            <p>Ejemplos demostrativos de colores</p>
+            <div class="row mb-2">
+              <div class="col-12 col-md-6 mb-1">
+                <div class="card card-primary shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">
+                      .navbar-dropdown--primary
+                    </p>
+                    <p class="font-mono mb-1">
+                      Inicio &nbsp; Docs ▾ &nbsp; Contacto
+                    </p>
+                    <div class="card card-secondary">
+                      <div class="card-body">
+                        <p class="font-mono">↳ Introducción</p>
+                        <p class="font-mono">↳ Grid</p>
+                        <p class="font-mono">↳ Componentes</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-1">
+                <div class="card card-dark shadow-sm">
+                  <div class="card-body">
+                    <p class="fw-bold font-mono mb-1">.navbar-dropdown--dark</p>
+                    <p class="font-mono mb-1">
+                      Inicio &nbsp; Docs ▾ &nbsp; Contacto
+                    </p>
+                    <div class="card card-secondary">
+                      <div class="card-body">
+                        <p class="font-mono">↳ Introducción</p>
+                        <p class="font-mono">↳ Grid</p>
+                        <p class="font-mono">↳ Componentes</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark">
+                <span class="fw-bold font-mono"
+                  >HTML — Estructura con submenú</span
+                >
+              </div>
+              <div class="card-body">
+                <pre
+                  class="font-mono"
+                ><code>&lt;nav class="navbar-dropdown--dark"&gt;
+  &lt;span class="fw-bold"&gt;Mi Sitio&lt;/span&gt;
+  &lt;button class="nav-toggle" aria-label="Menú"&gt;☰&lt;/button&gt;
+  &lt;ul class="nav-menu"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href="#"&gt;Secciones ▾&lt;/a&gt;
+      &lt;ul class="submenu"&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Opción 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Opción 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Opción 3&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header bg-dark">
+                <span class="fw-bold font-mono"
+                  >_navbar-mixins.scss — nav-dropdown</span
+                >
+              </div>
+              <div class="card-body">
+                <pre
+                  class="font-mono"
+                ><code>@mixin nav-dropdown($color: $primary) {
+  .nav-menu li {
+    position: relative;
+ 
+    &:hover > .submenu {
+      display: flex;          // aparece al hacer hover
+    }
+  }
+ 
+  .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: $color;       // hereda el color de la navbar
+    min-width: 180px;
+    flex-direction: column;
+    border-radius: 0 0 6px 6px;
+    z-index: 9999;
+  }
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="warning alerta" role="alert">
+              <div>
+                El submenú se activa solo con hover en escritorio. En móvil con
+                el menú en toggle, el <code>.submenu</code> no es accesible.
+                Considera lógica JS adicional si necesitas dropdown en móvil.
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="resumen">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">Resumen de variantes</h2>
+            <p class="mb-2">Los 4 estilos disponibles y su comportamiento.</p>
+
+            <div class="table-container mb-2">
+              <table class="table table-bordered table-oscura-secondary">
+                <thead>
+                  <tr>
+                    <th>Estilo</th>
+                    <th>Patrón de clase</th>
+                    <th>Efecto hover</th>
+                    <th>Característica especial</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="primary badge">base</span></td>
+                    <td><code>.navbar--{color}</code></td>
+                    <td>Fondo semitransparente</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td><span class="info badge">underline</span></td>
+                    <td><code>.navbar-underline--{color}</code></td>
+                    <td>Línea inferior animada</td>
+                    <td>Pseudo-elemento <code>::after</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="success badge">buttons</span></td>
+                    <td><code>.navbar-buttons--{color}</code></td>
+                    <td>Fondo píldora intensificado</td>
+                    <td><code>border-radius: 20px</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="warning badge">dropdown</span></td>
+                    <td><code>.navbar-dropdown--{color}</code></td>
+                    <td>Fondo semitransparente</td>
+                    <td>Submenú <code>.submenu</code> en hover</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-container">
+              <table class="table table-bordered table-oscura-primary">
+                <thead>
+                  <tr>
+                    <th>Color</th>
+                    <th>base</th>
+                    <th>underline</th>
+                    <th>buttons</th>
+                    <th>dropdown</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="primary badge">primary</span></td>
+                    <td><code>.navbar--primary</code></td>
+                    <td><code>.navbar-underline--primary</code></td>
+                    <td><code>.navbar-buttons--primary</code></td>
+                    <td><code>.navbar-dropdown--primary</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="secondary badge">secondary</span></td>
+                    <td><code>.navbar--secondary</code></td>
+                    <td><code>.navbar-underline--secondary</code></td>
+                    <td><code>.navbar-buttons--secondary</code></td>
+                    <td><code>.navbar-dropdown--secondary</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="success badge">success</span></td>
+                    <td><code>.navbar--success</code></td>
+                    <td><code>.navbar-underline--success</code></td>
+                    <td><code>.navbar-buttons--success</code></td>
+                    <td><code>.navbar-dropdown--success</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="info badge">info</span></td>
+                    <td><code>.navbar--info</code></td>
+                    <td><code>.navbar-underline--info</code></td>
+                    <td><code>.navbar-buttons--info</code></td>
+                    <td><code>.navbar-dropdown--info</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="warning badge">warning</span></td>
+                    <td><code>.navbar--warning</code></td>
+                    <td><code>.navbar-underline--warning</code></td>
+                    <td><code>.navbar-buttons--warning</code></td>
+                    <td><code>.navbar-dropdown--warning</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="danger badge">danger</span></td>
+                    <td><code>.navbar--danger</code></td>
+                    <td><code>.navbar-underline--danger</code></td>
+                    <td><code>.navbar-buttons--danger</code></td>
+                    <td><code>.navbar-dropdown--danger</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="alert badge">alert</span></td>
+                    <td><code>.navbar--alert</code></td>
+                    <td><code>.navbar-underline--alert</code></td>
+                    <td><code>.navbar-buttons--alert</code></td>
+                    <td><code>.navbar-dropdown--alert</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="light badge">light</span></td>
+                    <td><code>.navbar--light</code></td>
+                    <td><code>.navbar-underline--light</code></td>
+                    <td><code>.navbar-buttons--light</code></td>
+                    <td><code>.navbar-dropdown--light</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="dark badge">dark</span></td>
+                    <td><code>.navbar--dark</code></td>
+                    <td><code>.navbar-underline--dark</code></td>
+                    <td><code>.navbar-buttons--dark</code></td>
+                    <td><code>.navbar-dropdown--dark</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="accent badge">accent</span></td>
+                    <td><code>.navbar--accent</code></td>
+                    <td><code>.navbar-underline--accent</code></td>
+                    <td><code>.navbar-buttons--accent</code></td>
+                    <td><code>.navbar-dropdown--accent</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="muted badge">muted</span></td>
+                    <td><code>.navbar--muted</code></td>
+                    <td><code>.navbar-underline--muted</code></td>
+                    <td><code>.navbar-buttons--muted</code></td>
+                    <td><code>.navbar-dropdown--muted</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <footer class="main-footer main-footer-dark">
+          <div class="footer-content">
+            <p class="fw-bold text-accent mb-1">
+              ✿ PersephoneCSS <span class="badge muted">v4.0.0</span>
+            </p>
+            <p class="mb-2">
+              Juliana Torres &amp; Fabiola Romero — Herramientas de
+              Productividad, UES FMO · Ciclo I 2026
+            </p>
+          </div>
+          <p class="footer-copy">
+            © 2026 PersephoneCSS. Construido con su propio framework.
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PersephoneCSS — Breakpoints</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body>
+    <nav class="navbar--dark">
+      <span class="fw-bold fs-3">✿ PersephoneCSS</span>
+      <button class="nav-toggle" aria-label="Menú">☰</button>
+      <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="introduccion.html" class="active">Documentación</a></li>
+        <li><a href="colaboradoras.html">Colaboradoras</a></li>
+      </ul>
+    </nav>
+ <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="main-wrapper has-navbar">
+      <aside class="sidebar-main sidebar-secondary" id="sidebar">
+      <div class="sidebar-header">📖 Documentación</div>
+      <ul class="sidebar-menu">
+        <li><a href="#introduccion" >Introducción</a></li>
+        <li><a href="#instalacion">Instalación</a></li>
+        <li><a href="#estructura">Estructura del proyecto</a></li>
+        <li><a href="#paleta">Paleta de colores</a></li>
+        <li><a href="#inicio-rapido">Inicio rápido</a></li>
+
+        <div class="sidebar-header">Layout</div>
+        <li><a href="contenedores.html">Contenedores</a></li>
+        <li><a href="grid.html">Sistema Grid</a></li>
+        <li><a href="breakpoints.html" class="active">Breakpoints</a></li>
+
+        <div class="sidebar-header">Componentes</div>
+        <li><a href="botones.html">Botones</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="alertas.html">Alertas</a></li>
+        <li><a href="badges.html">Badges</a></li>
+        <li><a href="navbar.html">Navbar</a></li>
+        <li><a href="sidebar.html">Sidebar</a></li>
+        <li><a href="tablas.html">Tablas</a></li>
+        <li><a href="formularios.html">Formularios</a></li>
+        <li><a href="modales.html">Modales</a></li>
+
+        <div class="sidebar-header">Utilidades</div>
+        <li><a href="utils.html">Tipografía</a></li>
+        <li><a href="utils.html">Espaciado</a></li>
+        <li><a href="utils.html">Colores</a></li>
+        <li><a href="utils.html">Flexbox</a></li>
+        <li><a href="utils.html">Display</a></li>
+        <li><a href="utils.html">Bordes &amp; Sombras</a></li>
+      </ul>
+    </aside>
+      <button class="sidebar-toggle-btn" id="sidebarToggle">&#9776;</button>
+
+      <main class="main-content">
+        <section class="bg-primary p-3">
+          <div class="container">
+            <span class="badge dark">Layout</span>
+            <h1 class="fs-1 fw-bold mt-1">Breakpoints</h1>
+            <p class="mt-1">
+              Los breakpoints son los puntos de quiebre donde el layout se
+              adapta al tamaño del viewport. PersephoneCSS es Mobile First: los
+              estilos base aplican en móvil y se sobreescriben hacia arriba.
+            </p>
+          </div>
+        </section>
+
+        <div class="container p-3">
+          <section id="como-funcionan">
+            <h2 class="fs-2 fw-bold mb-1">¿Cómo funcionan?</h2>
+            <p class="mb-1">
+              PersephoneCSS define los breakpoints como variables SCSS en
+              <code>_variables.scss</code> y los consume a través del mixin
+              <code>responsive()</code> en <code>_mixins.scss</code>. Todos los
+              media queries usan <code>min-width</code>, siguiendo el paradigma
+              Mobile First: se escribe primero para móvil y luego se amplía para
+              pantallas más grandes.
+            </p>
+            <div class="info alerta mt-1" role="alert">
+              <div>
+                PersephoneCSS define solo dos breakpoints explícitos:
+                <code>md</code> (768px) y <code>lg</code> (1024px). Los estilos
+                sin breakpoint aplican a todos los tamaños, incluido extra
+                small.
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="mixin">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Mixin <code>responsive()</code>
+            </h2>
+            <p class="mb-2">
+              Todos los media queries del framework se escriben a través del
+              mixin <code>responsive()</code> definido en
+              <code>_mixins.scss</code>. Acepta <code>md</code> o
+              <code>lg</code> como argumento y genera el
+              <code>@media</code> correspondiente.
+            </p>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">_mixins.scss — Definición</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>@mixin responsive($medida) {
+  @if $medida == md {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $medida == lg {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono"
+                  >SCSS — Uso del mixin en un componente</span
+                >
+              </div>
+              <div class="card-body">
+                <pre
+                  class="font-mono"
+                ><code>// Mobile First: base para móvil, se amplía hacia arriba
+.col-6 {
+  width: 100%;                    // xs — apilado
+ 
+  @include responsive(md) {
+    width: 50%;                   // md — dos columnas
+  }
+ 
+  @include responsive(lg) {
+    width: 33.33%;                // lg — tres columnas
+  }
+}</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="uso-en-framework">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">Uso en el framework</h2>
+            <p class="mb-2">
+              El mixin <code>responsive()</code> se usa en múltiples parciales
+              del framework. La tabla muestra qué cambia en cada componente por
+              breakpoint.
+            </p>
+
+            <div class="table-container mb-2">
+              <table
+                class="table table-bordered table-striped table-oscura-primary"
+              >
+                <thead>
+                  <tr>
+                    <th>Componente</th>
+                    <th>Parcial</th>
+                    <th>Cambio en md (768px)</th>
+                    <th>Cambio en lg (1024px)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Columnas grid</td>
+                    <td><code>_layout.scss</code></td>
+                    <td>Activa <code>.col-md-{n}</code></td>
+                    <td>Activa <code>.col-lg-{n}</code></td>
+                  </tr>
+                  <tr>
+                    <td>Container</td>
+                    <td><code>_layout.scss</code></td>
+                    <td><code>max-width: 720px</code></td>
+                    <td><code>max-width: 1200px</code></td>
+                  </tr>
+                  <tr>
+                    <td>Navbar</td>
+                    <td><code>_navbar.scss</code></td>
+                    <td>Nav-menu horizontal, oculta toggle</td>
+                    <td>Sin cambios adicionales</td>
+                  </tr>
+                  <tr>
+                    <td>Sidebar</td>
+                    <td><code>_sidebar.scss</code></td>
+                    <td>Fijo y visible, desaparece toggle-btn</td>
+                    <td>Sin cambios adicionales</td>
+                  </tr>
+                  <tr>
+                    <td>Footer</td>
+                    <td><code>_footer.scss</code></td>
+                    <td>Links en fila horizontal</td>
+                    <td>Sin cambios adicionales</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="ejemplo">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">Ejemplo práctico</h2>
+            <p class="mb-2">
+              El comportamiento Mobile First se puede observar directamente en
+              el grid: las columnas apilan en móvil, pasan a dos por fila en
+              tablet y a cuatro en escritorio.
+            </p>
+
+            <div class="bg-light p-2 mb-1">
+              <div class="row">
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card bg-primary p-1 text-center mb-1">
+                    <p class="font-mono fw-bold">xs</p>
+                    <p>100% — apilada</p>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card bg-info p-1 text-center mb-1">
+                    <p class="font-mono fw-bold">md</p>
+                    <p>50% — dos por fila</p>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card bg-info p-1 text-center mb-1">
+                    <p class="font-mono fw-bold">md</p>
+                    <p>50% — dos por fila</p>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                  <div class="card bg-success p-1 text-center mb-1">
+                    <p class="font-mono fw-bold">lg</p>
+                    <p>25% — cuatro por fila</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">HTML</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>&lt;div class="row"&gt;
+  &lt;div class="col-12 col-md-6 col-lg-3"&gt;Card 1&lt;/div&gt;
+  &lt;div class="col-12 col-md-6 col-lg-3"&gt;Card 2&lt;/div&gt;
+  &lt;div class="col-12 col-md-6 col-lg-3"&gt;Card 3&lt;/div&gt;
+  &lt;div class="col-12 col-md-6 col-lg-3"&gt;Card 4&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+
+            <div class="table-container">
+              <table class="table table-bordered table-oscura-secondary">
+                <thead>
+                  <tr>
+                    <th>Viewport</th>
+                    <th>Clase activa</th>
+                    <th>Columnas por fila</th>
+                    <th>Ancho cada col.</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="primary badge">xs</span> &lt; 768px</td>
+                    <td><code>.col-12</code></td>
+                    <td>1</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td><span class="info badge">md</span> ≥ 768px</td>
+                    <td><code>.col-md-6</code></td>
+                    <td>2</td>
+                    <td>50%</td>
+                  </tr>
+                  <tr>
+                    <td><span class="success badge">lg</span> ≥ 1024px</td>
+                    <td><code>.col-lg-3</code></td>
+                    <td>4</td>
+                    <td>25%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="agregar">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Agregar un breakpoint personalizado
+            </h2>
+            <p class="mb-2">
+              Para extender el framework con un nuevo breakpoint, solo se
+              necesita agregar la variable en <code>_variables.scss</code> y el
+              caso correspondiente en el mixin <code>responsive()</code>.
+            </p>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">Paso 1 — _variables.scss</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;  // ← nuevo breakpoint</code></pre>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">Paso 2 — _mixins.scss</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>@mixin responsive($medida) {
+  @if $medida == md {
+    @media (min-width: $breakpoint-md) { @content; }
+  } @else if $medida == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  } @else if $medida == xl {
+    @media (min-width: $breakpoint-xl) { @content; }  // ← nuevo caso
+  }
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono"
+                  >Paso 3 — Uso en _layout.scss</span
+                >
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>@include responsive(xl) {
+  @for $i from 1 through 12 {
+    .col-xl-#{$i} {
+      $width: (100% * $i / 12);
+      flex: 0 0 $width;
+      max-width: $width;
+    }
+  }
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="success alerta mt-2" role="alert">
+              <div>
+                Al centralizar los valores en variables y el mixin en un solo
+                lugar, extender el sistema de breakpoints no requiere tocar
+                ningún otro parcial del framework.
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <footer class="main-footer main-footer-dark">
+          <div class="footer-content">
+            <p class="fw-bold text-accent mb-1">
+              ✿ PersephoneCSS <span class="badge muted">v4.0.0</span>
+            </p>
+            <p class="mb-2">
+              Juliana Torres &amp; Fabiola Romero — Herramientas de
+              Productividad, UES FMO · Ciclo I 2026
+            </p>
+          </div>
+          <p class="footer-copy">
+            © 2026 PersephoneCSS. Construido con su propio framework.
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

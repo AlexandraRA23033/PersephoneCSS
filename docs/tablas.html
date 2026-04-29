@@ -1,0 +1,1397 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PersephoneCSS — Tablas</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body>
+    <nav class="navbar--dark">
+      <span class="fw-bold fs-3">✿ PersephoneCSS</span>
+      <button class="nav-toggle" aria-label="Menú">☰</button>
+      <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="introduccion.html" class="active">Documentación</a></li>
+        <li><a href="colaboradoras.html">Colaboradoras</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="main-wrapper has-navbar">
+      <aside class="sidebar-main sidebar-secondary" id="sidebar">
+      <div class="sidebar-header">📖 Documentación</div>
+      <ul class="sidebar-menu">
+        <li><a href="#introduccion">Introducción</a></li>
+        <li><a href="#instalacion">Instalación</a></li>
+        <li><a href="#estructura">Estructura del proyecto</a></li>
+        <li><a href="#paleta">Paleta de colores</a></li>
+        <li><a href="#inicio-rapido">Inicio rápido</a></li>
+
+        <div class="sidebar-header">Layout</div>
+        <li><a href="contenedores.html">Contenedores</a></li>
+        <li><a href="grid.html">Sistema Grid</a></li>
+        <li><a href="breakpoints.html">Breakpoints</a></li>
+
+        <div class="sidebar-header">Componentes</div>
+        <li><a href="botones.html">Botones</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="alertas.html">Alertas</a></li>
+        <li><a href="badges.html">Badges</a></li>
+        <li><a href="navbar.html">Navbar</a></li>
+        <li><a href="sidebar.html">Sidebar</a></li>
+        <li><a href="tablas.html" class="active">Tablas</a></li>
+        <li><a href="formularios.html">Formularios</a></li>
+        <li><a href="modales.html">Modales</a></li>
+
+        <div class="sidebar-header">Utilidades</div>
+        <li><a href="utils.html">Tipografía</a></li>
+        <li><a href="utils.html">Espaciado</a></li>
+        <li><a href="utils.html">Colores</a></li>
+        <li><a href="utils.html">Flexbox</a></li>
+        <li><a href="utils.html">Display</a></li>
+        <li><a href="utils.html">Bordes &amp; Sombras</a></li>
+      </ul>
+    </aside>
+      <button class="sidebar-toggle-btn" id="sidebarToggle">&#9776;</button>
+
+      <main class="main-content">
+        <section class="bg-primary p-3">
+          <div class="container">
+            <span class="badge dark">Componentes</span>
+            <h1 class="fs-1 fw-bold mt-1">Tablas</h1>
+            <p class="mt-1">
+              Tablas responsivas con variantes de tamaño, bordes, rayas y color
+              de cabecera. Envuelve con <code>.table-container</code> para
+              scroll horizontal en móvil.
+            </p>
+          </div>
+        </section>
+
+        <div class="container p-3">
+          <section id="como-funciona">
+            <h2 class="fs-2 fw-bold mb-1">¿Cómo funciona?</h2>
+            <p class="mb-1">
+              La clase base <code>.table</code> aplica estilos mínimos de
+              espaciado y separadores. A partir de ahí se combinan modificadores
+              de tamaño, borde, zebra y color. Las variantes de color (<code
+                >.table-clara-{color}</code
+              >
+              y <code>.table-oscura-{color}</code>) se generan automáticamente
+              con <code>@each</code> sobre <code>$theme-colors</code>.
+            </p>
+            <p class="mb-1">
+              Siempre envuelve la tabla en <code>.table-container</code> para
+              garantizar scroll horizontal en pantallas pequeñas y bordes
+              redondeados.
+            </p>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">HTML — Estructura base</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>&lt;div class="table-container"&gt;
+  &lt;table class="table"&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Columna 1&lt;/th&gt;
+        &lt;th&gt;Columna 2&lt;/th&gt;
+        &lt;th&gt;Columna 3&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Dato 1&lt;/td&gt;
+        &lt;td&gt;Dato 2&lt;/td&gt;
+        &lt;td&gt;Dato 3&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+
+            <div class="info alerta" role="alert">
+              <div>
+                Las clases de la tabla se combinan entre sí. Por ejemplo:
+                <code
+                  >table table-bordered table-striped table-oscura-primary</code
+                >
+                es una combinación válida y habitual.
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="clases">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">Clases disponibles</h2>
+            <p class="mb-2">
+              Resumen de todos los modificadores que se pueden combinar sobre
+              <code>.table</code>.
+            </p>
+
+            <div class="table-container mb-2">
+              <table class="table table-bordered table-oscura-secondary">
+                <thead>
+                  <tr>
+                    <th>Clase</th>
+                    <th>Tipo</th>
+                    <th>Descripción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>.table</code></td>
+                    <td>Base</td>
+                    <td>Tabla base con espaciado y separadores</td>
+                  </tr>
+                  <tr>
+                    <td><code>.table-container</code></td>
+                    <td>Contenedor</td>
+                    <td>Scroll horizontal en móvil, bordes redondeados</td>
+                  </tr>
+                  <tr>
+                    <td><code>.table-sm</code></td>
+                    <td>Tamaño</td>
+                    <td>Padding reducido (6px 10px), fuente 12px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.table-lg</code></td>
+                    <td>Tamaño</td>
+                    <td>Padding ampliado (16px 20px), fuente 16px</td>
+                  </tr>
+                  <tr>
+                    <td><code>.table-bordered</code></td>
+                    <td>Borde</td>
+                    <td>Borde en todas las celdas</td>
+                  </tr>
+                  <tr>
+                    <td><code>.table-clean</code></td>
+                    <td>Borde</td>
+                    <td>Sin bordes inferiores en celdas</td>
+                  </tr>
+                  <tr>
+                    <td><code>.table-striped</code></td>
+                    <td>Zebra</td>
+                    <td>Filas pares con fondo semitransparente</td>
+                  </tr>
+                  <tr>
+                    <td><code>.table-clara-{color}</code></td>
+                    <td>Color</td>
+                    <td>Cabecera en tono claro del color + zebra + hover</td>
+                  </tr>
+                  <tr>
+                    <td><code>.table-oscura-{color}</code></td>
+                    <td>Color</td>
+                    <td>Cabecera en tono oscuro del color + zebra + hover</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="base">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">Base — <code>.table</code></h2>
+            <p class="mb-2">
+              La tabla más simple. Solo incluye espaciado interno y un separador
+              entre filas.
+            </p>
+
+            <div class="table-container mb-2">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Ciudad</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Fatima Cruz</td>
+                    <td>San Salvador</td>
+                    <td><span class="success badge">Activo</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Fabiola Romero</td>
+                    <td>Santa Ana</td>
+                    <td><span class="warning badge">Pendiente</span></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Juliana Chavarria</td>
+                    <td>San Miguel</td>
+                    <td><span class="danger badge">Inactivo</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">HTML</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>&lt;div class="table-container"&gt;
+  &lt;table class="table"&gt;...&lt;/table&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="tamanos">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Tamaños — <code>.table-sm</code> / <code>.table-lg</code>
+            </h2>
+            <p class="mb-2">
+              Controlan el padding y tamaño de fuente de todas las celdas.
+            </p>
+
+            <p class="fw-bold mb-1">
+              .table .table-sm — padding 6px 10px, fuente 12px
+            </p>
+            <div class="table-container mb-2">
+              <table class="table table-bordered table-sm">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Ciudad</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Fatima Cruz</td>
+                    <td>San Salvador</td>
+                    <td><span class="success badge">Activo</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Fabiola Romero</td>
+                    <td>Santa Ana</td>
+                    <td><span class="warning badge">Pendiente</span></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Juliana Chavarria</td>
+                    <td>San Miguel</td>
+                    <td><span class="danger badge">Inactivo</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p class="fw-bold mb-1">
+              .table .table-lg — padding 16px 20px, fuente 16px
+            </p>
+            <div class="table-container mb-2">
+              <table class="table table-bordered table-lg">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Ciudad</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Fatima Cruz</td>
+                    <td>San Salvador</td>
+                    <td><span class="success badge">Activo</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Fabiola Romero</td>
+                    <td>Santa Ana</td>
+                    <td><span class="warning badge">Pendiente</span></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Juliana Chavarria</td>
+                    <td>San Miguel</td>
+                    <td><span class="danger badge">Inactivo</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">HTML</span>
+              </div>
+              <div class="card-body">
+                <pre
+                  class="font-mono"
+                ><code>&lt;table class="table table-sm"&gt;...&lt;/table&gt;
+&lt;table class="table table-lg"&gt;...&lt;/table&gt;</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="bordes">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Bordes — <code>.table-bordered</code> / <code>.table-clean</code>
+            </h2>
+            <p class="mb-2">
+              Controlan los bordes de las celdas.
+              <code>.table-bordered</code> añade borde en todas las celdas.
+              <code>.table-clean</code> los elimina completamente.
+            </p>
+
+            <p class="fw-bold mb-1">.table .table-bordered</p>
+            <div class="table-container mb-2">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Ciudad</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Fatima Cruz</td>
+                    <td>San Salvador</td>
+                    <td><span class="success badge">Activo</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Fabiola Romero</td>
+                    <td>Santa Ana</td>
+                    <td><span class="warning badge">Pendiente</span></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Juliana Chavarria</td>
+                    <td>San Miguel</td>
+                    <td><span class="danger badge">Inactivo</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p class="fw-bold mb-1">.table .table-clean</p>
+            <div class="table-container mb-2">
+              <table class="table table-clean">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Ciudad</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Fatima Cruz</td>
+                    <td>San Salvador</td>
+                    <td><span class="success badge">Activo</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Fabiola Romero</td>
+                    <td>Santa Ana</td>
+                    <td><span class="warning badge">Pendiente</span></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Juliana Chavarria</td>
+                    <td>San Miguel</td>
+                    <td><span class="danger badge">Inactivo</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header bg-dark text-light">
+                <span class="fw-bold font-mono">HTML</span>
+              </div>
+              <div class="card-body">
+                <pre
+                  class="font-mono"
+                ><code>&lt;table class="table table-bordered"&gt;...&lt;/table&gt;
+&lt;table class="table table-clean"&gt;...&lt;/table&gt;</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="striped">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Zebra — <code>.table-striped</code>
+            </h2>
+            <p class="mb-2">
+              Las filas pares del <code>&lt;tbody&gt;</code> reciben un fondo
+              semitransparente para mejorar la lectura en tablas con muchos
+              datos.
+            </p>
+
+            <div class="table-container mb-2">
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Ciudad</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Ana Torres</td>
+                    <td>San Salvador</td>
+                    <td><span class="success badge">Activo</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Fabiola Romero</td>
+                    <td>Santa Ana</td>
+                    <td><span class="warning badge">Pendiente</span></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Juliana López</td>
+                    <td>San Miguel</td>
+                    <td><span class="danger badge">Inactivo</span></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>María García</td>
+                    <td>Usulután</td>
+                    <td><span class="success badge">Activo</span></td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Sofía Martínez</td>
+                    <td>La Libertad</td>
+                    <td><span class="info badge">Revisión</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">HTML</span>
+              </div>
+              <div class="card-body">
+                <pre
+                  class="font-mono"
+                ><code>&lt;table class="table table-bordered table-striped"&gt;...&lt;/table&gt;</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="clara">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Color clara — <code>.table-clara-{color}</code>
+            </h2>
+            <p class="mb-2">
+              La cabecera recibe el color elegido aclarado en un 25%. Las filas
+              pares tienen un fondo muy sutil del mismo color y las filas
+              muestran hover. Generada con <code>@each</code> para los 11
+              colores del tema.
+            </p>
+
+            <div class="row mb-2">
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-clara-primary</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-clara-primary">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Fatima Cruz</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana Chavarria</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-clara-secondary</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-clara-secondary">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Fatima Cruz</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana Chavarria</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-clara-success</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-clara-success">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Fatima Cruz</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana Chavarria</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-clara-info</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-clara-info">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Fatima Cruz</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana Chavarria</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-clara-warning</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-clara-warning">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Fatima Cruz</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana Chavarria</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-clara-danger</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-clara-danger">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Fatima Cruz</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana Chavarria</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-clara-alert</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-clara-alert">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Fatima Cruz</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana Chavarria</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-clara-dark</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-clara-dark">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Fatima Cruz</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana Chavarria</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-clara-accent</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-clara-accent">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Fatima Cruz</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana Chavarria</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-clara-muted</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-clara-muted">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Fatima Cruz</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana Chavarria</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-clara-light</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-clara-light">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Ana Torres</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana López</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">HTML</span>
+              </div>
+              <div class="card-body">
+                <pre
+                  class="font-mono"
+                ><code>&lt;table class="table table-bordered table-clara-primary"&gt;...&lt;/table&gt;
+&lt;table class="table table-bordered table-clara-success"&gt;...&lt;/table&gt;
+&lt;!-- disponible para los 11 colores del tema --&gt;</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="oscura">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Color oscura — <code>.table-oscura-{color}</code>
+            </h2>
+            <p class="mb-2">
+              La cabecera recibe el color elegido oscurecido en un 15% con texto
+              claro. Las filas pares y el hover mantienen el color de fondo
+              sutil. Generada con <code>@each</code> para los 11 colores del
+              tema.
+            </p>
+
+            <div class="row mb-2">
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-oscura-primary</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-oscura-primary">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Ana Torres</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana López</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-oscura-secondary</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-oscura-secondary">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Ana Torres</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana López</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-oscura-success</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-oscura-success">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Ana Torres</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana López</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-oscura-info</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-oscura-info">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Ana Torres</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana López</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-oscura-warning</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-oscura-warning">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Ana Torres</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana López</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-oscura-danger</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-oscura-danger">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Ana Torres</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana López</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-oscura-alert</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-oscura-alert">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Ana Torres</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana López</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-oscura-dark</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-oscura-dark">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Ana Torres</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana López</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-oscura-accent</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-oscura-accent">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Ana Torres</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana López</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-oscura-muted</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-oscura-muted">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Ana Torres</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana López</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <p class="fw-bold font-mono mb-1">.table-oscura-light</p>
+                <div class="table-container">
+                  <table class="table table-bordered table-oscura-light">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Ana Torres</td>
+                        <td><span class="success badge">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Fabiola Romero</td>
+                        <td><span class="warning badge">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Juliana López</td>
+                        <td><span class="danger badge">Inactivo</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">HTML</span>
+              </div>
+              <div class="card-body">
+                <pre
+                  class="font-mono"
+                ><code>&lt;table class="table table-bordered table-oscura-primary"&gt;...&lt;/table&gt;
+&lt;table class="table table-bordered table-oscura-secondary"&gt;...&lt;/table&gt;
+&lt;!-- disponible para los 11 colores del tema --&gt;</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="combinaciones">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">Combinaciones</h2>
+            <p class="mb-2">
+              Los modificadores se pueden combinar libremente. Algunos ejemplos
+              habituales:
+            </p>
+
+            <div class="table-container mb-2">
+              <table
+                class="table table-bordered table-striped table-oscura-primary table-lg"
+              >
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Ciudad</th>
+                    <th>Rol</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Fatima Cruz</td>
+                    <td>San Salvador</td>
+                    <td>Admin</td>
+                    <td><span class="success badge">Activo</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>María García</td>
+                    <td>Santa Ana</td>
+                    <td>Editor</td>
+                    <td><span class="warning badge">Pendiente</span></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Juliana López</td>
+                    <td>San Miguel</td>
+                    <td>Viewer</td>
+                    <td><span class="danger badge">Inactivo</span></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Fabiola Romero</td>
+                    <td>Usulután</td>
+                    <td>Editor</td>
+                    <td><span class="success badge">Activo</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono"
+                  >HTML — bordered + striped + oscura + lg</span
+                >
+              </div>
+              <div class="card-body">
+                <pre
+                  class="font-mono"
+                ><code>&lt;table class="table table-bordered table-striped table-oscura-primary table-lg"&gt;
+  ...
+&lt;/table&gt;</code></pre>
+              </div>
+            </div>
+
+            <div class="table-container mb-2">
+              <table class="table table-clean table-clara-info table-sm">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Ciudad</th>
+                    <th>Rol</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Fatima Cruz</td>
+                    <td>San Salvador</td>
+                    <td>Admin</td>
+                    <td><span class="success badge">Activo</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>María García</td>
+                    <td>Santa Ana</td>
+                    <td>Editor</td>
+                    <td><span class="warning badge">Pendiente</span></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Juliana López</td>
+                    <td>San Miguel</td>
+                    <td>Viewer</td>
+                    <td><span class="danger badge">Inactivo</span></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Fabiola Romero</td>
+                    <td>Usulután</td>
+                    <td>Editor</td>
+                    <td><span class="success badge">Activo</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">HTML — clean + clara + sm</span>
+              </div>
+              <div class="card-body">
+                <pre
+                  class="font-mono"
+                ><code>&lt;table class="table table-clean table-clara-accent table-sm"&gt;
+  ...
+&lt;/table&gt;</code></pre>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <footer class="main-footer main-footer-dark">
+          <div class="footer-content">
+            <p class="fw-bold text-accent mb-1">
+              ✿ PersephoneCSS <span class="badge muted">v4.0.0</span>
+            </p>
+            <p class="mb-2">
+              Juliana Torres &amp; Fabiola Romero — Herramientas de
+              Productividad, UES FMO · Ciclo I 2026
+            </p>
+          </div>
+          <p class="footer-copy">
+            © 2026 PersephoneCSS. Construido con su propio framework.
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

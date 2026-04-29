@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PersephoneCSS — Modal</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body>
+    <nav class="navbar--dark">
+      <span class="fw-bold fs-3">✿ PersephoneCSS</span>
+      <button class="nav-toggle" aria-label="Menú">☰</button>
+      <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="introduccion.html" class="active">Documentación</a></li>
+        <li><a href="colaboradoras.html">Colaboradoras</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="main-wrapper has-navbar">
+      <aside class="sidebar-main sidebar-secondary" id="sidebar">
+      <div class="sidebar-header">📖 Documentación</div>
+      <ul class="sidebar-menu">
+        <li><a href="#introduccion">Introducción</a></li>
+        <li><a href="#instalacion">Instalación</a></li>
+        <li><a href="#estructura">Estructura del proyecto</a></li>
+        <li><a href="#paleta">Paleta de colores</a></li>
+        <li><a href="#inicio-rapido">Inicio rápido</a></li>
+
+        <div class="sidebar-header">Layout</div>
+        <li><a href="contenedores.html">Contenedores</a></li>
+        <li><a href="grid.html">Sistema Grid</a></li>
+        <li><a href="breakpoints.html">Breakpoints</a></li>
+
+        <div class="sidebar-header">Componentes</div>
+        <li><a href="botones.html">Botones</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="alertas.html">Alertas</a></li>
+        <li><a href="badges.html">Badges</a></li>
+        <li><a href="navbar.html">Navbar</a></li>
+        <li><a href="sidebar.html">Sidebar</a></li>
+        <li><a href="tablas.html">Tablas</a></li>
+        <li><a href="formularios.html">Formularios</a></li>
+        <li><a href="modales.html" class="active">Modales</a></li>
+
+        <div class="sidebar-header">Utilidades</div>
+        <li><a href="utils.html">Tipografía</a></li>
+        <li><a href="utils.html">Espaciado</a></li>
+        <li><a href="utils.html">Colores</a></li>
+        <li><a href="utils.html">Flexbox</a></li>
+        <li><a href="utils.html">Display</a></li>
+        <li><a href="utils.html">Bordes &amp; Sombras</a></li>
+      </ul>
+    </aside>
+      <button class="sidebar-toggle-btn" id="sidebarToggle">&#9776;</button>
+
+      <main class="main-content">
+        <section class="bg-primary p-3">
+          <div class="container">
+            <span class="badge dark">Componentes</span>
+            <h1 class="fs-1 fw-bold mt-1">Modales</h1>
+            <p class="mt-1">
+              Ventanas emergentes con overlay. Tres tipos: base, alerta y
+              formulario. Se activan con <code>data-modal-target</code> y se
+              cierran con <code>data-modal-close</code> o haciendo click en el
+              overlay.
+            </p>
+          </div>
+        </section>
+
+        <div class="container p-3">
+          <section id="como-funciona">
+            <h2 class="fs-2 fw-bold mb-1">¿Cómo funciona?</h2>
+            <p class="mb-1">
+              El modal permanece oculto por defecto. El JavaScript escucha
+              clicks en elementos con <code>data-modal-target="{id}"</code> y
+              añade <code>.is-open</code> al modal correspondiente para
+              mostrarlo. Cualquier elemento con el atributo
+              <code>data-modal-close</code> lo cierra, al igual que hacer click
+              fuera del modal sobre el overlay.
+            </p>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono"
+                  >_modal.scss — Tipos disponibles</span
+                >
+              </div>
+              <div class="card-body">
+                <pre
+                  class="font-mono"
+                ><code>.modal       { @include modal-base; }   // base, max-width 500px
+.modal-alert { @include modal-base; }   // alerta, max-width 400px centrado
+.modal-form  { @include modal-base; }   // formulario, max-width 600px
+ 
+// Variante de color (solo para .modal)
+.modal.modal-primary { @include modal-color($primary); }</code></pre>
+              </div>
+            </div>
+
+            <div class="info alerta" role="alert">
+              <div>
+                El <code>id</code> del modal debe coincidir exactamente con el
+                valor de <code>data-modal-target</code> del botón que lo abre.
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="elementos">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">Elementos del modal</h2>
+            <p class="mb-2">
+              Estructura interna compartida por los tres tipos de modal.
+            </p>
+
+            <div class="table-container mb-2">
+              <table class="table table-bordered table-oscura-secondary">
+                <thead>
+                  <tr>
+                    <th>Clase / Atributo</th>
+                    <th>Elemento</th>
+                    <th>Descripción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <code>.modal</code> / <code>.modal-alert</code> /
+                      <code>.modal-form</code>
+                    </td>
+                    <td><code>&lt;div&gt;</code></td>
+                    <td>
+                      Contenedor principal con overlay. Oculto por defecto
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>.is-open</code></td>
+                    <td>modificador</td>
+                    <td>JS la añade para mostrar el modal</td>
+                  </tr>
+                  <tr>
+                    <td><code>.modal-content</code></td>
+                    <td><code>&lt;div&gt;</code></td>
+                    <td>Caja centrada con fondo y sombra</td>
+                  </tr>
+                  <tr>
+                    <td><code>.modal-header</code></td>
+                    <td><code>&lt;div&gt;</code></td>
+                    <td>Cabecera con título y botón de cierre</td>
+                  </tr>
+                  <tr>
+                    <td><code>.modal-body</code></td>
+                    <td><code>&lt;div&gt;</code></td>
+                    <td>Área de contenido principal</td>
+                  </tr>
+                  <tr>
+                    <td><code>.modal-footer</code></td>
+                    <td><code>&lt;div&gt;</code></td>
+                    <td>Pie con botones de acción</td>
+                  </tr>
+                  <tr>
+                    <td><code>data-modal-target="{id}"</code></td>
+                    <td>atributo</td>
+                    <td>En el disparador: indica qué modal abrir</td>
+                  </tr>
+                  <tr>
+                    <td><code>data-modal-close</code></td>
+                    <td>atributo</td>
+                    <td>En cualquier elemento: cierra el modal activo</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="modal-base">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Modal base — <code>.modal</code>
+            </h2>
+            <p class="mb-2">
+              El modal estándar para mostrar información o confirmar acciones.
+              Ancho máximo de 500px.
+            </p>
+
+            <div class="d-flex f-wrap mb-2 gap-2">
+              <button
+                class="btn btn-primary btn-md"
+                data-modal-target="modalBase"
+              >
+                Abrir modal base
+              </button>
+              <button
+                class="btn btn-outline-secondary btn-md"
+                data-modal-target="modalPrimary"
+              >
+                Abrir modal primary
+              </button>
+            </div>
+
+            <div class="modal" id="modalBase">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3>Título del modal</h3>
+                  <button data-modal-close>×</button>
+                </div>
+                <div class="modal-body">
+                  <p class="mb-1">
+                    Este es el contenido del modal base. Puedes colocar
+                    cualquier elemento HTML dentro del <code>.modal-body</code>:
+                    texto, imágenes, listas, cards, etc.
+                  </p>
+                  <div class="info alerta mt-1" role="alert">
+                    <div>
+                      Incluso alertas del framework funcionan dentro del modal.
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    class="btn btn-outline-secondary btn-sm"
+                    data-modal-close
+                  >
+                    Cancelar
+                  </button>
+                  <button class="btn btn-primary btn-sm">Confirmar</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal modal-primary" id="modalPrimary">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3>Modal con color primary</h3>
+                  <button data-modal-close>×</button>
+                </div>
+                <div class="modal-body">
+                  <p>
+                    La clase <code>.modal-primary</code> añadida junto a
+                    <code>.modal</code> aplica el color primario al
+                    <code>.modal-header</code>.
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    class="btn btn-outline-secondary btn-sm"
+                    data-modal-close
+                  >
+                    Cancelar
+                  </button>
+                  <button class="btn btn-primary btn-sm">Aceptar</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-2">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">HTML — Modal base</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>&lt;!-- Botón disparador --&gt;
+&lt;button class="btn btn-primary btn-md" data-modal-target="miModal"&gt;
+  Abrir modal
+&lt;/button&gt;
+ 
+&lt;!-- Modal --&gt;
+&lt;div class="modal" id="miModal"&gt;
+  &lt;div class="modal-content"&gt;
+    &lt;div class="modal-header"&gt;
+      &lt;h3&gt;Título&lt;/h3&gt;
+      &lt;button data-modal-close&gt;×&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-body"&gt;
+      &lt;p&gt;Contenido del modal.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-footer"&gt;
+      &lt;button class="btn btn-sm btn-outline-secondary" data-modal-close&gt;Cancelar&lt;/button&gt;
+      &lt;button class="btn btn-sm btn-primary"&gt;Confirmar&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono"
+                  >HTML — Variante .modal-primary</span
+                >
+              </div>
+              <div class="card-body">
+                <pre
+                  class="font-mono"
+                ><code>&lt;div class="modal modal-primary" id="miModal"&gt;
+  ...
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="modal-alert">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Modal alerta — <code>.modal-alert</code>
+            </h2>
+            <p class="mb-2">
+              Para confirmaciones de acciones destructivas. Contenido y botones
+              centrados. Ancho máximo 400px.
+            </p>
+
+            <div class="d-flex f-wrap mb-2 gap-2">
+              <button
+                class="btn btn-danger btn-md"
+                data-modal-target="modalAlerta"
+              >
+                Abrir modal alerta
+              </button>
+              <button
+                class="btn btn-outline-warning btn-md"
+                data-modal-target="modalAlertaWarning"
+              >
+                Abrir modal warning
+              </button>
+            </div>
+
+            <div class="modal-alert" id="modalAlerta">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3>¿Eliminar registro?</h3>
+                  <button data-modal-close>×</button>
+                </div>
+                <div class="modal-body">
+                  <p>
+                    Esta acción no se puede deshacer. El registro será eliminado
+                    permanentemente.
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    class="btn btn-outline-secondary btn-sm"
+                    data-modal-close
+                  >
+                    Cancelar
+                  </button>
+                  <button class="btn btn-danger btn-sm">Sí, eliminar</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-alert" id="modalAlertaWarning">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3>¿Continuar?</h3>
+                  <button data-modal-close>×</button>
+                </div>
+                <div class="modal-body">
+                  <p>
+                    Esta acción modificará datos existentes. ¿Deseas continuar?
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    class="btn btn-outline-secondary btn-sm"
+                    data-modal-close
+                  >
+                    Cancelar
+                  </button>
+                  <button class="btn btn-warning btn-sm">Continuar</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">HTML — Modal alerta</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>&lt;!-- Botón disparador --&gt;
+&lt;button class="btn btn-danger btn-md" data-modal-target="confirmarEliminar"&gt;
+  Eliminar
+&lt;/button&gt;
+ 
+&lt;!-- Modal alerta --&gt;
+&lt;div class="modal-alert" id="confirmarEliminar"&gt;
+  &lt;div class="modal-content"&gt;
+    &lt;div class="modal-header"&gt;
+      &lt;h3&gt;¿Eliminar registro?&lt;/h3&gt;
+      &lt;button data-modal-close&gt;×&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-body"&gt;
+      &lt;p&gt;Esta acción no se puede deshacer.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-footer"&gt;
+      &lt;button class="btn btn-sm btn-outline-secondary" data-modal-close&gt;Cancelar&lt;/button&gt;
+      &lt;button class="btn btn-sm btn-danger"&gt;Sí, eliminar&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="modal-form">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">
+              Modal formulario — <code>.modal-form</code>
+            </h2>
+            <p class="mb-2">
+              Optimizado para formularios. Ancho máximo 600px, mayor padding en
+              el body y footer con <code>justify-content: space-between</code>.
+            </p>
+
+            <div class="d-flex f-wrap mb-2 gap-2">
+              <button
+                class="btn btn-secondary btn-md"
+                data-modal-target="modalFormRegistro"
+              >
+                Abrir modal formulario
+              </button>
+              <button
+                class="btn btn-outline-primary btn-md"
+                data-modal-target="modalFormLogin"
+              >
+                Abrir modal login
+              </button>
+            </div>
+
+            <div class="modal-form" id="modalFormRegistro">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3>Nuevo registro</h3>
+                  <button data-modal-close>×</button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-12 col-md-6 mb-1">
+                      <div class="form-group">
+                        <label class="label">Nombre</label>
+                        <input
+                          type="text"
+                          class="input"
+                          placeholder="Tu nombre"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-1">
+                      <div class="form-group">
+                        <label class="label">Apellido</label>
+                        <input
+                          type="text"
+                          class="input"
+                          placeholder="Tu apellido"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-12 mb-1">
+                      <div class="form-group">
+                        <label class="label">Correo electrónico</label>
+                        <input
+                          type="email"
+                          class="input"
+                          placeholder="correo@ejemplo.com"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-12 mb-1">
+                      <div class="form-group">
+                        <label class="label">Rol</label>
+                        <select class="select">
+                          <option>Selecciona un rol</option>
+                          <option>Administrador</option>
+                          <option>Editor</option>
+                          <option>Viewer</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    class="btn btn-outline-secondary btn-sm"
+                    data-modal-close
+                  >
+                    Cancelar
+                  </button>
+                  <button class="btn btn-secondary btn-sm">
+                    Guardar registro
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-form" id="modalFormLogin">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3>Iniciar sesión</h3>
+                  <button data-modal-close>×</button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group mb-1">
+                    <label class="label">Correo electrónico</label>
+                    <input
+                      type="email"
+                      class="input"
+                      placeholder="correo@ejemplo.com"
+                    />
+                  </div>
+                  <div class="form-group mb-1">
+                    <label class="label">Contraseña</label>
+                    <input
+                      type="password"
+                      class="input"
+                      placeholder="••••••••"
+                    />
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    class="btn btn-outline-secondary btn-sm"
+                    data-modal-close
+                  >
+                    Cancelar
+                  </button>
+                  <button class="btn btn-primary btn-sm">Iniciar sesión</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm">
+              <div class="card-header card-dark">
+                <span class="fw-bold font-mono">HTML — Modal formulario</span>
+              </div>
+              <div class="card-body">
+                <pre class="font-mono"><code>&lt;!-- Botón disparador --&gt;
+&lt;button class="btn btn-secondary btn-md" data-modal-target="modalRegistro"&gt;
+  Nuevo registro
+&lt;/button&gt;
+ 
+&lt;!-- Modal formulario --&gt;
+&lt;div class="modal-form" id="modalRegistro"&gt;
+  &lt;div class="modal-content"&gt;
+    &lt;div class="modal-header"&gt;
+      &lt;h3&gt;Nuevo registro&lt;/h3&gt;
+      &lt;button data-modal-close&gt;×&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-body"&gt;
+      &lt;div class="form-group"&gt;
+        &lt;label class="label"&gt;Nombre&lt;/label&gt;
+        &lt;input type="text" class="input" placeholder="Tu nombre"/&gt;
+      &lt;/div&gt;
+      &lt;div class="form-group"&gt;
+        &lt;label class="label"&gt;Correo&lt;/label&gt;
+        &lt;input type="email" class="input" placeholder="correo@ejemplo.com"/&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-footer"&gt;
+      &lt;button class="btn btn-sm btn-outline-secondary" data-modal-close&gt;Cancelar&lt;/button&gt;
+      &lt;button class="btn btn-sm btn-secondary"&gt;Guardar&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section id="resumen">
+            <h2 class="fs-2 fw-bold mt-2 mb-1">Resumen de tipos</h2>
+            <p class="mb-2">
+              Diferencias entre los tres tipos de modal disponibles en el
+              framework.
+            </p>
+
+            <div class="table-container mb-2">
+              <table class="table table-bordered table-oscura-secondary">
+                <thead>
+                  <tr>
+                    <th>Tipo</th>
+                    <th>Clase</th>
+                    <th>Max-width</th>
+                    <th>Alineación footer</th>
+                    <th>Uso ideal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="primary badge">base</span></td>
+                    <td><code>.modal</code></td>
+                    <td>500px</td>
+                    <td>flex-end</td>
+                    <td>Información general, confirmaciones</td>
+                  </tr>
+                  <tr>
+                    <td><span class="primary badge">color</span></td>
+                    <td><code>.modal .modal-primary</code></td>
+                    <td>500px</td>
+                    <td>flex-end</td>
+                    <td>Modal base con header de color primary</td>
+                  </tr>
+                  <tr>
+                    <td><span class="danger badge">alerta</span></td>
+                    <td><code>.modal-alert</code></td>
+                    <td>400px</td>
+                    <td>center</td>
+                    <td>Acciones destructivas, confirmaciones críticas</td>
+                  </tr>
+                  <tr>
+                    <td><span class="secondary badge">formulario</span></td>
+                    <td><code>.modal-form</code></td>
+                    <td>600px</td>
+                    <td>space-between</td>
+                    <td>Registro, edición, login, cualquier formulario</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="warning alerta" role="alert">
+              <div>
+                Coloca los modales justo antes del cierre de
+                <code>&lt;/body&gt;</code> para evitar conflictos de
+                <code>z-index</code> con otros componentes.
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <footer class="main-footer main-footer-dark">
+          <div class="footer-content">
+            <p class="fw-bold text-accent mb-1">
+              ✿ PersephoneCSS <span class="badge muted">v4.0.0</span>
+            </p>
+            <p class="mb-2">
+              Juliana Torres &amp; Fabiola Romero — Herramientas de
+              Productividad, UES FMO · Ciclo I 2026
+            </p>
+          </div>
+          <p class="footer-copy">
+            © 2026 PersephoneCSS. Construido con su propio framework.
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
