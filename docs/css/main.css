@@ -7216,7 +7216,6 @@ pre, code {
 .main-footer {
   width: 100%;
   position: relative;
-  z-index: 2500;
 }
 .main-footer .footer-brand {
   font-size: 1.5rem;

@@ -7216,7 +7216,6 @@ pre, code {
 .main-footer {
   width: 100%;
   position: relative;
-  z-index: 2500;
 }
 .main-footer .footer-brand {
   font-size: 1.5rem;
@@ -7788,7 +7787,7 @@ pre, code {
   position: fixed;
   inset: 0;
   background: rgba(47, 51, 43, 0.5);
-  z-index: 1099;
+  z-index: 2550;
 }
 .sidebar-overlay.is-active {
   display: block;
