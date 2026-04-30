@@ -42,7 +42,7 @@ Nuestro framework utiliza una lógica de nombres semánticos para facilitar el d
    ```
 2. Vincula el archivo CSS compilado en tu HTML:
    ```html
-   <link rel="stylesheet" href="../css/main.css"/>
+   <link rel="stylesheet" href="css/main.css"/>
    ```
 3. Agrega el JavaScript si necesitas componentes interactivos (navbar, modales y sidebar):
    ```html
