@@ -14,7 +14,8 @@
   overflow-x: auto;
   border: 1px solid rgba($muted, 0.3);
   border-radius: 8px;
-  overflow: hidden;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch; 
 }
 
 // Tamaños
