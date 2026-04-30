@@ -10,6 +10,8 @@
   box-sizing: border-box;
   max-width: 100%; // Ningún elemento puede ser más ancho que su padre
   overflow-wrap: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 //Base html y body
@@ -81,4 +83,10 @@ table {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+pre, code {
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-x: auto;
 }

@@ -35,6 +35,8 @@
   box-sizing: border-box;
   max-width: 100%;
   overflow-wrap: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 html {
@@ -98,6 +100,12 @@ table {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+pre, code {
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-x: auto;
 }
 
 /*Importación de modulos namespace*/
@@ -1616,7 +1624,8 @@ a {
   overflow-x: auto;
   border: 1px solid rgba(184, 178, 160, 0.3);
   border-radius: 8px;
-  overflow: hidden;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .table-sm th, .table-sm td {
@@ -7846,6 +7855,7 @@ a {
   padding: 0.5em 1em;
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   gap: 0.5rem;
   width: 100%;
 }
@@ -7870,6 +7880,7 @@ a {
   padding: 0.5em 1em;
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   gap: 0.5rem;
   width: 100%;
 }
